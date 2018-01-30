@@ -1,0 +1,50 @@
+{% comment %}
+<!--
+    LIQUIDVISUAL-HERO
+
+    - Updated: 29.01.18
+    - Notes:
+        * .has-height-preset-1 - used for internal pages to set a height
+-->
+{% endcomment %}
+
+{% assign slides = site.data.carousel_slides %}
+
+<!-- HERO WRAPPER -->
+<div class="lv-hero-wrapper" data-carousel>
+
+    <!-- HERO -->
+    <div class="lv-hero">
+
+        <!-- HERO ITEMS -->
+        {% for item in slides %}
+            <div class="lv-hero-item" style="background-image: url('{{ item.image }}')">
+
+                <!-- HERO CAPTION -->
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-xl-9">
+                            <div class="lv-hero-item-caption">
+                                <h1 class="display-1">{{ item.title }}</h1>
+                                <p class="lead">{{ item.body }}</p>
+                                <p><a href="#scroll-down" class="btn btn-outline-light">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOWNWARDS ARROW -->
+                <a class="lv-hero-arrow-scroll hidden-sm-down" href="#tagline"><i class="fa fa-angle-down"></i></a>
+
+            </div>
+        {% endfor %}
+
+    </div> <!-- /.lv-hero -->
+
+    <!-- CAROUSEL CONTROLS -->
+    <div class="lv-hero-carousel-controls hidden-sm-down">
+        <span class="lv-hero-carousel-prev-btn"><i class="fa fa-angle-left"></i></span>
+        <span class="lv-hero-carousel-next-btn"><i class="fa fa-angle-right"></i></span>
+    </div>
+
+</div> <!-- /.lv-hero-wrapper -->

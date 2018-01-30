@@ -1,0 +1,22 @@
+- title: Home
+  url: /
+
+- title: Standard Page
+  url: /404/
+
+- title: Advanced Page
+  url: '#advanced-page'
+
+- title: Case Studies
+  url: /404/
+  include_children_in_nav: true
+  children:
+    - title: Item
+      url: /404/
+    - title: Item
+      url: /404/
+    - title: Item
+      url: /404/
+
+- title: Contact
+  url: '#contact'

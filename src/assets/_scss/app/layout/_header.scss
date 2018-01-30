@@ -1,0 +1,216 @@
+/*
+    HEADER.CSS
+
+    - Last updated: 25.02.17
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+
+$header-top-sm-height: 40px !default;
+$header-top-md-height: 40px !default;
+$header-top-lg-height: 40px !default;
+
+$header-body-sm-height: 60px !default;
+$header-body-md-height: 70px !default;
+$header-body-lg-height: 100px !default;
+
+$header-bottom-sm-height: 50px !default;
+$header-bottom-md-height: 50px !default;
+$header-bottom-lg-height: 50px !default;
+
+$gray-light: transparent; //green;
+
+//-----------------------------------------------------------------
+// HEADROOM
+//-----------------------------------------------------------------
+
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear, background-color 200ms ease;
+}
+
+//****************************************************
+// PINNED - SCROLLING DOWN
+//****************************************************
+
+.headroom--pinned {
+    @include media-breakpoint-down(sm) {
+        transform: translateY(0%);
+    }
+}
+
+//****************************************************
+// UNPINNED - SCROLLING UP
+//****************************************************
+
+.headroom--unpinned {
+	@include media-breakpoint-down(sm) {
+    	transform: translateY(-100%);
+    	transition-delay: 1000ms; // delay for UX
+	}
+}
+
+//****************************************************
+// HEADROOM TOP
+// header is transparent when at top
+//****************************************************
+
+.headroom--top {
+	background: none; // Need for animation
+}
+
+//****************************************************
+// HEADROOM NOT TOP
+//****************************************************
+
+.headroom--not-top {
+	&.global-header {
+
+		.global-header-top {
+			height: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		.global-header-body {
+			background: #2981cb;
+			box-shadow: 0 0 5px 2px rgba(black, 0.1);
+			transition: all 300ms ease;
+
+			@include media-breakpoint-up(md) {
+			    height: $header-body-md-height;
+			}
+
+			.logo img {
+				padding: rem-calc(10 0);
+			}
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// HEADER GENERAL
+//-----------------------------------------------------------------
+
+.global-header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	// background: white;
+	// box-shadow: 0 0 3px 1px rgba(black, 0.2);
+	z-index: 9999;
+
+	// opacity: 0.2;
+}
+
+//-----------------------------------------------------------------
+// HEADER TOP
+//-----------------------------------------------------------------
+
+.global-header-top {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: $header-top-lg-height;
+	background: rgba(black, 0.2);
+	font-size: rem-calc(13);
+	font-weight: 500;
+	color: white;
+	transition: all ease 150ms;
+
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+
+	a {
+		// display: inline-flex;
+		// align-items: center;
+		margin-right: rem-calc(15);
+		color: white;
+		transition: opacity 200ms ease;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	a:last-of-type {
+		margin-right: 0;
+	}
+}
+
+//-----------------------------------------------------------------
+// HEADER BODY
+//-----------------------------------------------------------------
+
+.global-header-body {
+	display: flex;
+	align-items: center;
+	height: $header-body-sm-height;
+	// transition: height 100ms ease;
+
+	@include media-breakpoint-up(md) {
+	    // height: $header-body-md-height;
+	    height: auto;
+	    padding: rem-calc(20 0);
+	}
+
+	@include media-breakpoint-up(lg) {
+		// height: $header-body-lg-height;
+	}
+
+	//=========================================
+	// HEADER HEIGHT [LOCKED]
+	//=========================================
+
+	> .container {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		@include media-breakpoint-down(xs) {
+		    width: 100%; // fixes mobile glitch?
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// LOGO
+//-----------------------------------------------------------------
+
+.global-header .logo {
+	@include media-breakpoint-up(md) {
+	    // margin: 30px 0 0 0; // adjust the logo here
+	}
+
+	img {
+		// width: 80px;
+		max-height: 60px;
+		// transition: all 180ms ease-out;
+
+		@include media-breakpoint-down(sm) {
+		    padding: rem-calc(10 0);
+		}
+
+		@include media-breakpoint-up(md) {
+			// width: 140px;
+		}
+
+		@include media-breakpoint-up(lg) {
+		    // width: 140px;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// HAMBURGER
+//-----------------------------------------------------------------
+
+.global-header-hamburger {
+	margin: auto 0 auto auto;
+}
+
+//=========================================
+//
+//=========================================
