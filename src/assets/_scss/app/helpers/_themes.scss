@@ -1,15 +1,95 @@
 /*
     THEMES.CSS
 
-    - updated: 17.01.18
+    - updated: 18.02.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
+
+$bg-primary: $primary; // pulls vars from Bootstrap settings.scss
+$bg-secondary: $gray-100;
+
+$text-light: $gray-100;
+$text-dark: $gray-900;
+
 //-----------------------------------------------------------------
-//
+// THEME CLASS
 //-----------------------------------------------------------------
+
+.theme-skyblue {
+
+	//-----------------------------------------------------------------
+	// GENERIC
+	//-----------------------------------------------------------------
+
+	&.section {
+		background-color: $bg-primary;
+
+		// SHALLOW HEADERS
+		> .container > h1,
+		> .container > h2,
+		> .container > h3,
+		> .container > h4,
+		> .container > h5,
+		> .container > h6,
+		> .container > p,
+		> .container > ul,
+		> .container > ol, {
+			color: $text-light;
+		}
+
+		// SHALLOW LINKS
+		> .container > p > a {
+			color: $text-dark;
+
+			&:hover {
+				color: lighten($text-dark, 10%);
+			}
+		}
+	}
+
+	//-----------------------------------------------------------------
+	// GLOBAL FOOTER
+	//-----------------------------------------------------------------
+
+	&.global-footer {
+		.global-footer-body,
+		.global-footer-bottom {
+			background: $bg-primary;
+		}
+
+		.global-footer-sitemap {
+			background: darken($bg-primary, 5%);
+		}
+	}
+
+	//-----------------------------------------------------------------
+	// SECTION FEATURED BLOG POSTS
+	//-----------------------------------------------------------------
+
+	&.section-featured-blog-posts {
+		.card {
+			border: 0;
+		}
+	}
+
+	//-----------------------------------------------------------------
+	// OUTRO CTA
+	//-----------------------------------------------------------------
+
+	&.section-outro-cta {
+		background-color: $bg-secondary;
+
+		> .container {
+			h1, h2, h3, h4, h5, h6 {
+				color: $text-dark;
+			}
+		}
+	}
+}
+
 //=========================================
 //
 //=========================================

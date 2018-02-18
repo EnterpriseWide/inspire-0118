@@ -14,7 +14,10 @@
 
     <!-- CDN -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,600i,700">
+
+    {% comment %}
     <script src="https://unpkg.com/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
+    {% endcomment %}
 
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
     <link rel="stylesheet" href="/css/main.css">
@@ -22,19 +25,21 @@
 </head>
 <body class="{{ page.theme }}">
 
-    {% include snippets/loader.html %}
+    <!-- { % include snippets/loader.html %} -->
 
     <div class="lv-page">
 
+        {% comment %}
         <!-- HEADER -->
         <header class="global-header fixed-top">
             {% include header.html %}
         </header>
+        {% endcomment %}
 
         {{ content }}
 
         <!-- FOOTER -->
-        <footer class="global-footer">
+        <footer class="global-footer theme-skyblue">
             {% include footer.html %}
         </footer>
 
@@ -74,7 +79,7 @@
     <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->
 
-    {% include snippets/google_analytics.html %}
+    <!-- { % include snippets/google_analytics.html %} -->
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>
