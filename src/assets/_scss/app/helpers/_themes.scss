@@ -11,7 +11,7 @@
 $bg-primary: $primary; // pulls vars from Bootstrap settings.scss
 $bg-secondary: $gray-100;
 
-$text-light: $gray-100;
+$text-light: $white; //red; //$gray-100;
 $text-dark: $gray-900;
 
 //-----------------------------------------------------------------
@@ -46,6 +46,18 @@ $text-dark: $gray-900;
 
 			&:hover {
 				color: lighten($text-dark, 10%);
+			}
+		}
+	}
+
+	//-----------------------------------------------------------------
+	// BANNER
+	//-----------------------------------------------------------------
+
+	&.headroom--not-top {
+		&.global-header {
+			.global-header-body {
+				background: $bg-primary;
 			}
 		}
 	}

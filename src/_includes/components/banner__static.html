@@ -1,0 +1,29 @@
+{% comment %}
+<!--
+    LIQUIDVISUAL-HERO
+
+    - Updated: 24.02.18
+    - Notes:
+        * .has-height-preset-1 - used for internal pages to set a height
+-->
+{% endcomment %}
+
+<!-- HERO WRAPPER -->
+<div class="lv-hero-wrapper {{ include.theme }}">
+
+    <!-- HERO -->
+    <div class="lv-hero has-height-preset-2">
+
+        <!-- HERO ITEM -->
+        <div class="lv-hero-item align-items-end" style="background-image: url('{{ item.image }}')">
+
+            <!-- HERO CAPTION -->
+            <div class="container">
+                <div class="lv-hero-item-caption px-0 animated fadeInLeftSubtle">
+                    <h1 class="display-1">{{ page.title }}</h1>
+                </div>
+            </div>
+
+        </div> <!-- /.lv-hero-item -->
+    </div> <!-- /.lv-hero -->
+</div> <!-- /.lv-hero-wrapper -->

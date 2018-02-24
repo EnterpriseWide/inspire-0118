@@ -1,0 +1,48 @@
+{% comment %}
+<!--
+    LIQUIDVISUAL-HERO
+
+    - Updated: 24.02.18
+    - Notes:
+        * .has-height-preset-1 - used for internal pages to set a height
+-->
+{% endcomment %}
+
+{% assign slides = site.data.carousel_slides %}
+
+<!-- HERO WRAPPER -->
+<div class="lv-hero-wrapper {{ include.theme }}" data-carousel>
+
+    <!-- HERO -->
+    <div class="lv-hero has-height-preset-1">
+
+        <!-- HERO ITEMS -->
+        {% for item in slides %}
+            <div class="lv-hero-item" style="background-image: url('{{ item.image }}')">
+
+                <!-- HERO CAPTION -->
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-xl-9">
+                            <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+                                <h1 class="display-1">{{ item.title }}</h1>
+                                <p class="lead">{{ item.body }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+
+    </div> <!-- /.lv-hero -->
+
+    {% if slides.size > 1 %}
+        <!-- CAROUSEL CONTROLS -->
+        <div class="lv-hero-carousel-controls hidden-sm-down">
+            <span class="lv-hero-carousel-prev-btn"><i class="fa fa-angle-left"></i></span>
+            <span class="lv-hero-carousel-next-btn"><i class="fa fa-angle-right"></i></span>
+        </div>
+    {% endif %}
+
+</div> <!-- /.lv-hero-wrapper -->
