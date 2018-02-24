@@ -1,14 +1,15 @@
 - title: Hero Caption 1
   url: /
   body: "Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar."
-  image: "/assets/img/content/hero/hero-1.png"
+  image: /assets/img/content/hero/hero-1.png
 
 - title: Hero Caption 2
   url: /
   body: "Lorem ipsum dolor sit amet, consectetuer lorem ipsum."
-  image: "/assets/img/content/hero/hero-3.jpg"
+  image: /assets/img/content/hero/hero-3.jpg
 
 - title: Hero Caption 3
   url: /
   body: "Lorem ipsum dolor sit amet, consectetuer lorem ipsum."
-  image: "/assets/img/content/hero/hero-3.png"
+  image: /assets/img/content/hero/hero-3.png
+  youtube_id: ScMzIvxBSi4

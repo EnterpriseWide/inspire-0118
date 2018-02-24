@@ -21,3 +21,27 @@
 //=========================================
 //
 //=========================================
+
+//-----------------------------------------------------------------
+// OVERRIDING ANIMATE (looks better)
+//-----------------------------------------------------------------
+
+.animated {
+	animation-fill-mode: both;
+	animation-duration: 1.5s;
+}
+
+@keyframes fadeInLeftSubtle {
+	0% {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.fadeInLeftSubtle {
+	animation-name: fadeInLeftSubtle;
+}

@@ -1,0 +1,91 @@
+{% comment %}
+<!--
+    LIQUIDVISUAL-HERO
+
+    - Updated: 24.02.18
+    - Notes:
+        * .has-height-preset-1 - used for internal pages to set a height
+-->
+{% endcomment %}
+
+{% assign slides = site.data.carousel_slides %}
+{% assign arrow_entice = include.arrow_entice | default: true %}
+
+<!-- HERO WRAPPER -->
+<div class="lv-hero-wrapper {{ include.theme }}" data-carousel>
+
+    <!-- HERO -->
+    <div class="lv-hero">
+
+        <!-- HERO ITEMS -->
+        {% for item in slides %}
+            <div class="lv-hero-item" style="background-image: url('{{ item.image }}')">
+
+                {% if item.youtube_id %}
+                    <iframe class="video ytplayer" width="100%" height="390" type="text/html" src="https://www.youtube.com/embed/{{item.youtube_id}}?controls=0&t=31s&loop=1&playlist={{item.youtube_id}}&showinfo=0&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+
+                <!-- HERO CAPTION -->
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-xl-9">
+                            <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+                                <h1 class="display-1">{{ item.title }}</h1>
+                                <p class="lead">{{ item.body }}</p>
+                                <p><a href="#scroll-down" class="btn btn-outline-light">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% if arrow_entice %}
+                    <!-- DOWNWARDS ARROW -->
+                    <a class="lv-hero-arrow-scroll hidden-sm-down" href="#tagline"><i class="fa fa-angle-down"></i></a>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+
+    </div> <!-- /.lv-hero -->
+
+    {% if slides.size > 1 %}
+        <!-- CAROUSEL CONTROLS -->
+        <div class="lv-hero-carousel-controls hidden-sm-down">
+            <span class="lv-hero-carousel-prev-btn"><i class="fa fa-angle-left"></i></span>
+            <span class="lv-hero-carousel-next-btn"><i class="fa fa-angle-right"></i></span>
+        </div>
+    {% endif %}
+
+</div> <!-- /.lv-hero-wrapper -->
+
+<!-- IF YOUTUBE ID EXISTS IN SLIDES - INCLUDE SCRIPT -->
+{% for item in slides %}
+    {% if item.youtube_id %}
+        <script>
+            //-----------------------------------------------------------------
+            // YOUTUBE
+            // This code loads the IFrame Player API code asynchronously.
+            // https://stackoverflow.com/questions/31755519/how-can-i-use-a-class-instead-of-id-for-new-yt-player
+            //-----------------------------------------------------------------
+            var tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            var player;
+            var playerEl = document.querySelector('.ytplayer');
+
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player(playerEl, {
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+            }
+            function onPlayerReady() {
+                player.playVideo();
+                player.mute(); // Muted by default
+            }
+        </script>
+        {% break %}
+    {% endif %}
+{% endfor %}

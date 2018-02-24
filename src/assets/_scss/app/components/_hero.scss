@@ -77,6 +77,7 @@ $hero-lg-height-preset-1:   rem-calc(434);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    overflow: hidden; // stop video spilling out
 
     //=========================================
     // TINT OVERLAY
@@ -243,7 +244,13 @@ $hero-lg-height-preset-1:   rem-calc(434);
     text-align: center;
     color: black;
     z-index: 1;
+    transition: background-color ease 300ms;
     animation: pulsate 0.8s ease-out 0.3s alternate infinite;
+
+    &:hover {
+        color: black;
+        background: rgba(white, 0.25);
+    }
 
     @keyframes pulsate {
         0% { transform: translateY(0);}
@@ -252,5 +259,54 @@ $hero-lg-height-preset-1:   rem-calc(434);
 }
 
 //-----------------------------------------------------------------
-//
+// HERO - YOUTUBE VIDEO
 //-----------------------------------------------------------------
+
+.lv-hero .video {
+    display: none; // disabled for mobile
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: left bottom;
+    background-size: cover;
+    opacity: 0;
+    animation: delayShow 2s ease 3.5s alternate 1 forwards;
+
+    @include media-breakpoint-up(md) {
+        display: block;
+    }
+
+    @keyframes delayShow {
+        0%   { opacity: 0;  }
+        100% { opacity: 1;  }
+    }
+}
+
+// video::-webkit-media-controls {
+//     display: none !important; // hacky
+// }
+
+//=============================================
+// THE MAGIC
+//=============================================
+
+@media (min-aspect-ratio: 16/9) {
+    .lv-hero .video {
+        top: -100%;
+        height: 300%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .lv-hero .video {
+        left: -100%;
+        width: 300%;
+    }
+}
+
+/* Microsoft Edge Browser 12+ (All) - @supports method */
+// @supports (-ms-ime-align: auto) {
+    // keep reference
+// }
