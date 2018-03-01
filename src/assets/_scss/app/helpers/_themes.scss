@@ -1,125 +1,136 @@
 /*
     THEMES.CSS
 
-    - updated: 18.02.18
+    - updated: 01.03.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
-// VARIABLES
-//-----------------------------------------------------------------
-//-----------------------------------------------------------------
-// THEME CLASS
+// THEMEIFY MIXIN
 //-----------------------------------------------------------------
 
-.theme-skyblue {
+@mixin themify($theme, $colors) {
+	.theme-#{$theme} { // Output a theme selector
 
-	$bg-primary: $primary; // pulls vars from Bootstrap settings.scss
-	$bg-secondary: $gray-100;
+		//-----------------------------------------------------------------
+		// VARIABLES
+		//-----------------------------------------------------------------
 
-	$text-light: $white; //red; //$gray-100;
-	$text-dark: $gray-900;
+	 	$primary: map-get($colors, 'primary');
+	 	$secondary: map-get($colors, 'secondary');
+	 	$text-primary: map-get($colors, 'text-primary');
+	 	$text-secondary: map-get($colors, 'text-secondary');
 
-	//-----------------------------------------------------------------
-	// GENERIC
-	//-----------------------------------------------------------------
+	 	//-----------------------------------------------------------------
+	 	// TOP SECTIONS
+	 	//-----------------------------------------------------------------
 
-	&.section {
-		background-color: $bg-primary;
+	 	&.section {
+	 		background-color: $primary;
 
-		// SHALLOW HEADERS
-		> .container > h1,
-		> .container > h2,
-		> .container > h3,
-		> .container > h4,
-		> .container > h5,
-		> .container > h6,
-		> .container > p,
-		> .container > ul,
-		> .container > ol, {
-			color: $text-light;
-		}
+	 		// // SHALLOW HEADERS (no sub-component)
+	 		> .container > h1,
+	 		> .container > h2,
+	 		> .container > h3,
+	 		> .container > h4,
+	 		> .container > h5,
+	 		> .container > h6,
+	 		> .container > p,
+	 		> .container > ul,
+	 		> .container > ol, {
+	 			color: $text-primary;
+	 		}
 
-		// SHALLOW LINKS
-		> .container > p > a {
-			color: $text-dark;
+	 		// SHALLOW LINKS (no sub-component)
+	 		> .container > p > a {
+	 			color: $text-secondary;
 
-			&:hover {
-				color: lighten($text-dark, 10%);
-			}
-		}
-	}
+	 			&:hover {
+	 				color: lighten($text-secondary, 10%);
+	 			}
+	 		}
+	 	}
 
-	//-----------------------------------------------------------------
-	// BANNER
-	//-----------------------------------------------------------------
+		//-----------------------------------------------------------------
+		// HEADER
+		//-----------------------------------------------------------------
 
-	&.headroom--not-top {
-		&.global-header {
-			.global-header-body {
-				background: $bg-primary;
-			}
-		}
-	}
-
-	//-----------------------------------------------------------------
-	// BANNER
-	//-----------------------------------------------------------------
-
-	&.lv-hero-wrapper {
-		background-color: $bg-primary;
-
-		h1, h2, h3, h4, h5, h6,
-		p {
-			color: $text-light;
-		}
-	}
-
-	//-----------------------------------------------------------------
-	// GLOBAL FOOTER
-	//-----------------------------------------------------------------
-
-	&.global-footer {
-		.global-footer-body,
-		.global-footer-bottom {
-			background: $bg-primary;
-		}
-
-		a {
-			color: white;
-
-			&:hover {
-				opacity: 0.8;
+		&.headroom--not-top {
+			&.global-header {
+				.global-header-body {
+					background: $primary;
+				}
 			}
 		}
 
-		.global-footer-sitemap {
-			background: darken($bg-primary, 5%);
+		//-----------------------------------------------------------------
+		// BANNER
+		//-----------------------------------------------------------------
+
+		&.lv-hero-wrapper {
+			background-color: $primary;
+
+			h1, h2, h3, h4, h5, h6,
+			p {
+				color: $text-primary;
+			}
 		}
-	}
 
-	//-----------------------------------------------------------------
-	// SECTION FEATURED BLOG POSTS
-	//-----------------------------------------------------------------
+		//-----------------------------------------------------------------
+		// GLOBAL FOOTER
+		//-----------------------------------------------------------------
 
-	&.section-featured-blog-posts {
-		.card {
-			border: 0;
+		&.global-footer {
+			.global-footer-body,
+			.global-footer-bottom {
+				background: $primary;
+			}
+
+			h1, h2, h3, h4, h5, h6,
+			p, ul, ol, small, a {
+				color: $text-primary;
+			}
+
+			.global-footer-sitemap {
+				background: darken($primary, 5%);
+
+				a  {
+					color: $text-primary;
+				}
+			}
 		}
-	}
 
-	//-----------------------------------------------------------------
-	// OUTRO CTA
-	//-----------------------------------------------------------------
+		//-----------------------------------------------------------------
+		// SECTION FEATURED BLOG POSTS
+		//-----------------------------------------------------------------
 
-	&.section-outro-cta {
-		background-color: $bg-secondary;
+		&.section-featured-blog-posts {
+			.card {
+				border: 0;
+			}
+		}
 
-		> .container {
-			h1, h2, h3, h4, h5, h6 {
-				color: $text-dark;
+		//-----------------------------------------------------------------
+		// OUTRO CTA
+		//-----------------------------------------------------------------
+
+		&.section-outro-cta {
+			background-color: $secondary;
+
+			> .container {
+				h1, h2, h3, h4, h5, h6 {
+					color: $text-secondary;
+				}
 			}
 		}
 	}
+}
+
+//-----------------------------------------------------------------
+// CREATE THEMES
+//-----------------------------------------------------------------
+
+@each $theme, $colors in $themes {
+	@include themify($theme, $colors);
 }
 
 //=========================================

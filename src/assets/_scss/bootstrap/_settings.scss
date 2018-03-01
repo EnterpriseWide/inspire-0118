@@ -38,7 +38,7 @@ $gray-300: #dee2e6 !default;
 // $gray-600: #6c757d !default;
 // $gray-700: #495057 !default;
 // $gray-800: #343a40 !default;
-// $gray-900: #212529 !default;
+$gray-900: #212529 !default;
 // $black:    #000 !default;
 
 // $grays: () !default;
@@ -103,6 +103,39 @@ $primary:       #2981cb;
 //   "dark":       $dark
 // ), $theme-colors);
 // // stylelint-enable
+
+$themes: (
+  'skyblue': (
+    'primary': $primary,
+    'secondary': #38c3e5,
+    'text-primary': white,
+    'text-secondary': $gray-900
+  ),
+  'posh': (
+    'primary': #a05cc0,
+    'secondary': a05cc0,
+    'text-primary': white,
+    'text-secondary': $gray-900
+  ),
+  'silverfox': (
+    'primary': $gray-300,
+    'secondary': $gray-200,
+    'text-primary': white,
+    'text-secondary': $gray-900
+  ),
+  'dark': (
+    'primary': $gray-900,
+    'secondary': white,
+    'text-primary': white,
+    'text-secondary': $gray-900
+  ),
+  'light': ( // maybe this should be default
+    'primary': white,
+    'secondary': $gray-300,
+    'text-primary': $gray-900,
+    'text-secondary': $gray-900
+  )
+) !default;
 
 // // Set a specific jump point for requesting color jumps
 // $theme-color-interval:      8% !default;
