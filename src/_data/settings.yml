@@ -16,8 +16,8 @@ jekyll_version: 3.7.0
 
 # OFFICES
 offices:
-  - title: Sydney, NSW, 2000
-    address: Australia
+  - title: Manly Office
+    address: 55 North Steyne<br> Manly NSW
     phone: (05) 555 555
     email: info@enterprisewide.com.au
 

@@ -1,0 +1,32 @@
+{% assign settings = site.data.settings %}
+
+<!-- CONTACT SECTION -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 pr-5">
+
+                {% include components/section__contact_form.html %}
+
+            </div>
+            <div class="col-lg-4">
+
+                <!-- CONTACT DETAILS -->
+                <h4>{{ settings.company }}</h4>
+                <p>
+                    {{ settings.offices[0].title }}<br>
+                    {{ settings.offices[0].address }}<br>
+                    <a href="mailto:settings.offices[0].email">{{ settings.offices[0].email }}</a>
+                </p>
+                <br>
+                <a href="#google-map" class="btn btn-primary">Directions&nbsp; <i class="fa fa-external-link"></i></a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GOOGLE MAP -->
+<div id="google-map">
+    {% include components/section__contact_map.html %}
+</div>

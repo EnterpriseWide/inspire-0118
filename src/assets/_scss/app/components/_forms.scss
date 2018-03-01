@@ -38,7 +38,7 @@ form[data-toggle="validator"] {
 //-----------------------------------------------------------------
 
 .asterisk {
-	font-size: rem-calc(30);
+	font-size: rem-calc(20);
 	line-height: 0;
 	color: $blue;
 }
@@ -75,10 +75,10 @@ fieldset {
 	margin-bottom: rem-calc(15);
 }
 
-form label em,
-form label i {
-	color: rgba(white, 0.5);
-}
+// form label em,
+// form label i {
+// 	// color: rgba(white, 0.5);
+// }
 
 //-----------------------------------------------------------------
 //

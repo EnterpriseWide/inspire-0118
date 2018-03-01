@@ -2,7 +2,7 @@
 layout: base
 ---
 
-{% include components/banner__static.html theme="theme-skyblue" %}
+{% include {{ page.banner | default: 'components/banner__static.html' }} theme="theme-skyblue" %}
 
 {% if page.breadcrumbs %}
 	{% include snippets/breadcrumb.html %}
@@ -11,6 +11,8 @@ layout: base
 <!-- BODY -->
 <main class="main-body">
 	{{ content }}
+
+	{% include components/outro_cta.html theme="theme-skyblue" %}
 
 	{% contentblock content_additional no-convert %}
 </main>

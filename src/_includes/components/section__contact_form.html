@@ -1,0 +1,101 @@
+{% assign settings = site.data.settings %}
+
+{% comment %}
+<!-- IF SUCCESS -->
+<div class="alert alert-success alert-dismissible fade show" role="alert" hidden>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Success!</strong><br> Thanks for that. You've been added to the mailing list.
+</div>
+
+<!-- IF FAILURE -->
+<div class="alert alert-danger alert-dismissible fade show" role="alert" hidden>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Oops!</strong><br> Something went wrong. Please try again.
+</div>
+{% endcomment %}
+
+<h2>Get in Touch</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et.</p>
+
+<div class="spacer mb-4"></div>
+
+<!-- FORM CONTACT -->
+<form id="contact-digital-agency" class="mb-4" name="Digital Agency Form" action="/hire/thanks/" data-toggle="validator" novalidate netlify>
+    <fieldset>
+
+       <!-- NAME* -->
+       <label class="form-group d-block">
+           <p class="mb-2">Full Name<small class="asterisk">*</small></p>
+           <input class="form-control" name="Name" type="text" placeholder="" required>
+           <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your name is required.</small>
+       </label>
+
+        <!-- EMAIL* -->
+        <label class="form-group d-block">
+            <p class="mb-2">Email<small class="asterisk">*</small></p>
+            <input class="form-control" name="Email" type="email" placeholder="" required>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A valid email is required.</small>
+        </label>
+
+        <!-- PHONE -->
+        <label class="form-group d-block">
+            <p class="mb-2">Phone</p>
+            <input class="form-control" name="Phone" type="phone" placeholder="">
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A valid phone number is required.</small>
+        </label>
+
+    </fieldset>
+    <fieldset>
+
+        <!-- MESSAGE -->
+        <label class="form-group d-block">
+            <p>Your Message<small class="asterisk">*</small></p>
+            <textarea class="form-control" name="Message" rows="6" placeholder="" required></textarea>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Please leave a message.</small>
+        </label>
+
+    </fieldset>
+    <fieldset>
+
+        <!-- REFERRAL -->
+        <label class="form-group d-block">
+            <p>How did you hear about us?</p>
+            <select class="custom-select" name="Referral">
+                <option disabled selected>Choose one</option>
+                <option value="Google">Google</option>
+                <option value="Twitter">Twitter</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Friend">Word of mouth</option>
+                <option value="Other">Other</option>
+            </select>
+        </label>
+
+    </fieldset>
+    <fieldset>
+
+        <!-- SIGN UP TO OUR NEWSLETTER -->
+        <div class="form-group">
+            <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" type="checkbox" name="Newsletter" value="true">
+                <p class="custom-control-label">Sign me up to the newsletter</p>
+            </label>
+        </div>
+
+    </fieldset>
+
+    <!-- * REQUIRED -->
+    <p class="float-right">
+        <small class="asterisk">*</small>
+        <small class="text-muted" style="position: relative; top: -5px;">required</small>
+    </p>
+
+    <!-- SUBMIT -->
+    <button type="submit" class="btn btn-primary mb-4">Send Message <i class="fa fa-angle-right"></i></button>
+
+</form>

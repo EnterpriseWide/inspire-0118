@@ -118,7 +118,7 @@ $primary:       #2981cb;
 // //
 // // Quickly modify global styling by enabling or disabling optional features.
 
-// $enable-caret:              true !default;
+$enable-caret:              false; //true !default;
 // $enable-rounded:            true !default;
 // $enable-shadows:            false !default;
 // $enable-gradients:          false !default;
@@ -604,6 +604,7 @@ $display1-size:               rem-calc(70); //6rem !default;
 // $dropdown-item-padding-x:           1.5rem !default;
 
 // $dropdown-header-color:             $gray-600 !default;
+
 
 
 // // Z-index master list
