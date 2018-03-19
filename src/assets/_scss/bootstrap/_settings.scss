@@ -892,7 +892,7 @@ $card-inner-border-radius:          0; //calc(#{$card-border-radius} - #{$card-b
 
 // $breadcrumb-margin-bottom:          1rem !default;
 
-// $breadcrumb-bg:                     $gray-200 !default;
+$breadcrumb-bg:                     darken($gray-100, 2%) !default;
 // $breadcrumb-divider-color:          $gray-600 !default;
 // $breadcrumb-active-color:           $gray-600 !default;
 // $breadcrumb-divider:                "/" !default;

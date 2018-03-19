@@ -2,7 +2,7 @@
 /*
     MAIN.CSS
 
-    - Last updated: 28.01.18
+    - Last updated: 19.03.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -13,19 +13,24 @@
 @import "liquidvisual/components/rem-calc";
 
 //-----------------------------------------------------------------
-// BOOTSTRAP
+// BOOTSTRAP VARIABLES
 //-----------------------------------------------------------------
 
 @import "bootstrap/settings";
 
-//-----------------------------------------------------------------
+//*****************************************************************
 // USER EDITABLE
-//-----------------------------------------------------------------
+//*****************************************************************
 
-$link-color: red;
+// LINK COLOR
+$link-color: $primary;
 
-$font-family-sans-serif: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+// FONT FAMILY
+// NOTE: the 'Poppins' variable needs to match up with the CDN link in the base.html
+// EG. <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,600i,700">
+$font-family-sans-serif: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
+// THEMES
 $themes: (
   'skyblue': (
     'primary': $primary,
@@ -45,19 +50,17 @@ $themes: (
     'text-primary': white,
     'text-secondary': $gray-900
   ),
-  'dark': (
+  'midnight': (
     'primary': $gray-900,
     'secondary': white,
     'text-primary': white,
     'text-secondary': $gray-900
-  ),
-  'light': ( // maybe this should be default
-    'primary': white,
-    'secondary': $gray-300,
-    'text-primary': $gray-900,
-    'text-secondary': $gray-900
   )
-) !default;
+);
+
+//-----------------------------------------------------------------
+// BOOTSTRAP CORE
+//-----------------------------------------------------------------
 
 @import "bootstrap/bootstrap";
 
@@ -86,7 +89,7 @@ $themes: (
 // HELPERS
 //=========================================
 
-@import "app/helpers/fonts";
+// @import "app/helpers/fonts";
 @import "app/helpers/special";
 @import "app/helpers/text-editor";
 @import "app/helpers/themes";
@@ -100,7 +103,7 @@ $themes: (
 @import "liquidvisual/components/custom";
 @import "liquidvisual/components/toolbox";
 @import "liquidvisual/vendor/magnific-popup/main";
-@import "liquidvisual/vendor/syntax-highlighting";
+// @import "liquidvisual/vendor/syntax-highlighting";
 
 //-----------------------------------------------------------------
 // NODE DEPENDENCIES

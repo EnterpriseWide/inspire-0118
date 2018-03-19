@@ -1,7 +1,7 @@
 /*
     TOPBAR.CSS
 
-    - updated: 29.01.18
+    - updated: 19.03.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -63,7 +63,7 @@
     display: block; // [LOCKED]
     padding: rem-calc(0 15);
     line-height: 44px; // [LOCKED]
-    color: white;
+    color: $body-color; // themeable
     transition: background 150ms ease;
 }
 
@@ -72,14 +72,21 @@
 //=========================================
 
 .lv-topbar .top-parent-anchor:hover {
-    background: rgba(black, 0.1);
+    background: rgba(black, 0.08); // [THEMEABLE]
 }
 
 .lv-topbar .active .top-parent-anchor {
     // background: rgba(white, 0.15);
 
     .text {
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid $primary; // [THEMEABLE]
+    }
+}
+
+.lv-topbar .top-parent-anchor:hover {
+    .text {
+        border-bottom: 0;
+        border-color: transparent;
     }
 }
 

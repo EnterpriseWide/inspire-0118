@@ -13,8 +13,8 @@
 
 .global-footer-body {
 	padding: $spacer*2.5 0;
-	background: $primary;
-	color: white;
+	background: $gray-200; // [THEMEABLE]
+	color: $body-color; // [THEMEABLE]
 }
 
 //-----------------------------------------------------------------
@@ -23,13 +23,13 @@
 
 .global-footer-bottom {
 	padding: $spacer/2 0;
-	background: $primary;
-	color: white;
+	background: $gray-200; // [THEMEABLE] darken($gray-200, 5%);
+	color: $body-color; // [THEMEABLE]
 
 	a {
 		display: inline-flex;
 		align-items: center;
-		color: white;
+		color: $body-color; // [THEMEABLE]
 
 		.fa-angle-up,
 		.fa-angle-down {
@@ -44,7 +44,7 @@
 
 	.author-logo {
 		// color: rgba(white, 0.9);
-		color: white;
+		color: $body-color; // [THEMEABLE]
 		font-size: rem-calc(11);
 	}
 
@@ -68,7 +68,7 @@
 //-----------------------------------------------------------------
 
 .global-footer-sitemap {
-	background: darken($primary, 5%);
+	background: darken($gray-200, 5%); // [THEMEABLE]
 
 	> .container {
 		padding-top: $spacer*2;
@@ -76,14 +76,15 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #eee;
+		color: $body-color; // [THEMEABLE]
 	}
 
 	a {
-		color: rgba(white, 0.5);
+		color: $body-color; // [THEMEABLE] rgba(white, 0.5);
 
 		&:hover {
-			color: white;
+			opacity: 0.6;
+			// color: white;
 		}
 	}
 }

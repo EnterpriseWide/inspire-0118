@@ -1,7 +1,7 @@
 /*
     THEMES.CSS
 
-    - updated: 01.03.18
+    - updated: 19.03.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -42,7 +42,8 @@
 
 	 		// SHALLOW LINKS (no sub-component)
 	 		> .container > p > a {
-	 			color: $text-secondary;
+	 			color: $text-primary;
+	 			font-weight: bold;
 
 	 			&:hover {
 	 				color: lighten($text-secondary, 10%);
@@ -54,12 +55,56 @@
 		// HEADER
 		//-----------------------------------------------------------------
 
+		// when scrolling, colour topbar
 		&.headroom--not-top {
 			&.global-header {
 				.global-header-body {
 					background: $primary;
 				}
 			}
+		}
+
+		// use banner behind to color topbar
+		&.global-header {
+			background: transparent;
+		}
+
+		// adhoc logo for demo
+		&.global-header .logo .logo-dark {
+			display: none;
+		}
+
+		// adhoc logo for demo
+		&.global-header .logo .logo-light {
+			display: block;
+		}
+
+		// top bar is tinted dark
+		&.global-header .global-header-top {
+			background: rgba(black, 0.2);
+
+			a {
+				color: white; // // [THEMEABLE]
+			}
+		}
+
+		//-----------------------------------------------------------------
+		// TOPBAR
+		//-----------------------------------------------------------------
+
+		// everything is white
+		.lv-topbar .top-parent-anchor {
+		    color: white;
+		}
+
+		// active text underline is white
+		.lv-topbar .active .top-parent-anchor .text {
+		    border-color: white;
+		}
+
+		// anchor hover is darker
+		.lv-topbar .top-parent-anchor:hover {
+		    background: rgba(black, 0.1);
 		}
 
 		//-----------------------------------------------------------------
@@ -131,6 +176,21 @@
 
 @each $theme, $colors in $themes {
 	@include themify($theme, $colors);
+}
+
+//-----------------------------------------------------------------
+// MODIFIER PROPS
+//-----------------------------------------------------------------
+
+.is-tinted {
+	// top bar is tinted dark
+	&.global-header .global-header-top {
+		background: transparent;
+	}
+
+	&.global-header {
+		background: rgba(black, 0.2);
+	}
 }
 
 //=========================================
