@@ -280,7 +280,7 @@ $hamburger-slit-height: 4px;
 		position: absolute;
 		width: 100%;
 		height: $hamburger-slit-height;
-		background: white; //#444;
+		background: #444;
 
 		@include media-breakpoint-up(md) {
 		    // background: white;

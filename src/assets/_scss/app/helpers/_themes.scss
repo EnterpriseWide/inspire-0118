@@ -88,6 +88,14 @@
 			}
 		}
 
+		&.global-header {
+			.lv-hamburger-top,
+			.lv-hamburger-middle,
+			.lv-hamburger-bottom {
+				background: white;
+			}
+		}
+
 		//-----------------------------------------------------------------
 		// TOPBAR
 		//-----------------------------------------------------------------

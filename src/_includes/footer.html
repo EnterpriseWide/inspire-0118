@@ -9,11 +9,11 @@
 				<!-- QUICK LINKS -->
 				<h4>Quick Links</h4>
 				<ul class="list-unstyled">
-					<li>Standard Page</li>
-					<li>Blog</li>
-					<li>Enterprise Wide</li>
-					<li>Advanced Page</li>
-					<li>Contact</li>
+					<li><a href="">Standard Page</a></li>
+					<li><a href="">Blog</a></li>
+					<li><a href="">Enterprise Wide</a></li>
+					<li><a href="">Advanced Page</a></li>
+					<li><a href="">Contact</a></li>
 				</ul>
 			</div>
 			<div class="col-md-4">
@@ -30,8 +30,8 @@
 
 				<!-- SOCIAL MEDIA -->
 				<h4>Social Media</h4>
-				<p>Returning soon...</p>
-				<!-- { % include snippets/social_media.html %} -->
+				<!-- <p>Returning soon...</p> -->
+				{% include snippets/social_media.html %}
 
 			</div>
 		</div>
@@ -50,6 +50,8 @@
 			</div>
 			<div class="col-6 text-right">
 				<small>
+					<a class="author-logo" href="">Site by Tom Smith</a>
+
 					<a class="author-logo" target="_blank" href="{{ settings.author.url }}">
 						<img width="20" height="20" src="{{ settings.author.logo }}" alt="Powered by {{ settings.author.title }}">&nbsp;&nbsp;
 				    	<span class="text">{{ settings.author.description }}</span>
