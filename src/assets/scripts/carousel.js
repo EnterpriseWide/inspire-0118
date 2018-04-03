@@ -1,5 +1,5 @@
 /*
-    HERO.JS - Last updated: 29.01.18
+    HERO.JS - Last updated: 03.04.18
 */
 //-----------------------------------------------------------------
 // LAUNCH CAROUSEL
@@ -26,28 +26,34 @@ function launchCarousel() {
         if ($slideCount > 1) {
 
             //==================================================
-            // FLICKITY
+            // FLICKITY - OPTIONS MOVED TO INLINE
             //==================================================
 
-            var $flickity = $carousel.flickity({
-                adaptiveHeight: true,
-                autoPlay: false,
-                cellAlign: 'left',
-                contain: true,
-                dragThreshold: 3,
-                freeScroll: false,
-                freeScrollFriction: 0.075, // lower friction, slides easier
-                friction: 0.28, // Higher friction makes the slider feel stickier and less bouncy
-                imagesLoaded: true,
-                pageDots: true,
-                prevNextButtons: false,
-                pauseAutoPlayOnHover: false,
-                selectedAttraction: 0.025, // Higher attraction makes the slider move faster
+            // var $flickity = $carousel.flickity({
+                // adaptiveHeight: true,
+                // autoPlay: false,
+                // cellAlign: 'left',
+                // contain: true,
+                // draggable: '>1',
+                // dragThreshold: 3,
+                // freeScroll: false,
+                // freeScrollFriction: 0.075, // lower friction, slides easier
+                // friction: 0.28, // Higher friction makes the slider feel stickier and less bouncy
+                // imagesLoaded: true,
+                // pageDots: false,
+                // prevNextButtons: false,
+                // pauseAutoPlayOnHover: false,
+                // selectedAttraction: 0.025, // Higher attraction makes the slider move faster
                 //watchCSS: true, // run/destroy
-                wrapAround: true, // infinite
-            });
+                // wrapAround: true, // infinite
+            // });
 
-            var flkty = $carousel.data('flickity');
+            //==================================================
+            // GET INSTANCE VIA ELEMENT
+            // https://flickity.metafizzy.co/api.html#jquery-fn-data-flickity
+            //==================================================
+
+            // var flkty = $carousel.data('flickity');
 
             //==================================================
             // ARROWS
@@ -72,10 +78,6 @@ function launchCarousel() {
                     $captions.show();
                 }, 500);
             })
-
-            // $flickity.on('settle.flickity', function() {
-            //     $captions.show();
-            // });
         }
     //--
     });

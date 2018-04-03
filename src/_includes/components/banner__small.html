@@ -2,7 +2,7 @@
 <!--
     BANNER SMALL
 
-    - Updated: 01.03.18
+    - Updated: 03.04.18
     - Basic carousel functionality, no video, shorter in height
 -->
 {% endcomment %}
@@ -13,7 +13,26 @@
 <div class="lv-hero-wrapper {{ include.theme }}" data-carousel>
 
     <!-- HERO -->
-    <div class="lv-hero has-height-preset-1">
+    <div class="lv-hero has-height-preset-1"
+        data-flickity='
+        {
+            "adaptiveHeight": true,
+            "autoPlay": false,
+            "cellAlign": "left",
+            "contain": true,
+            "draggable": ">1",
+            "dragThreshold": 3,
+            "freeScroll": false,
+            "freeScrollFriction": 0.075,
+            "friction": 0.28,
+            "imagesLoaded": true,
+            "pageDots": true,
+            "prevNextButtons": false,
+            "pauseAutoPlayOnHover": false,
+            "selectedAttraction": 0.025,
+            "watchCSS": false,
+            "wrapAround": true
+        }'>
 
         <!-- HERO ITEMS -->
         {% for item in slides %}
