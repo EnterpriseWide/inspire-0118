@@ -43,9 +43,10 @@
 	}
 
 	.author-logo {
+		display: inline-block;
 		// color: rgba(white, 0.9);
 		color: $body-color; // [THEMEABLE]
-		font-size: rem-calc(11);
+		// font-size: rem-calc(11);
 	}
 
 	//=========================================
@@ -60,6 +61,37 @@
 		height: 100%;
 		background: inherit;
 		z-index: -1;
+	}
+}
+
+//-----------------------------------------------------------------
+// BACK TO TOP
+// shares similarity with carousel buttons
+//-----------------------------------------------------------------
+
+.global-footer-bottom {
+
+	.back-to-top {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		padding: rem-calc(5 10);
+		border: 0;
+		margin: rem-calc(-20 0 10 0);
+		border-radius: $border-radius;
+		background: rgba(black, 0.2);
+		transition: all 200ms ease;
+		cursor: pointer;
+
+		.text,
+		i {
+			color: rgba(white, 0.6);
+		}
+
+		&:hover {
+			background: rgba(black, 0.3);
+			transform: scale(0.9);
+		}
 	}
 }
 
