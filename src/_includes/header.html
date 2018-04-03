@@ -22,25 +22,12 @@
             </div>
             <div class="col-6 text-right">
 
-                {% comment %}
-                <!-- STANDARD PAGE -->
-                <a href="/standard-page/">
-                    <span class="text hidden-sm-down">Standard Page</span>
-                </a>
-
-                <!-- ADVANCED PAGE -->
-                <a href="/advanced-page/">
-                    <span class="text hidden-sm-down">Advanced Page</span>
-                </a>
-                {% endcomment %}
-
-                <!-- MEMBERS AREA -->
-                <a href="#">
+                <!-- OTHER LINK(S) -->
+                <!-- <a href="#">
                     <i class="fa fa-user"></i>&nbsp;
-                    <span class="text hidden-sm-down">Members Area <i class="fa fa-angle-down"></i></span>
-                </a>
+                    <span class="text hidden-sm-down">Link</span>
+                </a> -->
 
-                {% comment %}
                 <!-- MEMBERS AREA -->
                 <div class="dropdown d-inline-block mr-2" style="cursor: pointer">
                     <a id="dropdownMenuButton" class="dropdown-toggle" data-toggle="dropdown">
@@ -48,10 +35,10 @@
                         <span class="text hidden-sm-down">Members Area <i class="fa fa-angle-down"></i></span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#"><i class="fa fa-sign-in"></i> Login</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-sign-in"></i>&nbsp; Login</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-star"></i>&nbsp; Favorites</a>
                     </div>
                 </div>
-                {% endcomment %}
 
                 <!-- SEARCH -->
                 <a href="#search" data-search-trigger>
@@ -90,14 +77,6 @@
                 {% include snippets/navigation.html %}
             </div>
         </nav>
-
-        {% comment %}{% endcomment %}
-        <!-- LOGO -->
-        <!-- <a class="logo" href="/" title="{{ settings.title_homepage }}" itemprop="url">
-            <img class="logo-light" src="{{ logo_light }}" alt="{{ settings.company }}" itemprop="logo">
-            <img class="logo-dark" src="{{ logo_dark }}" alt="{{ settings.company }}" itemprop="logo">
-        </a> -->
-
 
     </div>
 </div>

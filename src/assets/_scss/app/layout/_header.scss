@@ -98,7 +98,6 @@ $header-bottom-lg-height: 50px !default;
 	top: 0;
 	width: 100%;
 	background: white; // [THEMEABLE]
-
 	z-index: 9999;
 }
 
@@ -116,6 +115,7 @@ $header-bottom-lg-height: 50px !default;
 	font-weight: 500;
 	color: white;
 	transition: all ease 150ms;
+	z-index: 2; // dropdown needs to move over top of nav
 
 	a {
 		// display: inline-flex;
@@ -123,14 +123,39 @@ $header-bottom-lg-height: 50px !default;
 		margin-right: rem-calc(15);
 		color: $body-color; // // [THEMEABLE]
 		transition: opacity 200ms ease;
-
-		&:hover {
-			opacity: 0.8;
-		}
 	}
 
 	a:last-of-type {
 		margin-right: 0;
+	}
+}
+
+//=========================================
+// HOVERS
+//=========================================
+
+.global-header-top a:not(.dropdown-item):hover {
+	opacity: 0.8;
+}
+
+//=========================================
+// DROPDOWN
+// a little brittle - copies styles from topbar
+//=========================================
+
+.global-header-top .dropdown .dropdown-menu {
+	padding: 0; // [RESET]
+
+	.dropdown-item {
+		padding: rem-calc(15 20);
+		font-size: rem-calc(14); // opinionated
+		font-weight: 500;
+		color: #444;
+
+		&:hover {
+			background: rgba(black, 0.1);
+			color: #444 !important;
+		}
 	}
 }
 
@@ -139,10 +164,12 @@ $header-bottom-lg-height: 50px !default;
 //-----------------------------------------------------------------
 
 .global-header-body {
+	position: relative; // safe? - added for dropdown
 	display: flex;
 	align-items: center;
 	height: $header-body-sm-height;
 	// transition: height 100ms ease;
+	z-index: 1; // safe? - added for dropdown
 
 	@include media-breakpoint-up(md) {
 	    // height: $header-body-md-height;
