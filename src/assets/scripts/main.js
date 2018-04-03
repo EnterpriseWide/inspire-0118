@@ -1,5 +1,5 @@
 /*
-    MAIN.JS - Last updated: 29.01.18
+    MAIN.JS - Last updated: 03.04.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -11,8 +11,8 @@
 $(window).on('load', function() {
     $('html').addClass('has-loaded');
     // lightbox();
-    renderIframes();
-    createGoogleMap();
+    // renderIframes();
+    // createGoogleMap();
 });
 
 //-----------------------------------------------------------------
@@ -38,7 +38,7 @@ $('a[href*="#"]:not([href="#"], [href="#sitemap"])').click(function() {
 });
 
 //-----------------------------------------------------------------
-// SCROLL TO
+// SCROLL TOP
 //-----------------------------------------------------------------
 
 $('[data-back-top]').click(function() {

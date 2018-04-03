@@ -71,7 +71,7 @@ function launchCarousel() {
             // RETRIGGER CSS TRANSITIONS
             //==================================================
 
-            $flickity.on('select.flickity', function() {
+            $carousel.on('select.flickity', function() {
                 $captions.hide();
 
                 setTimeout(function(){
