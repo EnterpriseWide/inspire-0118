@@ -4,10 +4,10 @@
 <section class="global-footer-body">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
 
 				<!-- QUICK LINKS -->
-				<h4>Quick Links</h4>
+				<h4 class="mb-3">Quick Links</h4>
 				<ul class="list-unstyled">
 					<li><a href="">Standard Page</a></li>
 					<li><a href="">Blog</a></li>
@@ -16,22 +16,21 @@
 					<li><a href="">Contact</a></li>
 				</ul>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
 
 				<!-- CONTACT -->
-				<h4>Enterprise Wide</h4>
+				<h4 class="mb-3">Enterprise Wide</h4>
 				<p>
 					{{ settings.offices[0].title }}<br>
 					{{ settings.offices[0].address }}<br>
 					<a href="mailto:settings.offices[0].email">{{ settings.offices[0].email }}</a>
 				</p>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
 
 				<!-- SOCIAL MEDIA -->
-				<h4>Social Media</h4>
-				<p>Returning soon...</p>
-				<!-- { % include snippets/social_media.html %} -->
+				<h4 class="mb-3">Social Media</h4>
+				{% include snippets/social_media.html %}
 
 			</div>
 		</div>
