@@ -1,7 +1,7 @@
 /*
     FORMS.CSS
 
-    - updated: 02.01.18
+    - updated: 04.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -52,13 +52,18 @@ form[data-toggle="validator"] {
 
 	> i {
 		position: absolute;
-		top: rem-calc(24);
+		top: rem-calc(18);
+		left: -10px;
 		left: rem-calc(15);
 		line-height: 0;
 		color: rgba(black, 0.4);
+		z-index: 2;
 
+		+ .input-group input,
 		+ input {
+			position: relative;
 			padding-left: rem-calc(40);
+			z-index: 1;
 		}
 	}
 }
@@ -79,6 +84,11 @@ fieldset {
 // form label i {
 // 	// color: rgba(white, 0.5);
 // }
+
+.global-footer input,
+.global-footer button {
+	border: 0 !important;
+}
 
 //-----------------------------------------------------------------
 //
