@@ -2,17 +2,16 @@
 layout: base
 ---
 
-{% include {{ page.banner | default: 'components/banner__static.html' }} theme="theme-posh" %}
+{% include {{ page.hero | default: 'components/hero/hero_static.html' }} theme="theme-skyblue" align_caption=page.hero_caption_align options=page.hero_options %}
 
 {% if page.breadcrumbs %}
-	{% include snippets/breadcrumb.html %}
+	{% include components/navigation/breadcrumbs.html %}
 {% endif %}
 
 <!-- BODY -->
 <main class="main-body">
 	{{ content }}
 
-	{% include components/outro_cta.html theme="theme-silverfox" %}
-
-	{% contentblock content_additional no-convert %}
+	{% include components/affiliates.html %}
+	{% include components/outro.html %}
 </main>

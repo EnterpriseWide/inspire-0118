@@ -1,0 +1,69 @@
+/*
+    FLICKITY.CSS
+
+    - Last updated: 19.09.17
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// FLICKITY
+//-----------------------------------------------------------------
+
+.carousel-simple {
+    position: relative;
+
+    .w-50 {
+        width: calc(100%) !important;
+        margin-right: rem-calc(30) !important;
+
+        @include media-breakpoint-up(md) {
+            width: calc(70% - #{rem-calc(15)}) !important;
+        }
+
+        @include media-breakpoint-up(lg) {
+            width: calc(50% - #{rem-calc(15)}) !important;
+            animation: height-100 0 ease 0.3s alternate 1 forwards;
+        }
+    }
+
+    .flickity-viewport {
+        transition: height 300ms ease;
+    }
+
+    .flickity-prev-next-button.previous,
+    .flickity-prev-next-button.next {
+        position: absolute;
+        top: rem-calc(-40);
+        left: auto;
+        right: 0;
+        opacity: 0.4;
+        transition: opacity 150ms ease;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        .flickity-button-icon {
+            width: 45%;
+        }
+    }
+
+    .flickity-prev-next-button.previous {
+        right: rem-calc(35);
+    }
+}
+
+// allows for 100% after slider initialises
+@keyframes height-100 {
+    from {}
+    to { height: 100%; }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

@@ -82,7 +82,7 @@ $gray-900: #212529 !default;
 //   "gray-dark":  $gray-800
 // ), $colors);
 
-$primary:       #2981cb;
+$primary:       #2981cb !default;
 // $secondary:     $gray-600 !default;
 // $success:       $green !default;
 // $info:          $cyan !default;
@@ -252,7 +252,7 @@ body {
 // $caret-width:                 .3em !default;
 
 // $transition-base:             all .2s ease-in-out !default;
-// $transition-fade:             opacity .15s linear !default;
+$transition-fade:             opacity 500ms ease;//opacity .15s linear !default;
 // $transition-collapse:         height .35s ease !default;
 
 
@@ -261,7 +261,7 @@ body {
 // // Font, line-height, and color for body text, headings, and more.
 
 // // stylelint-disable value-keyword-case
-$font-family-sans-serif:      Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+// $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 // $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // $font-family-base:            $font-family-sans-serif !default;
 // // stylelint-enable value-keyword-case
@@ -272,7 +272,8 @@ $font-family-sans-serif:      Poppins, -apple-system, BlinkMacSystemFont, "Segoe
 
 // $font-weight-light:           300 !default;
 // $font-weight-normal:          400 !default;
-// $font-weight-bold:            700 !default;
+// $font-weight-semibold:        700 !default; // LV added
+// $font-weight-bold:            800 !default;
 
 // $font-weight-base:            $font-weight-normal !default;
 // $line-height-base:            1.5 !default;

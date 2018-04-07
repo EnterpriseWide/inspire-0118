@@ -12,9 +12,6 @@
         {% endif %}
     </title>
 
-    <!-- CDN -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,600i,700">
-
     {% comment %}
     <script src="https://unpkg.com/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
     {% endcomment %}
@@ -24,12 +21,12 @@
     <!-- endbuild -->
 </head>
 <body>
-    {% include snippets/loader.html %}
+    {% include components/loader.html %}
 
     <div class="lv-page">
 
         <!-- HEADER -->
-        <header class="global-header fixed-top theme-posh is-tintedX">
+        <header class="global-header theme-posh is-tintedX">
             {% include header.html %}
         </header>
 
@@ -44,11 +41,11 @@
 
     <!-- OFF-CANVAS MENU -->
     <nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
-        {% include snippets/navigation.html %}
+        {% include components/navigation/navigation.html %}
     </nav>
 
     <!-- SEARCH -->
-    {% include snippets/search.html %}
+    {% include components/forms/form_search.html %}
 
     <!--[if lte IE 9]>
     <div class="lv-alert-bar">
@@ -76,7 +73,7 @@
     <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->
 
-    <!-- { % include snippets/google_analytics.html %} -->
+    {% include components/widgets/google_analytics.html %}
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>

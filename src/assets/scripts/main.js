@@ -27,15 +27,15 @@ $(function () {
 // SCROLL TO
 //-----------------------------------------------------------------
 
-$('a[href*="#"]:not([href="#"], [href="#sitemap"])').click(function() {
-    var id = $(this).attr('href');
-    var endPos = $(id);
+// $('a[href*="#"]:not([href="#"], [href="#sitemap"])').click(function() {
+//     var id = $(this).attr('href');
+//     var endPos = $(id);
 
-    if (endPos.length) {
-        $.scrollTo(endPos.offset().top, 500);
-        return false;
-    }
-});
+//     if (endPos.length) {
+//         $.scrollTo(endPos.offset().top, 500);
+//         return false;
+//     }
+// });
 
 //-----------------------------------------------------------------
 // SCROLL TOP

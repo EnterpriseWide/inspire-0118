@@ -84,3 +84,13 @@
 //=========================================
 //
 //=========================================
+
+.btn-tab {
+    padding: rem-calc(8 15);
+    color: $body-color;
+
+    &.active {
+        background: $gray-200;
+        color: $body-color;
+    }
+}

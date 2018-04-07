@@ -1,7 +1,7 @@
 /*
     HERO.CSS
 
-    - updated: 29.01.18
+    - updated: 06.04.18
     - notes:
         * liquidvisual uses flickity for all carousels
 */
@@ -9,19 +9,23 @@
 // VARIABLES
 //-----------------------------------------------------------------
 
-$hero-sm-height:            rem-calc(400); // IMPORTANT: fixed height necessary for carousel
+$hero-sm-height:            rem-calc(540); // IMPORTANT: fixed height necessary for carousel
 $hero-md-height:            rem-calc(700);
 $hero-lg-height:            rem-calc(600);
 $hero-xl-height:            rem-calc(834);
 $hero-xxl-height:           rem-calc(834);
 
-$hero-sm-height-preset-1:   rem-calc(400); // Appears on product landing
-$hero-md-height-preset-1:   rem-calc(634);
-$hero-lg-height-preset-1:   rem-calc(634);
+$hero-sm-height-preset-2:   rem-calc(400); // Appears on product landing
+$hero-md-height-preset-2:   rem-calc(634);
+$hero-lg-height-preset-2:   rem-calc(634);
 
-$hero-sm-height-preset-2:   rem-calc(200); // Appears on product landing
-$hero-md-height-preset-2:   rem-calc(350);
-$hero-lg-height-preset-2:   rem-calc(350);
+$hero-sm-height-preset-3:   rem-calc(200); // Appears on product landing
+$hero-md-height-preset-3:   rem-calc(350);
+$hero-lg-height-preset-3:   rem-calc(350);
+
+$hero-sm-height-preset-4:   rem-calc(200); // Appears on product landing
+$hero-md-height-preset-4:   100vh;
+$hero-lg-height-preset-4:   100vh;
 
 //-----------------------------------------------------------------
 // HERO WRAPPER
@@ -56,17 +60,7 @@ $hero-lg-height-preset-2:   rem-calc(350);
     // HAS HEIGHT PRESET 1
     //=========================================
 
-    &.has-height-preset-1 {
-        height: $hero-sm-height-preset-1;
-
-        @include media-breakpoint-up(md) {
-            height: $hero-md-height-preset-1;
-        }
-
-        @include media-breakpoint-up(lg) {
-            height: $hero-lg-height-preset-1;
-        }
-    }
+    &.has-height-preset-1 {} // consistency
 
     //=========================================
     // HAS HEIGHT PRESET 2
@@ -81,6 +75,38 @@ $hero-lg-height-preset-2:   rem-calc(350);
 
         @include media-breakpoint-up(lg) {
             height: $hero-lg-height-preset-2;
+        }
+    }
+
+    //=========================================
+    // HAS HEIGHT PRESET 3
+    //=========================================
+
+    &.has-height-preset-3 {
+        height: $hero-sm-height-preset-3;
+
+        @include media-breakpoint-up(md) {
+            height: $hero-md-height-preset-3;
+        }
+
+        @include media-breakpoint-up(lg) {
+            height: $hero-lg-height-preset-3;
+        }
+    }
+
+    //=========================================
+    // HAS HEIGHT PRESET 4
+    //=========================================
+
+    &.has-height-preset-4 {
+        height: $hero-sm-height-preset-4;
+
+        @include media-breakpoint-up(md) {
+            height: $hero-md-height-preset-4;
+        }
+
+        @include media-breakpoint-up(lg) {
+            height: $hero-lg-height-preset-4;
         }
     }
 }
@@ -103,7 +129,7 @@ $hero-lg-height-preset-2:   rem-calc(350);
     // TINT OVERLAY
     //=========================================
 
-    &.has-tint:before {
+    &.is-tinted:before {
         content: "";
         position: absolute;
         top: 0;
@@ -111,6 +137,7 @@ $hero-lg-height-preset-2:   rem-calc(350);
         width: 100%;
         height: 100%;
         background: rgba(black, 0.26);
+        z-index: 1;
     }
 }
 
@@ -119,8 +146,10 @@ $hero-lg-height-preset-2:   rem-calc(350);
 //-----------------------------------------------------------------
 
 .lv-hero-item-caption {
-    padding: $spacer * 1.5;
+    // padding: $spacer * 1.5;
     color: white;
+    z-index: 1;
+    position: relative;
 }
 
 //-----------------------------------------------------------------
@@ -167,13 +196,18 @@ $hero-lg-height-preset-2:   rem-calc(350);
         cursor: pointer;
         font-family: "FontAwesome";
         font-size: rem-calc(50);
-        background: rgba(black, 0.2);
+        // background: rgba(black, 0.2);
         color: rgba(white, 0.8);
+        // text-shadow: 0 1px 4px rgba(black, 0.1);
         transition: background 300ms ease, color 300ms ease;
 
         &:hover {
-            background: rgba(black, 0.3);
+            background: rgba(black, 0.2);
             color: rgba(white, 0.9);
+
+            i {
+                transform: translateX(-3px);
+            }
         }
 
         &:active {
@@ -182,6 +216,8 @@ $hero-lg-height-preset-2:   rem-calc(350);
 
         i {
             padding-bottom: rem-calc(4);
+            transition: transform 400ms ease;
+            transform: translateX(0);
         }
     }
 
@@ -193,6 +229,12 @@ $hero-lg-height-preset-2:   rem-calc(350);
     .lv-hero-carousel-next-btn {
         right: 0; //$container-gutter/2;
         border-radius: $border-radius 0 0 $border-radius;
+
+        &:hover {
+            i {
+                transform: translateX(3px);
+            }
+        }
     }
 }
 

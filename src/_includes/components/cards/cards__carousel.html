@@ -1,0 +1,49 @@
+{% assign posts = site.data.lorem_ipsum %}
+
+<!-- CARDS CAROUSEL -->
+<section class="section section-cards-carousel {{ include.theme }}">
+	<div class="container">
+
+		<h2 class="mb-3">Cards Carousel Component</h2>
+
+		<!-- WYSIWYG -->
+		<div class="row">
+			<div class="col-md-8">
+				<div class="wysiwyg mb-4">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- CAROUSEL SIMPLE -->
+		<div class="carousel-simple"
+			data-flickity='
+	        {
+	            "adaptiveHeight": false,
+	            "autoPlay": false,
+	            "cellAlign": "left",
+	            "contain": true,
+	            "draggable": ">1",
+	            "dragThreshold": 40,
+	            "freeScroll": false,
+	            "freeScrollFriction": 0.075,
+	            "friction": 0.28,
+	            "imagesLoaded": true,
+	            "pageDots": false,
+	            "prevNextButtons": true,
+	            "pauseAutoPlayOnHover": false,
+	            "selectedAttraction": 0.025,
+	            "watchCSS": false,
+	            "wrapAround": true
+	        }'>
+			{% for item in posts | limit: 4 %}
+				<div class="w-50">
+					{% include components/cards/card.html %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<!--  adaptive height on mobile only -->

@@ -1,0 +1,31 @@
+{% assign posts = site.data.lorem_ipsum %}
+
+<!-- CARDS TABS -->
+<section class="section section-cards-tabs {{ include.theme }}">
+	<div class="container">
+
+		<h2 class="mb-3">Cards Tabs Component</h2>
+
+		<!-- TABS -->
+		<nav class="btn-tabs nav mb-4" role="tablist">
+			{% for i in (1..3) %}
+				<a href="#tab-group-{{i}}" class="btn-tab {% if forloop.first %} active {% endif %}" data-toggle="tab" role="tab">Tab Group {{i}}</a>
+			{% endfor %}
+		</nav>
+
+		<!-- TAB CONTENT -->
+		<div class="tab-content">
+			{% for i in (1..3) %}
+				<div id="tab-group-{{i}}" class="tab-pane fade {% if forloop.first %} active show {% endif %}" role="tabpanel">
+					<div class="row">
+						{% for item in posts | limit: 3 %}
+							<div class="col-md-6 col-lg-4 mb-4">
+								{% include components/cards/card.html %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>

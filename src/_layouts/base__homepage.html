@@ -2,18 +2,20 @@
 layout: base
 ---
 
-{% include components/banner__default.html theme="theme-skyblue" %}
+{% include components/hero/hero_default.html theme="theme-skyblue" align_caption="center" %}
 
 <!-- BODY -->
 <main class="main-body">
-	{% include components/blog_posts__latest.html %}
-	{% include components/section__text.html theme="theme-midnightX" %}
-	{% include components/blog_posts__featured.html %}
-	{% include components/blog_posts__featured.html theme="theme-midnight" %}
-	<!-- { % include components/section__text.html %} -->
-	<!-- { % include components/section__text.html theme="theme-posh" %} -->
-	{% include components/pods_section/pod_default.html columns="3" %}
-	{% include components/section__text_video_image.html theme="theme-posh" %}
-	{% include components/outro_cta.html theme="theme-midnight" %}
+
+	<!-- { % include components/text.html %} -->
+	<!-- { % include components/text__video_image.html %} -->
+
+	{% include components/cards/cards__carousel.html %}
+	{% include components/cards/cards__tabs.html %}
+	{% include components/cards/cards.html columns="3" %}
+
+
+	<!-- { % include components/affiliates.html %} -->
+	<!-- { % include components/outro.html %} -->
 </main>
 

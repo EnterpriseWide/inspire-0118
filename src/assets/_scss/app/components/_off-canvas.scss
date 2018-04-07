@@ -1,7 +1,7 @@
 /*
     OFF-CANVAS.CSS
 
-    - Last updated: 13.07.17
+    - Last updated: 06.04.18 (removed fixed top), 13.07.17
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -215,7 +215,7 @@ $hamburger-slit-height: 4px;
 		}
 	}
 
-	.fixed-top {
+	.global-header {
 		@include media-breakpoint-down(sm) { // on mobile only
 			opacity: 0;
 			// transform: translateY(-100%);
@@ -238,7 +238,7 @@ $hamburger-slit-height: 4px;
 //-----------------------------------------------------------------
 
 .has-closed-menu {
-	.fixed-top {
+	.global-header {
 		@include media-breakpoint-down(sm) { // on mobile only
 			opacity: 0;
 			// transform: translateY(-100%);

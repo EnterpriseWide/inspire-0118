@@ -21,7 +21,7 @@
 	 	$text-secondary: map-get($colors, 'text-secondary');
 
 	 	//-----------------------------------------------------------------
-	 	// TOP SECTIONS
+	 	// TOP SECTIONS - replace with wysiwyg
 	 	//-----------------------------------------------------------------
 
 	 	&.section {
@@ -43,7 +43,7 @@
 	 		// SHALLOW LINKS (no sub-component)
 	 		> .container > p > a {
 	 			color: $text-primary;
-	 			font-weight: bold;
+	 			// font-weight: 600;
 
 	 			&:hover {
 	 				color: lighten($text-secondary, 10%);
@@ -120,12 +120,14 @@
 		//-----------------------------------------------------------------
 
 		&.lv-hero-wrapper {
-			background-color: $primary;
-
 			h1, h2, h3, h4, h5, h6,
 			p {
 				color: $text-primary;
 			}
+		}
+
+		&.lv-hero-item {
+			background-color: $primary;
 		}
 
 		//-----------------------------------------------------------------
@@ -173,15 +175,23 @@
 		}
 
 		//-----------------------------------------------------------------
+		// PODS
+		//-----------------------------------------------------------------
+
+		&.section-pods {
+			background: $primary;
+		}
+
+		//-----------------------------------------------------------------
 		// OUTRO CTA
 		//-----------------------------------------------------------------
 
-		&.section-outro-cta {
-			background-color: $secondary;
+		&.section-outro {
+			background-color: $primary;
 
 			> .container {
-				h1, h2, h3, h4, h5, h6 {
-					color: $text-secondary;
+				h1, h2, h3, h4, h5, h6, p {
+					color: $text-primary;
 				}
 			}
 		}

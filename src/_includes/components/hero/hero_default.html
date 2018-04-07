@@ -1,0 +1,133 @@
+{% comment %}
+<!--
+    HERO DEFAULT
+
+    - Updated: 06.04.18
+    - Complete functionality incl. video, commonly used on homepages
+-->
+{% endcomment %}
+
+{% assign slides = site.data.carousel_slides %}
+{% assign arrow_entice = include.arrow_entice | default: true %}
+{% assign youtube_script_included_once = false %}
+{% assign align_caption = include.align_caption | default: 'center' %}
+{% assign hero_options = include.options %}
+
+<!-- HERO WRAPPER -->
+<section class="lv-hero-wrapper" data-carousel>
+
+    <!-- HERO -->
+    <div class="lv-hero {{ hero_options }}"
+        data-flickity='
+        {
+            "adaptiveHeight": true,
+            "autoPlay": false,
+            "cellAlign": "left",
+            "contain": true,
+            "draggable": ">1",
+            "dragThreshold": 40,
+            "freeScroll": false,
+            "freeScrollFriction": 0.075,
+            "friction": 0.28,
+            "imagesLoaded": true,
+            "pageDots": true,
+            "prevNextButtons": false,
+            "pauseAutoPlayOnHover": false,
+            "selectedAttraction": 0.025,
+            "watchCSS": false,
+            "wrapAround": true
+        }'>
+
+        <!-- HERO ITEMS -->
+        {% for item in slides %}
+            <div class="lv-hero-item {{ include.theme }} {{ item.options }}" style="background-image: url('{{ item.image }}')">
+
+                {% if item.youtube_id %}
+                    <iframe
+                        class="video"
+                        width="100%"
+                        height="390"
+                        frameborder="0"
+                        type="text/html"
+                        src="https://www.youtube.com/embed/{{item.youtube_id}}?controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1"
+                        style="pointer-events: false"
+                    ></iframe>
+
+                    {% unless youtube_script_included_once %}
+                        {% assign youtube_script_included_once = true  %}
+
+                        <script>
+                            // YOUTUBE PLAYER INSTANCE - loads async
+                            var tag = document.createElement('script');
+                                tag.src = "https://www.youtube.com/iframe_api";
+                            var firstScriptTag = document.getElementsByTagName('script')[0];
+                                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                            function onYouTubeIframeAPIReady() {
+                                document.querySelectorAll('.video').forEach((item) => {
+                                    new YT.Player(item, {
+                                        events: {
+                                            'onReady': (event) => {
+                                                event.target.playVideo();
+                                                event.target.mute();
+                                            }
+                                        }
+                                    })
+                                })
+                            }
+                        </script>
+                    {% endunless %}
+
+                {% endif %}
+
+                <div class="container">
+
+                    {% capture row_classes %}
+                        {% if align_caption == "center" %}
+                            justify-content-center text-center
+                        {% else %}
+                            justify-content-left text-left
+                        {% endif %}
+                    {% endcapture %}
+
+                    <div class="row {{ row_classes }}">
+                        <div class="col-xl-9">
+
+                            <!-- HERO CAPTION -->
+                            <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                <!-- HEADER -->
+                                <h1 class="display-1">{{ item.title }}</h1>
+
+                                <!-- BODY -->
+                                <p class="lead mb-4">{{ item.body | truncate: 200 }}</p>
+
+                                <!-- LINK (OPTIONAL) -->
+                                {% if item.url %}
+                                    <p><a href="{{ item.url }}" class="btn btn-outline-light">Read more</a></p>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% if arrow_entice %}
+                    <!-- DOWNWARDS ARROW -->
+                    <a class="lv-hero-arrow-scroll hidden-sm-down"><i class="fa fa-angle-down"></i></a>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+
+    </div> <!-- /.lv-hero -->
+
+    {% if slides.size > 1 %}
+        <!-- CAROUSEL CONTROLS -->
+        <div class="lv-hero-carousel-controls hidden-sm-down">
+            <span class="lv-hero-carousel-prev-btn"><i class="fa fa-angle-left"></i></span>
+            <span class="lv-hero-carousel-next-btn"><i class="fa fa-angle-right"></i></span>
+        </div>
+    {% endif %}
+
+</section> <!-- /.lv-hero-wrapper -->

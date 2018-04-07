@@ -1,7 +1,7 @@
 /*
     TYPE.CSS
 
-    - Last updated: 27.06.17
+    - Last updated: 06.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -32,17 +32,13 @@ a {
 
 // p, ul, ol, td {
 //     @include media-breakpoint-up(lg) {
-//         font-size: rem-calc(18);
+//         font-size: rem-calc(16);
 //     }
 // }
 
 //-----------------------------------------------------------------
-// HEADINGS
+// LEAD
 //-----------------------------------------------------------------
-
-.subheader {
-	// font-weight: 400;
-}
 
 .lead {
     @include media-breakpoint-down(sm) {
@@ -65,8 +61,8 @@ a {
 
 @include media-breakpoint-down(sm) {
 	.display-1 { font-size: calc(#{$display1-size} - 200%); }
-    // .display-2 { font-size: calc(#{$display1-size} - 100%) !important; }
-    // .display-3 { font-size: calc(#{$display1-size} - 100%) !important; }
+    // .display-2 { font-size: calc(#{$display2-size} - 50%); }
+    // .display-3 { font-size: calc(#{$display3-size} - 100%) !important; }
     // .display-4 { font-size: calc(#{$display1-size} - 100%) !important; }
 }
 
