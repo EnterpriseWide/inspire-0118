@@ -1,4 +1,5 @@
 {% assign settings = site.data.settings %}
+{% assign sitemap = site.data.sitemap %}
 
 <!-- FOOTER BODY -->
 <section class="global-footer-body">
@@ -9,17 +10,15 @@
 				<!-- QUICK LINKS -->
 				<h4 class="mb-3">Quick Links</h4>
 				<ul class="list-unstyled">
-					<li><a href="">Standard Page</a></li>
-					<li><a href="">Blog</a></li>
-					<li><a href="">Enterprise Wide</a></li>
-					<li><a href="">Advanced Page</a></li>
-					<li><a href="">Contact</a></li>
+					{% for item in sitemap %}
+						<li><a href="{{ item.url }}">{{ item.title }}</a></li>
+					{% endfor %}
 				</ul>
 			</div>
 			<div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
 
 				<!-- CONTACT -->
-				<h4 class="mb-3">Enterprise Wide</h4>
+				<h4 class="mb-3">{{ settings.company }}</h4>
 				<p>
 					{{ settings.offices[0].title }}<br>
 					{{ settings.offices[0].address }}<br>
@@ -49,13 +48,16 @@
 
     	<!-- BACK TO TOP -->
     	<div class="text-center text-md-right">
-    		<button data-back-top class="back-to-top">
-    			<span class="text">TOP</span>&nbsp; <i class="fa fa-arrow-circle-up"></i>
+    		<button data-back-top class="btn-back-top">
+    			<div class="m-auto">
+    				<i class="fa fa-angle-up"></i>
+    				<span class="text">TOP</span>
+    			</div>
     		</button>
     	</div>
 
 		<div class="row">
-			<div class="col-md-9 text-center text-md-left">
+			<div class="col-md-7 col-lg-9 text-center text-md-left">
 
 				<!-- COPYRIGHT + SITEMAP -->
 				<small class="mr-2 d-block d-md-inline">
@@ -66,10 +68,10 @@
 				<!-- OPTIONAL LINKS -->
 				<small class="mr-2"><a href="#">Link One</a></small>
 				<small class="mr-2"><a href="#">Link Two</a></small>
-				<small class="mr-2"><a href="#">Link Three</a></small>
+				<small class="mr-2"><a href="/kitchen-sink/">Link Three</a></small>
 
 			</div>
-			<div class="col-md-3 text-center text-md-right">
+			<div class="col-md-5 col-lg-3 text-center text-md-right">
 
 				<!-- AUTHOR -->
 				<small>
@@ -81,7 +83,6 @@
 
 			</div>
 		</div>
-
     </div>
 </section>
 

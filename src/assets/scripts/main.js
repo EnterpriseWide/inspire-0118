@@ -1,5 +1,5 @@
 /*
-    MAIN.JS - Last updated: 03.04.18
+    MAIN.JS - Last updated: 11.04.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -10,9 +10,6 @@
 
 $(window).on('load', function() {
     $('html').addClass('has-loaded');
-    // lightbox();
-    // renderIframes();
-    // createGoogleMap();
 });
 
 //-----------------------------------------------------------------
@@ -25,17 +22,18 @@ $(function () {
 
 //-----------------------------------------------------------------
 // SCROLL TO
+// Exclude empty links, sitemap and tabs
 //-----------------------------------------------------------------
 
-// $('a[href*="#"]:not([href="#"], [href="#sitemap"])').click(function() {
-//     var id = $(this).attr('href');
-//     var endPos = $(id);
+$('a[href*="#"]:not([href="#"], [href="#sitemap"], [data-toggle="tab"])').click(function() {
+    var id = $(this).attr('href');
+    var endPos = $(id);
 
-//     if (endPos.length) {
-//         $.scrollTo(endPos.offset().top, 500);
-//         return false;
-//     }
-// });
+    if (endPos.length) {
+        $.scrollTo(endPos.offset().top, 500);
+        return false;
+    }
+});
 
 //-----------------------------------------------------------------
 // SCROLL TOP

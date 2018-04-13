@@ -3,7 +3,6 @@ layout: base__homepage
 title: Home
 permalink: /
 regenerate: true
-theme: theme-home
 ---
 
 # H1. This Is a Header One

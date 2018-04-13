@@ -1,29 +1,30 @@
 {% comment %}
 <!--
-    Updated: 10.05.17
-    Basic output:
+    BREADCRUMBS
 
-        <nav class="breadcrumb">
-            <a class="breadcrumb-item" href="#">Home</a>
-            <a class="breadcrumb-item" href="#">Library</a>
-            <a class="breadcrumb-item" href="#">Data</a>
-            <span class="breadcrumb-item active">Bootstrap</span>
-        </nav>
+    updated: 11.04.18
+    liquidvisual.com
 -->
 {% endcomment %}
 
 {% assign crumbs = page.url | split: '/' %}
 
-<!-- BREADCRUMB -->
-<nav class="breadcrumb mb-0">
+<!-- BREADCRUMBS -->
+<section class="lv-breadcrumb-wrapper {{ include.theme }}">
     <div class="container">
-        <a class="breadcrumb-item" href="/">Home</a>
-        {% for item in crumbs offset: 1 %}
-            {% if forloop.last %}
-                <span class="breadcrumb-item">{{ item | replace:'-',' ' | capitalize }}</span>
-            {% else %}
-                <a class="breadcrumb-item" href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for item in crumbs limit: crumb_limit %}{{ item | append: '/' }}{% endfor %}">{{ item | replace:'-',' ' | capitalize }}</a>
-            {% endif %}
-        {% endfor %}
+        <nav class="breadcrumb px-0">
+
+            <!-- CRUMBS -->
+            {% for crumb in crumbs offset: 1 %}
+                {% unless forloop.last %}
+                    <a class="breadcrumb-item"
+                        href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">
+                        <i class="fa fa-arrow-circle-left"></i>&nbsp;
+                        <span class="hidden-sm-down">Back to</span> {{ crumb | replace:'-',' ' }}
+                    </a>
+                {% endunless %}
+            {% endfor %}
+
+        </nav>
     </div>
-</nav>
+</section>

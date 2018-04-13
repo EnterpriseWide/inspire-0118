@@ -1,59 +1,39 @@
 {% assign posts = site.data.lorem_ipsum %}
-{% assign cols = include.columns | default: 3 %}
+{% assign columns = include.columns | default: 3 %}
+
+{% capture column_classes %}
+	{% if columns > 2 %}
+		col-md-6 col-lg-4
+	{% else %}
+		col-md-6 col-lg-6
+	{% endif %}
+{% endcapture %}
 
 <!-- CARDS -->
-<section class="section section-cards {{ include.theme }}">
+<section id="{{ include.id }}" class="section {{ include.theme }}">
 	<div class="container">
 
 		<h2>Cards Component</h2>
 
-		<!-- WYSIWYG -->
+		<!-- WYSIWYG #1 -->
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-11 col-lg-10">
 				<div class="wysiwyg mb-4">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
+					tempor incididunt ut labore et dolore magna aliqua lorem ipsum.</p>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
-			{% for item in posts | limit: 3 %}
-				<div class="col-md-6 col-lg-4 mb-4">
-
-					<!-- CARD -->
-					<div class="card h-100" style="border: 0;">
-
-						<!-- IMAGE -->
-						<a class="btn-tile" href="{{ item.url }}">
-							<img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="{{ item.title }}">
-							<span class="btn-tile-bg" style="background-image: url({{ item.image }})"></span>
-						</a>
-
-						<!-- CARD BODY -->
-						<div class="card-body px-0 d-flex flex-column">
-
-							<!-- TITLE -->
-							<a class="text-dark" href="{{ item.url }}">
-								<h3 class="card-title">{{ item.title }}</h3>
-							</a>
-
-							<!-- TEXT -->
-							<p class="card-text">{{ item.body | truncate: 150 }}</p>
-
-							<!-- BUTTON -->
-							<p class="mt-auto">
-								<a href="{{ item.url }}" class="btn btn-primary">Read more</a>
-							</p>
-
-						</div>
-					</div>
-
+			{% for item in posts | limit: columns | offset: 5 %}
+				<div class="{{ column_classes }} mb-4">
+					{% include components/cards/card.html %}
 				</div>
 			{% endfor %}
 		</div>
 
-		<!-- WYSIWYG -->
+		<!-- WYSIWYG #2 -->
 		<div class="row">
 			<div class="col-md-8">
 				<div class="wysiwyg mb-4">

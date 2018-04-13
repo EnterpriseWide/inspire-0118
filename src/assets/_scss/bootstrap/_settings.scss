@@ -30,9 +30,9 @@
 
 // // stylelint-disable
 $white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
+$gray-100: #f7f7f9; //#f8f9fa !default;
+$gray-200: #eceeef; //#e9ecef !default;
+$gray-300: #818a91; //#dee2e6 !default;
 // $gray-400: #ced4da !default;
 // $gray-500: #adb5bd !default;
 // $gray-600: #6c757d !default;
@@ -188,7 +188,7 @@ $container-gutter: 30px; // [LOCKED] - lv added
 
 $grid-breakpoints: (
   xs: 0,
-  sm: 576px,
+  sm: 375px, // [LOCKED] - near iPhone 6+ (was 576px)
   md: 768px,
   lg: 992px,
   xl: 1200px + $container-gutter*2
@@ -203,8 +203,8 @@ $grid-breakpoints: (
 // // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
+  sm: 540px, // [LOCKED]
+  md: 768px, // 768 ?
   lg: 960px,
   xl: 1200px + $container-gutter*2
 ) !default;
@@ -298,7 +298,7 @@ $transition-fade:             opacity 500ms ease;//opacity .15s linear !default;
 // $headings-line-height:        1.2 !default;
 // $headings-color:              inherit !default;
 
-$display1-size:               rem-calc(70); //6rem !default;
+$display1-size:               rem-calc(64); //6rem !default;
 // $display2-size:               5.5rem !default;
 // $display3-size:               4.5rem !default;
 // $display4-size:               3.5rem !default;
@@ -707,7 +707,7 @@ $dropdown-box-shadow:               0 1px 3px rgba(0,0,0,0.2); //0 .5rem 1rem rg
 
 // $card-spacer-y:                     .75rem !default;
 // $card-spacer-x:                     1.25rem !default;
-// $card-border-width:                 $border-width !default;
+$card-border-width:                 0; //$border-width !default;
 $card-border-radius:                0; //$border-radius !default;
 // $card-border-color:                 rgba($black, .125) !default;
 $card-inner-border-radius:          0; //calc(#{$card-border-radius} - #{$card-border-width}) !default;
@@ -889,7 +889,7 @@ $card-inner-border-radius:          0; //calc(#{$card-border-radius} - #{$card-b
 
 // $breadcrumb-margin-bottom:          1rem !default;
 
-$breadcrumb-bg:                     darken($gray-100, 2%) !default;
+$breadcrumb-bg:                     none; //darken($gray-100, 2%) !default;
 // $breadcrumb-divider-color:          $gray-600 !default;
 // $breadcrumb-active-color:           $gray-600 !default;
 // $breadcrumb-divider:                "/" !default;

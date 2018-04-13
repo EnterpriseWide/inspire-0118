@@ -2,7 +2,7 @@
 /*
     MAIN.CSS
 
-    - Last updated: 06.04.18
+    - Last updated: 11.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -60,30 +60,35 @@ $display4-weight:      300;
 
 // THEMES START
 $themes: (
+  'base': (
+    'primary': white,
+    'secondary': #f7f7f9,
+    'text-primary': #212529,
+    'text-secondary': $primary
+  ),
   'skyblue': (
     'primary': $primary,
-    'secondary': #38c3e5,
+    'secondary': red,
     'text-primary': white,
-    'text-secondary': $gray-900,
-    // 'link-color': orange,
+    'text-secondary': #212529
   ),
   'posh': (
     'primary': #a05cc0,
     'secondary': a05cc0,
-    'text-primary': black,
-    'text-secondary': $gray-900
+    'text-primary': white,
+    'text-secondary': #212529
   ),
   'silverfox': (
-    'primary': $gray-300,
-    'secondary': $gray-200,
-    'text-primary': blue,
-    'text-secondary': $gray-900
+    'primary': #eceeef,
+    'secondary': #e9ecef,
+    'text-primary': #212529,
+    'text-secondary': $primary
   ),
   'midnight': (
     'primary': #222,
     'secondary': white,
     'text-primary': white,
-    'text-secondary': $gray-900
+    'text-secondary': $primary
   )
   //# THEMES PLACEHOLDER #//
 );

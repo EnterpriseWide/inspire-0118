@@ -21,20 +21,20 @@
     <!-- endbuild -->
 </head>
 <body>
-    {% include components/loader.html %}
+    {% include components/layout/loader.html %}
 
     <div class="lv-page">
 
         <!-- HEADER -->
-        <header class="global-header theme-posh is-tintedX">
-            {% include header.html %}
+        <header class="global-header is-tintedX">
+            {% include components/layout/header.html %}
         </header>
 
         {{ content }}
 
         <!-- FOOTER -->
-        <footer class="global-footer theme-skyblue">
-            {% include footer.html %}
+        <footer class="global-footer">
+            {% include components/layout/footer.html %}
         </footer>
 
     </div> <!-- /.lv-page -->
@@ -67,13 +67,15 @@
     <script src="/assets/scripts/liquidvisual/utilities.js"></script>
     <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
     <script src="/assets/scripts/vendor/headroom.js"></script>
-    <script src="/assets/scripts/carousel.js"></script>
+    <script src="/assets/scripts/card-slider.js"></script>
+    <script src="/assets/scripts/gallery.js"></script>
+    <script src="/assets/scripts/hero-slider.js"></script>
     <script src="/assets/scripts/search.js"></script>
     <script src="/assets/scripts/off-canvas.js"></script>
     <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->
 
-    {% include components/widgets/google_analytics.html %}
+    <!-- { % include components/widgets/google_analytics.html %} -->
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>

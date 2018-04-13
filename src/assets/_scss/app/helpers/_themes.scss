@@ -1,7 +1,7 @@
 /*
     THEMES.CSS
 
-    - updated: 19.03.18
+    - updated: 11.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -19,6 +19,10 @@
 	 	$secondary: map-get($colors, 'secondary');
 	 	$text-primary: map-get($colors, 'text-primary');
 	 	$text-secondary: map-get($colors, 'text-secondary');
+
+	 	&.btn {
+	 		background-color: $primary;
+	 	}
 
 	 	//-----------------------------------------------------------------
 	 	// TOP SECTIONS - replace with wysiwyg
@@ -39,15 +43,23 @@
 	 		> .container > ol, {
 	 			color: $text-primary;
 	 		}
+	 	}
 
-	 		// SHALLOW LINKS (no sub-component)
-	 		> .container > p > a {
-	 			color: $text-primary;
-	 			// font-weight: 600;
+	 	//-----------------------------------------------------------------
+	 	// WYSIWYG
+	 	//-----------------------------------------------------------------
 
-	 			&:hover {
-	 				color: lighten($text-secondary, 10%);
-	 			}
+	 	.wysiwyg {
+	 		color: $text-primary;
+
+	 		a, button {
+	 			color: $text-secondary;
+	 		}
+
+	 		button, .btn {
+				background-color: $text-primary;
+				border: 0; // move this elsewhere
+				color: $primary;
 	 		}
 	 	}
 
@@ -69,30 +81,16 @@
 			background: transparent;
 		}
 
-		// adhoc logo for demo
-		&.global-header .logo .logo-dark {
-			display: none;
-		}
-
-		// adhoc logo for demo
-		&.global-header .logo .logo-light {
-			display: block;
-		}
-
 		// top bar is tinted dark
-		&.global-header .global-header-top {
-			background: rgba(black, 0.2);
-
-			a {
-				color: white; // // [THEMEABLE]
-			}
+		&.global-header .global-header-top a {
+			color: $text-primary;
 		}
 
 		&.global-header {
 			.lv-hamburger-top,
 			.lv-hamburger-middle,
 			.lv-hamburger-bottom {
-				background: white;
+				background: $text-primary;
 			}
 		}
 
@@ -102,12 +100,12 @@
 
 		// everything is white
 		.lv-topbar .top-parent-anchor {
-		    color: white;
+			color: $text-primary;
 		}
 
 		// active text underline is white
 		.lv-topbar .active .top-parent-anchor .text {
-		    border-color: white;
+		    border-color: $text-primary;
 		}
 
 		// anchor hover is darker
@@ -116,18 +114,27 @@
 		}
 
 		//-----------------------------------------------------------------
-		// BANNER
+		// HERO
 		//-----------------------------------------------------------------
-
-		&.lv-hero-wrapper {
-			h1, h2, h3, h4, h5, h6,
-			p {
-				color: $text-primary;
-			}
-		}
 
 		&.lv-hero-item {
 			background-color: $primary;
+
+			.lv-hero-item-caption {
+			    color: $text-primary;
+			}
+		}
+
+		//-----------------------------------------------------------------
+		// HERO
+		//-----------------------------------------------------------------
+
+		&.lv-breadcrumb-wrapper {
+			background-color: lighten($primary, 4%);
+
+			a {
+			    color: $text-primary;
+			}
 		}
 
 		//-----------------------------------------------------------------
@@ -138,16 +145,6 @@
 			.global-footer-body,
 			.global-footer-bottom {
 				background: $primary;
-			}
-
-			button {
-				// background: darken($primary, 10%);
-				background: rgba(black, 0.2); // same as scrolltop
-				color: white;
-
-				&:hover {
-					background: rgba(black, 0.3); // same as scrolltop
-				}
 			}
 
 			h1, h2, h3, h4, h5, h6,
@@ -165,34 +162,35 @@
 		}
 
 		//-----------------------------------------------------------------
-		// SECTION FEATURED BLOG POSTS
+		// BTN TABS
 		//-----------------------------------------------------------------
 
-		&.section-featured-blog-posts {
-			.card {
-				border: 0;
+		.btn-tab {
+		    color: $text-primary;
+
+		    &.active {
+		        background: darken($primary, 5%);
+		        // color: $text-primary;
+		    }
+		}
+
+		//-----------------------------------------------------------------
+		// CARDS
+		//-----------------------------------------------------------------
+
+		.card-slider {
+			.flickity-button {
+				opacity: 1;
+			}
+
+			.flickity-button-icon {
+				fill: $text-primary;
 			}
 		}
 
-		//-----------------------------------------------------------------
-		// PODS
-		//-----------------------------------------------------------------
-
-		&.section-pods {
-			background: $primary;
-		}
-
-		//-----------------------------------------------------------------
-		// OUTRO CTA
-		//-----------------------------------------------------------------
-
-		&.section-outro {
-			background-color: $primary;
-
-			> .container {
-				h1, h2, h3, h4, h5, h6, p {
-					color: $text-primary;
-				}
+		.card {
+			.card-body {
+				padding: $card-spacer-x;
 			}
 		}
 	}

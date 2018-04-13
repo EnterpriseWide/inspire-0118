@@ -2,7 +2,7 @@
 <!--
     HERO DEFAULT
 
-    - Updated: 06.04.18
+    - Updated: 10.04.18
     - Complete functionality incl. video, commonly used on homepages
 -->
 {% endcomment %}
@@ -11,10 +11,10 @@
 {% assign arrow_entice = include.arrow_entice | default: true %}
 {% assign youtube_script_included_once = false %}
 {% assign align_caption = include.align_caption | default: 'center' %}
-{% assign hero_options = include.options %}
+{% assign hero_options = include.options | default: 'has-height-preset-1' %}
 
 <!-- HERO WRAPPER -->
-<section class="lv-hero-wrapper" data-carousel>
+<section id="{{ include.id }}" class="lv-hero-wrapper" data-hero-slider>
 
     <!-- HERO -->
     <div class="lv-hero {{ hero_options }}"
@@ -29,6 +29,7 @@
             "freeScroll": false,
             "freeScrollFriction": 0.075,
             "friction": 0.28,
+            "groupCells": false,
             "imagesLoaded": true,
             "pageDots": true,
             "prevNextButtons": false,
@@ -91,7 +92,7 @@
                     {% endcapture %}
 
                     <div class="row {{ row_classes }}">
-                        <div class="col-xl-9">
+                        <div class="col-md-10 col-xl-9">
 
                             <!-- HERO CAPTION -->
                             <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
@@ -100,7 +101,7 @@
                                 <h1 class="display-1">{{ item.title }}</h1>
 
                                 <!-- BODY -->
-                                <p class="lead mb-4">{{ item.body | truncate: 200 }}</p>
+                                <p class="lead mb-4">{{ item.body }}</p>
 
                                 <!-- LINK (OPTIONAL) -->
                                 {% if item.url %}
@@ -114,7 +115,7 @@
 
                 {% if arrow_entice %}
                     <!-- DOWNWARDS ARROW -->
-                    <a class="lv-hero-arrow-scroll hidden-sm-down"><i class="fa fa-angle-down"></i></a>
+                    <a class="lv-hero-arrow-scroll hidden-lg-down"><i class="fa fa-angle-down"></i></a>
                 {% endif %}
 
             </div>
@@ -123,10 +124,10 @@
     </div> <!-- /.lv-hero -->
 
     {% if slides.size > 1 %}
-        <!-- CAROUSEL CONTROLS -->
-        <div class="lv-hero-carousel-controls hidden-sm-down">
-            <span class="lv-hero-carousel-prev-btn"><i class="fa fa-angle-left"></i></span>
-            <span class="lv-hero-carousel-next-btn"><i class="fa fa-angle-right"></i></span>
+        <!-- SLIDER CONTROLS -->
+        <div class="lv-hero-slider-controls hidden-sm-down">
+            <span class="lv-hero-slider-prev-btn"><i class="fa fa-angle-left"></i></span>
+            <span class="lv-hero-slider-next-btn"><i class="fa fa-angle-right"></i></span>
         </div>
     {% endif %}
 

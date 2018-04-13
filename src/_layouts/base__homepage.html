@@ -2,20 +2,13 @@
 layout: base
 ---
 
-{% include components/hero/hero_default.html theme="theme-skyblue" align_caption="center" %}
+{% include components/hero/hero.html align_caption="center" %}
 
 <!-- BODY -->
 <main class="main-body">
-
-	<!-- { % include components/text.html %} -->
-	<!-- { % include components/text__video_image.html %} -->
-
-	{% include components/cards/cards__carousel.html %}
-	{% include components/cards/cards__tabs.html %}
-	{% include components/cards/cards.html columns="3" %}
-
-
-	<!-- { % include components/affiliates.html %} -->
-	<!-- { % include components/outro.html %} -->
+	{% include components/cards/cards.html columns=3 flat=true %}
+	{% include components/cards/cards__tabs.html columns=3 flat=false %}
+	{% include components/cards/cards__slider.html columns=3 flat=false %}
+	{% include components/cards/cards__slider.html columns=2 flat=false %}
 </main>
 

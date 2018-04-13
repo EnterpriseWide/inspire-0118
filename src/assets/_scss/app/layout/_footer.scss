@@ -1,7 +1,7 @@
 /*
     FOOTER.CSS
 
-    - Last updated: 27.06.17
+    - Last updated: 11.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -11,13 +11,43 @@
 // FOOTER
 //-----------------------------------------------------------------
 
-.global-footer-body {
-	padding: $spacer*2.5 0 $spacer 0;
-	background: $gray-200; // [THEMEABLE]
-	color: $body-color; // [THEMEABLE]
+.global-footer {
+	color: white;
 
-	@include media-breakpoint-up(md) {
-	    padding: $spacer*2.5 0;
+	a {
+		color: white; // [THEMEABLE]
+
+		&:hover {
+			opacity: 0.85;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// FOOTER BODY
+//-----------------------------------------------------------------
+
+.global-footer-body,
+.global-footer-sitemap {
+	background: $primary; // [THEMEABLE]
+
+	> .container { // [LOCKED] - consistent with sitemap
+		padding-top: $spacer*2.5;
+		padding-bottom: $spacer;
+
+		@include media-breakpoint-up(md) {
+		    padding-top: $spacer*2.5;
+		    padding-bottom: $spacer*2.5;
+		}
+	}
+
+	button { // form button
+		background: rgba(black, 0.2); // [THEMEABLE]
+		color: white; // [THEMEABLE]
+
+		&:hover {
+			background: rgba(black, 0.3); // same as scrolltop
+		}
 	}
 }
 
@@ -27,38 +57,30 @@
 
 .global-footer-bottom {
 	padding: $spacer/2 0;
-	background: $gray-200; // [THEMEABLE] darken($gray-200, 5%);
-	color: $body-color; // [THEMEABLE]
+	background: $primary; // [THEMEABLE]
+	font-size: rem-calc(15);
 
 	a {
 		display: inline-flex;
 		align-items: center;
-		color: $body-color; // [THEMEABLE]
 
 		.fa-angle-up,
 		.fa-angle-down {
-			font-size: rem-calc(25);
+			font-size: rem-calc(20);
 			transition: transform 400ms ease;
 
-			&.is-active {
+			&.is-active { // arrow on sitemap
 				transform: rotate(180deg);
 			}
 		}
 	}
 
-	small {
-		font-size: rem-calc(12);
-	}
-
 	.author-logo {
-		display: inline-block;
-		// color: rgba(white, 0.9);
-		color: $body-color; // [THEMEABLE]
-		// font-size: rem-calc(11);
+		display: inline-block; // [LOCKED] - aligns icon
 	}
 
 	//=========================================
-	// BLEED TO BOTTOM
+	// BLEED TO BOTTOM [LOCKED]
 	//=========================================
 
 	&:after {
@@ -73,61 +95,11 @@
 }
 
 //-----------------------------------------------------------------
-// BACK TO TOP
-// shares similarity with carousel buttons
-//-----------------------------------------------------------------
-
-.global-footer-bottom {
-
-	.back-to-top {
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-		padding: rem-calc(5 10);
-		border: 0;
-		margin: rem-calc(-20 0 10 0);
-		border-radius: $border-radius;
-		background: rgba(black, 0.2);
-		transition: all 200ms ease;
-		cursor: pointer;
-
-		.text,
-		i {
-			margin: auto 0;
-			color: rgba(white, 0.7);
-		}
-
-		&:hover {
-			background: rgba(black, 0.3);
-			transform: scale(0.9);
-		}
-	}
-}
-
-//-----------------------------------------------------------------
 // FOOTER SITEMAP (OPTIONAL)
 //-----------------------------------------------------------------
 
 .global-footer-sitemap {
-	background: darken($gray-200, 5%); // [THEMEABLE]
-
-	> .container {
-		padding-top: $spacer*2;
-		padding-bottom: $spacer*2;
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		color: $body-color; // [THEMEABLE]
-	}
-
-	a {
-		color: $body-color; // [THEMEABLE] rgba(white, 0.5);
-
-		&:hover {
-			opacity: 0.6;
-			// color: white;
-		}
-	}
+	background: darken($primary, 4%); // [THEMEABLE]
 }
 
 //=========================================

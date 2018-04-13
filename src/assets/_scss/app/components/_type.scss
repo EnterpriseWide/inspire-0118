@@ -1,7 +1,7 @@
 /*
     TYPE.CSS
 
-    - Last updated: 06.04.18
+    - Last updated: 10.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -12,37 +12,35 @@
 //--------------------------------------------------------------------
 
 html {
-  // @include media-breakpoint-up(xs) { font-size: rem-calc(14); }
-  // @include media-breakpoint-up(md) { font-size: rem-calc(16); }
+    @include media-breakpoint-down(lg) { font-size: rem-calc(14); }
 }
 
 //-----------------------------------------------------------------
 // ANCHORS
 //-----------------------------------------------------------------
 
-a {
-	transition: color 150ms ease,
-                background 150ms ease,
-                opacity 150ms ease;
+a, button {
+    font-weight: $font-weight-semibold;
+    transition: color 150ms ease, background-color 150ms ease, opacity 150ms ease;
+    word-break: break-word; // handles long links in safari
+    outline: none !important;
 }
 
 //-----------------------------------------------------------------
 // PARAGRAPHS
 //-----------------------------------------------------------------
 
-// p, ul, ol, td {
-//     @include media-breakpoint-up(lg) {
-//         font-size: rem-calc(16);
-//     }
-// }
+p, ul, ol, td {
+    // font-size: rem-calc(16);
+}
 
 //-----------------------------------------------------------------
 // LEAD
 //-----------------------------------------------------------------
 
-.lead {
+p.lead {
     @include media-breakpoint-down(sm) {
-        font-size: rem-calc(17);
+        font-size: rem-calc(17); // [LOCKED] - curated
     }
 }
 
@@ -50,20 +48,30 @@ a {
 // HEADINGS MOBILE
 //-----------------------------------------------------------------
 
-// @include media-breakpoint-down(sm) {
-    // h1, .h1 { font-size: calc(#{$font-size-h1} - 60%); }
-    // h2, .h2 { font-size: calc(#{$font-size-h2} - 40%); }
-    // h3, .h3 { font-size: calc(#{$font-size-h3} - 30%); }
-    // h4, .h4 { font-size: calc(#{$font-size-h4} - 20%); }
-    // h5, .h5 { font-size: calc(#{$font-size-h5} - 10%); }
-    // h6, .h6 { font-size: calc(#{$font-size-h6} - 10%); }
-// }
+@include media-breakpoint-down(sm) {
+    h1, .h1 { font-size: calc(#{$h1-font-size} - 64%); }
+    h2, .h2 { font-size: calc(#{$h2-font-size} - 40%); }
+    h3, .h3 { font-size: calc(#{$h3-font-size} - 20%); }
+    h4, .h4 { font-size: calc(#{$h4-font-size} - 24%); }
+    h5, .h5 { font-size: calc(#{$h5-font-size} - 15%); }
+    // h6, .h6 { font-size: calc(#{$h6-font-size} - 2%); }
+}
 
 @include media-breakpoint-down(sm) {
-	.display-1 { font-size: calc(#{$display1-size} - 200%); }
-    // .display-2 { font-size: calc(#{$display2-size} - 50%); }
-    // .display-3 { font-size: calc(#{$display3-size} - 100%) !important; }
+    .display-1 { font-size: $h1-font-size; }
+    // .display-1 { font-size: calc(#{$display1-size} - 100%); }
+    // .display-2 { font-size: calc(#{$display1-size} - 100%) !important; }
+    // .display-3 { font-size: calc(#{$display1-size} - 100%) !important; }
     // .display-4 { font-size: calc(#{$display1-size} - 100%) !important; }
+}
+
+//-----------------------------------------------------------------
+// UTILITIES
+//-----------------------------------------------------------------
+
+.spacer {
+    width: 1px;
+    height: 1px;
 }
 
 //-----------------------------------------------------------------

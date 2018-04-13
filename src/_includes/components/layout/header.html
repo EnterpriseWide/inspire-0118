@@ -1,6 +1,5 @@
 {% assign settings = site.data.settings %}
-{% assign logo_light = page.logo | default: "/assets/img/content/inspire-logo--light.svg" %}
-{% assign logo_dark = page.logo | default: "/assets/img/content/inspire-logo@2x--dark.png" %}
+{% assign logo = page.logo | default: "/assets/img/content/inspire-logo--light.svg" %}
 
 <!-- HEADER TOP -->
 <div class="global-header-top hidden-lg-down">
@@ -57,8 +56,7 @@
 
         <!-- LOGO -->
         <a class="logo" href="/" title="{{ settings.title_homepage }}" itemprop="url">
-            <img class="logo-light" src="{{ logo_light }}" alt="{{ settings.company }}" itemprop="logo">
-            <img class="logo-dark" src="{{ logo_dark }}" alt="{{ settings.company }}" itemprop="logo">
+            <img src="{{ logo }}" alt="{{ settings.company }}" itemprop="logo">
         </a>
 
         <!-- HAMBURGER -->

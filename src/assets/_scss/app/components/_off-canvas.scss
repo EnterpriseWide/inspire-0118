@@ -1,7 +1,7 @@
 /*
     OFF-CANVAS.CSS
 
-    - Last updated: 06.04.18 (removed fixed top), 13.07.17
+    - Last updated: 10.04.18 (removed fixed top), 13.07.17
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -12,9 +12,9 @@ $body-bg: white !default;
 $menu-bg-color: #111;
 $menu-width-xs: 260px;
 $menu-width-md: 350px;
-$hamburger-width: 28px;
+$hamburger-width: 26px;
 $hamburger-height: $hamburger-width - $hamburger-width/5;
-$hamburger-slit-height: 4px;
+$hamburger-slit-height: 3px;
 
 //-----------------------------------------------------------------
 // LV PAGE
@@ -262,17 +262,9 @@ $hamburger-slit-height: 4px;
 
 .lv-hamburger {
 	position: relative;
-	// display: inline-block; // now with flex, unecessary
 	width: $hamburger-width;
 	height: $hamburger-height;
 	cursor: pointer;
-	// background: aqua;
-
-	&:hover .lv-hamburger-top,
-	&:hover .lv-hamburger-middle,
-	&:hover .lv-hamburger-bottom {
-		// background: white;
-	}
 
 	.lv-hamburger-top,
 	.lv-hamburger-middle,
@@ -280,11 +272,7 @@ $hamburger-slit-height: 4px;
 		position: absolute;
 		width: 100%;
 		height: $hamburger-slit-height;
-		background: #444;
-
-		@include media-breakpoint-up(md) {
-		    // background: white;
-		}
+		background: white;
 	}
 
 	.lv-hamburger-middle {

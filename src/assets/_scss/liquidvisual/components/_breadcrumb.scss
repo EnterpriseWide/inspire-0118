@@ -13,29 +13,29 @@
 // Breadcrumb
 //-----------------------------------------------------------------
 
-.lv-breadcrumb {
-	text-transform: capitalize;
+// .lv-breadcrumb {
+// 	text-transform: capitalize;
 
-	@media (max-width: 30em) {
-		line-height: 1.5;
-	}
+// 	@media (max-width: 30em) {
+// 		line-height: 1.5;
+// 	}
 
-	> li + li:before {
-		// content: "\f105";
-		// font-family: "FontAwesome";
-	}
+// 	> li + li:before {
+// 		// content: "\f105";
+// 		// font-family: "FontAwesome";
+// 	}
 
-	//=========================================
-	// Truncation for long titles
-	//=========================================
+// 	//=========================================
+// 	// Truncation for long titles
+// 	//=========================================
 
-	a {
-		@media (max-width: 30em) {
-			display: inline-block;
-			max-width: rem-calc(100);
-			white-space: nowrap;
-			text-overflow: ellipsis;
-			overflow: hidden;
-		}
-	}
-}
+// 	a {
+// 		@media (max-width: 30em) {
+// 			display: inline-block;
+// 			max-width: rem-calc(100);
+// 			white-space: nowrap;
+// 			text-overflow: ellipsis;
+// 			overflow: hidden;
+// 		}
+// 	}
+// }

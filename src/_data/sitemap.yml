@@ -1,17 +1,14 @@
 - title: Home
   url: /
 
-- title: Chrome
-  url: /chrome/
+- title: Kitchen Sink
+  url: /kitchen-sink/
 
 - title: Standard Page
   url: /standard-page/
 
 - title: Advanced Page
   url: /advanced-page/
-
-- title: Case Studies
-  url: /404/
   include_children_in_nav: true
   children:
     - title: Item
