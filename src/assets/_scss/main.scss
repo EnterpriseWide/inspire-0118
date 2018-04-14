@@ -2,7 +2,7 @@
 /*
     MAIN.CSS
 
-    - Last updated: 11.04.18
+    - Last updated: 14.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -30,12 +30,8 @@ $primary: #2981cb;
 $link-color: $primary;
 // LINK-COLOR END
 
-// FONT-IMPORT START
-@import url('http://fonts.googleapis.com/css?family=Poppins:100,300,500,400,400i,600,600i');
-// FONT-IMPORT END
-
 // FONT-FAMILY START
-$font-family-sans-serif: Poppins;
+$font-family-sans-serif: Poppins; // Eg. Open+Sans
 // FONT-FAMILY END
 
 //# FONT-FAMILY PLACEHOLDER #//
@@ -48,43 +44,47 @@ $font-weight-bold:     600;
 // FONT-WEIGHT END
 
 // HEADINGS-FONT-WEIGHT START
-$headings-font-weight: 600;
+$headings-font-weight: $font-weight-bold;
 // HEADINGS-FONT-WEIGHT END
 
 // DISPLAY_FONT_WEIGHT START
-$display1-weight:      300;
-$display2-weight:      300;
-$display3-weight:      300;
-$display4-weight:      300;
+$display1-weight: $font-weight-light;
+$display2-weight: $font-weight-light;
+$display3-weight: $font-weight-light;
+$display4-weight: $font-weight-light;
 // DISPLAY_FONT_WEIGHT START
+
+// FONT-IMPORT START
+@import url('http://fonts.googleapis.com/css?family=#{$font-family-sans-serif}:#{$font-weight-light},#{$font-weight-semibold},#{$font-weight-normal},#{$font-weight-normal}i,#{$font-weight-bold},#{$font-weight-bold}i|');
+// FONT-IMPORT END
 
 // THEMES START
 $themes: (
-  'base': (
+  'base': ( // built in
     'primary': white,
     'secondary': #f7f7f9,
     'text-primary': #212529,
     'text-secondary': $primary
   ),
-  'skyblue': (
+  'skyblue': ( // built in
     'primary': $primary,
     'secondary': red,
     'text-primary': white,
     'text-secondary': #212529
   ),
-  'posh': (
+  'posh': ( // built in
     'primary': #a05cc0,
     'secondary': a05cc0,
     'text-primary': white,
     'text-secondary': #212529
   ),
-  'silverfox': (
+  'silverfox': ( // built in
     'primary': #eceeef,
     'secondary': #e9ecef,
     'text-primary': #212529,
     'text-secondary': $primary
   ),
-  'midnight': (
+  'midnight': ( // built in
     'primary': #222,
     'secondary': white,
     'text-primary': white,

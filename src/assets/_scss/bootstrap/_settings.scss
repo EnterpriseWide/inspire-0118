@@ -190,7 +190,7 @@ $grid-breakpoints: (
   xs: 0,
   sm: 375px, // [LOCKED] - near iPhone 6+ (was 576px)
   md: 768px,
-  lg: 992px,
+  lg: 1024px,
   xl: 1200px + $container-gutter*2
 ) !default;
 
@@ -205,7 +205,7 @@ $grid-breakpoints: (
 $container-max-widths: (
   sm: 540px, // [LOCKED]
   md: 768px, // 768 ?
-  lg: 960px,
+  lg: 1024px,
   xl: 1200px + $container-gutter*2
 ) !default;
 

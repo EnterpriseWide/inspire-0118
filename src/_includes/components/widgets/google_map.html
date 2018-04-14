@@ -1,7 +1,8 @@
 {% assign address = site.data.settings.offices[0].address %}
 
 <!-- GOOGLE MAP -->
-<div
+<section
+    id="{{ include.id }}"
 	class="lv-google-map"
 	onclick="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: auto'"
 	onmouseleave="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: none'">
@@ -13,4 +14,4 @@
         frameborder="0"
 		style="pointer-events: none">
     </iframe>
-</div>
+</section>

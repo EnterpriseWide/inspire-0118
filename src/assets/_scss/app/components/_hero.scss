@@ -13,8 +13,8 @@ $hero-height-presets: (
     preset-1: ( // [DEFAULT]
         xs: auto,
         md: rem-calc(700),
-        lg: rem-calc(634),
-        xl: rem-calc(834),
+        lg: rem-calc(576),
+        xl: rem-calc(675),
     ),
     preset-2: ( // [MEDIUM]
         xs: auto,
@@ -330,8 +330,9 @@ $hero-height-presets: (
 
 @media (max-aspect-ratio: 16/9) {
     .lv-hero .video {
-        left: -100%;
-        width: 300%;
+        // display: none;
+        left: -150%;
+        width: 400%;
     }
 }
 

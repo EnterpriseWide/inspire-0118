@@ -1,0 +1,135 @@
+---
+layout: base__page
+---
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-9">
+			<div class="kitchen-sink">
+				{% include components/text/text.html id="text" %}
+				{% include components/text/text_button.html id="text-button" %}
+				{% include components/text/text_media.html id="text-media" %}
+				<!-- { % include components/affiliates.html id="affiliates" %} -->
+
+				{% include components/hero/hero.html id="hero" align_caption="center" %}
+				{% include components/hero/hero_static.html id="hero-static" align_caption=page.hero_caption_align options=page.hero_options %}
+				{% include components/cards/cards.html columns=3 id="cards" %}
+				{% include components/cards/cards__slider.html id="cards-slider" %}
+				{% include components/cards/cards__tabs.html id="cards-tabs" %}
+
+			</div>
+		</div>
+		<div class="col-lg-3 pl-5">
+			<aside class="sidebar">
+
+				<h5>Themes</h5>
+				<div class="d-flex flex-wrap mb-4">
+					<a data-colorpicker="theme-base" class="theme-base btn-color-picker btn" title="Base"><i class="fa fa-check"></i></a>
+					<a data-colorpicker="theme-silverfox" class="theme-silverfox btn-color-picker btn" title="Silverfox"><i class="fa fa-check"></i></a>
+					<a data-colorpicker="theme-skyblue" class="theme-skyblue btn-color-picker btn" title="Skyblue"><i class="fa fa-check"></i></a>
+					<a data-colorpicker="theme-posh" class="theme-posh btn-color-picker btn" title="Posh"><i class="fa fa-check"></i></a>
+					<a data-colorpicker="theme-midnight" class="theme-midnight btn-color-picker btn" title="Midnight"><i class="fa fa-check"></i></a>
+				</div>
+
+				<ul class="nav d-block">
+					<li><h5>Text</h5>
+						<ul>
+							<li><a href="#text">Text</a></li>
+							<li><a href="#text-button">Text Button</a></li>
+							<li><a href="#text-media">Text Media</a></li>
+						</ul>
+					<li>
+					<li><h5>Hero</h5>
+						<ul>
+							<li><a href="#hero">Hero</a></li>
+							<li><a href="#hero-static">Hero Static</a></li>
+						</ul>
+					<li>
+					<li><h5>Cards</h5>
+						<ul>
+							<li><a href="#cards">Cards</a></li>
+							<li><a href="#cards-slider">Cards Slider</a></li>
+							<li><a href="#cards-tabs">Cards Tabs</a></li>
+						</ul>
+					<li>
+				</ul>
+
+			</aside>
+		</div>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script>
+	$('[data-colorpicker]').each(function(){
+		$(this).click(function(){
+			var $this = $(this);
+			var theme = $this.data('colorpicker');
+
+			$('.kitchen-sink > section, .global-header, .global-footer, .lv-hero-wrapper .lv-hero-item, .lv-breadcrumb-wrapper').removeClass(function (index, className) {
+				return (className.match (/\btheme-\S+/g) || []).join(' ');
+			}).addClass(theme);
+
+			$('[data-colorpicker]').removeClass('active');
+			$this.addClass('active');
+		})
+	})
+</script>
+
+<style>
+	.sidebar {
+		top: 100px;
+	    position: -webkit-sticky;
+	    position: sticky;
+	}
+
+	.kitchen-sink {
+		margin: 40px 0;
+		box-shadow: 0 0 17px rgba(0, 0, 0, 0.2);
+	}
+
+	.kitchen-sink .section,
+	.kitchen-sink .lv-hero-wrapper {
+		border-bottom: 1px solid #e6e6e6;
+	}
+
+	.sidebar {
+		margin-top: 40px;
+	}
+
+	.sidebar .nav ul {
+		padding-left: 0;
+		margin-bottom: 20px;
+		list-style: none;
+	}
+
+	.sidebar .btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 34px;
+		height: 34px;
+		padding: 0;
+		border: 0;
+		margin: 0 4px 4px 0;
+	}
+
+	.sidebar .btn .fa-check {
+		font-size: 14px;
+		opacity: 0;
+	}
+
+	.sidebar .btn.active .fa-check {
+		opacity: 1;
+	}
+
+	.sidebar .btn.theme-midnight .fa-check {
+		color: white;
+	}
+
+	.sidebar .btn.theme-base {
+		background: white;
+		border: 1px solid #dee2e6;
+	}
+</style>

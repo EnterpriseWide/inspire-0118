@@ -16,6 +16,8 @@
     <script src="https://unpkg.com/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
     {% endcomment %}
 
+    <!-- { % include components/widgets/google_analytics.html %} -->
+
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
     <link rel="stylesheet" href="/css/main.css">
     <!-- endbuild -->
@@ -74,8 +76,6 @@
     <script src="/assets/scripts/off-canvas.js"></script>
     <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->
-
-    <!-- { % include components/widgets/google_analytics.html %} -->
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>
