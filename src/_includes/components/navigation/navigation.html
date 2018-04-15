@@ -1,9 +1,9 @@
 {% comment %}
 <!--
-    LIQUIDVISUAL-NAVIGATION
+    NAVIGATION
 
-    Updated: 06.07.17
-    Note: data is pulled from src/data/sitemap.yml
+    updated: 16.04.18
+    note: data is pulled from src/data/sitemap.yml
     OUTPUT:
 
         <ul>
@@ -11,7 +11,7 @@
             <li><a class="top-parent-anchor" href="/path/"><span class="text">PARENT LINK</span></a></li>
             <li class="has-dropdown">
                 <a class="top-parent-anchor" href="/path/"><span class="text">PARENT LINK WITH CHILDREN</span></a>
-                <ul class="dropdown">
+                <ul class="dropdown" data-parent="PARENT LINK WITH CHILDREN">
                     <li><a href="/path/path/"><span class="text">CHILD LINK</span></a></li>
                 </ul>
             </li>
@@ -19,56 +19,64 @@
 -->
 {% endcomment %}
 
+{% assign settings = site.data.settings %}
+{% assign phone = settings.offices[0].phone %}
 {% assign sitemap = site.data.sitemap %}
 
 <ul>
+
+    <!-- PHONE NUMBER (OPTIONAL) -->
+    {% if phone %}
+        <li class="hide-for-topbar pt-2">
+            <p class="text-center">
+                <a class="h4 font-weight-normal" href="tel:{{ phone }}"><i class="fa fa-phone"></i> {{ phone }}</a>
+            </p>
+        </li>
+    {% endif %}
+
     {% for item in sitemap %}
 
         {% capture parent_classes %}
             {% if forloop.first and page.url == "/" %} active {% endif %}
             {% if forloop.index > 1 and page.url contains item.url %} active {% endif %}
             {% if item.children %} has-dropdown {% endif %}
-            {% if item.children and item.children.size > 7 %} has-large-dropdown {% endif %}
-            {% if item.children and forloop.index >= 6 %} has-dropdown-right-aligned {% endif %}
+            {% if item.children and item.children.size > 7 %} is-mega {% endif %}
+            {% if item.children and forloop.index >= 6 %} is-right-aligned {% endif %}
             {% if item.cta %} {{ item.cta }} {% endif %}
         {% endcapture %}
 
         <li class="{{ parent_classes }}">
 
-            {% comment %}
-            <!-----------------------------------------------------------------
-            TOP LEVEL
-            ------------------------------------------------------------------>
-            FOR REFERENCE: {% if item.url contains "#" %}{% endif %}
-            {% endcomment %}
-
+            <!-- TOP LEVEL -->
             <a class="top-parent-anchor" href="{{ item.url }}">
                 {% if item.icon %}<i class="{{ item.icon }} mr-1"></i>{% endif %}
                 <span class="text">{{ item.title }}</span>
             </a>
 
-            {% comment %}
-            <!-----------------------------------------------------------------
-            SECOND LEVEL
-            ------------------------------------------------------------------>
-            {% endcomment %}
-
+            <!-- SECOND LEVEL -->
             {% if item.children %}
                 <ul class="dropdown {% if item.include_children_in_nav %} is-nav-included {% endif %}" data-parent="{{ item.title }}">
                     {% for item in item.children %}
                         <li class="{% if item.children %} has-dropdown {% endif %}">
                             <a href="{{ item.url }}"><span class="text">{{ item.title }}</span></a>
 
-                            {% comment %}
-                            <!-----------------------------------------------------------------
-                            THIRD LEVEL
-                            ------------------------------------------------------------------>
-                            {% endcomment %}
-
+                            <!-- THIRD LEVEL -->
                             {% if item.children %}
                                 <ul class="dropdown" data-parent="{{ item.title }}">
                                     {% for item in item.children %}
-                                        <li><a href="{{ item.url }}"><span class="text">{{ item.title }}</span></a></li>
+                                        <li class="{% if item.children %} has-dropdown {% endif %}">
+                                            <a href="{{ item.url }}"><span class="text">{{ item.title }}</span></a>
+
+                                            <!-- FOURTH LEVEL -->
+                                            {% if item.children %}
+                                                <ul class="dropdown" data-parent="{{ item.title }}">
+                                                    {% for item in item.children %}
+                                                        <li><a href="{{ item.url }}"><span class="text">{{ item.title }}</span></a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+
+                                        </li>
                                     {% endfor %}
                                 </ul>
                             {% endif %}
@@ -79,13 +87,13 @@
         </li>
     {% endfor %}
 
-    <!-- SOCIAL MEDIA -->
-    <li class="is-hidden-for-topbar pt-2">
+    <!-- SOCIAL MEDIA (OPTIONAL) -->
+    <li class="hide-for-topbar pt-2">
         {% include components/social_media.html %}
     </li>
 
-    <!-- SEARCH -->
-    <li class="is-hidden-for-topbar">
+    <!-- SEARCH (OPTIONAL) -->
+    <li class="hide-for-topbar">
         {% include components/forms/form_search.html %}
     </li>
 

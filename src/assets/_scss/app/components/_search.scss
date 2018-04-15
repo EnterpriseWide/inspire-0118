@@ -103,10 +103,11 @@
     input:-moz-placeholder { color: white !important; }
 
     .btn {
-        background: #313030;
+        // background: #313030;
+        background: #4a4a4a;
 
         &:hover {
-            background: darken(#313030, 5%);
+            background: #313030;
         }
     }
 

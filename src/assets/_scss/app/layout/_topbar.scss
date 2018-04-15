@@ -1,7 +1,7 @@
 /*
     TOPBAR.CSS
 
-    - updated: 10.04.18
+    - updated: 16.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -135,7 +135,7 @@
 //-----------------------------------------------------------------
 
 // Prevent far-right dropdown from exceeding page width
-.lv-topbar .has-dropdown-right-aligned .dropdown {
+.lv-topbar .is-right-aligned .dropdown {
     right: 0;
     left: auto;
 }
@@ -167,11 +167,11 @@
 // CONTEXT
 //-----------------------------------------------------------------
 
-.lv-topbar .is-hidden-for-topbar {
+.lv-topbar .hide-for-topbar {
     display: none;
 }
 
-.lv-off-canvas .is-hidden-for-topbar {
+.lv-off-canvas .hide-for-topbar {
     border: 0;
 }
 

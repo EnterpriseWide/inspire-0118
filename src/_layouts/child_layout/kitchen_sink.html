@@ -4,9 +4,20 @@ layout: base__page
 
 <div class="container">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-9 order-2 order-lg-1">
 			<div class="kitchen-sink">
+
+				<div class="alert alert-primary" role="alert">
+				 	Options: theme, background-image
+				</div>
 				{% include components/text/text.html id="text" %}
+
+				<div class="alert alert-success" role="alert">
+				  <h6 class="alert-heading">Options</h6>
+				  <p>theme, background-image</p>
+				  <hr>
+				  <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+				</div>
 				{% include components/text/text_button.html id="text-button" %}
 				{% include components/text/text_media.html id="text-media" %}
 				<!-- { % include components/affiliates.html id="affiliates" %} -->
@@ -19,7 +30,7 @@ layout: base__page
 
 			</div>
 		</div>
-		<div class="col-lg-3 pl-5">
+		<div class="col-lg-3 pl-5 order-1 order-lg-2">
 			<aside class="sidebar">
 
 				<h5>Themes</h5>

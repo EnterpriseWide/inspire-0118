@@ -1,5 +1,5 @@
 /*
-    OFF-CANVAS.JS - Last updated: 13.12.16
+    OFF-CANVAS.JS - Last updated: 16.04.18, 13.12.16
 
     - Notes: Latest Nov version fixes major problem with 3rd lvls
     * off-canvas closes when clicking hash tag anchor
@@ -15,9 +15,7 @@
     // VARIABLES
     //-----------------------------------------------------------------
 
-    var intervalId;
     var $html = $('html');
-    var $globalHeader = $('.global-header');
     var $dropdowns = $('.lv-off-canvas .dropdown');
     var $lvPage = $('.lv-page');
     var $lvOffCanvas = $('.lv-off-canvas');
@@ -36,7 +34,6 @@
 
         if (!$('.has-open-menu').length) {
             $html.removeClass('has-closed-menu').addClass('has-open-menu');
-            pollFixedTop();
 
             //==================================================
             // CLOSE MENU
@@ -45,12 +42,11 @@
             //==================================================
 
             setTimeout(function(){
+
                 $lvPage.click(function(event){
                     event.stopPropagation();
 
                     if ($('.has-open-menu').length) {
-                        $globalHeader.removeAttr('style');
-                        clearInterval(intervalId);
                         $html.removeClass('has-open-menu').addClass('has-closed-menu');
                         $(this).unbind('click');
                     }
@@ -66,8 +62,6 @@
     $hashAnchor.click(function(event){
         event.preventDefault();
         event.stopPropagation();
-        $globalHeader.removeAttr('style');
-        clearInterval(intervalId);
         $html.removeClass('has-open-menu').addClass('has-closed-menu');
         $lvPage.unbind('click');
     });
@@ -90,22 +84,6 @@
         $(this).removeClass('is-open');
         event.stopPropagation();
     });
-
-    //-----------------------------------------------------------------
-    // POLL FIXED-TOP UNTIL CLOSE
-    //-----------------------------------------------------------------
-
-    function pollFixedTop() {
-        intervalId = setInterval(function(){
-            if ($('.has-open-menu').length) {
-
-                $('.global-header').css({ top: $(window).scrollTop()+'px' });
-            } else {
-                $('.global-header').removeAttr('style');
-                clearInterval(intervalId);
-            }
-        }, 100);
-    }
 
     //-----------------------------------------------------------------
     // CREATE SUBMENU TRIGGER
