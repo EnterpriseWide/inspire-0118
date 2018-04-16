@@ -28,9 +28,15 @@
     cursor: pointer;
     transition: all 200ms ease;
 
+    div {
+        position: relative;
+        top: -2px;
+        // background: red;
+    }
+
     i {
         font-size: rem-calc(14);
-        line-height: 0;
+        line-height: 1.3;
     }
 
     &:hover {

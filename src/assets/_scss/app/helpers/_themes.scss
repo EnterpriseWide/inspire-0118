@@ -32,15 +32,7 @@
 	 		background-color: $primary;
 
 	 		// // SHALLOW HEADERS (no sub-component)
-	 		> .container > h1,
-	 		> .container > h2,
-	 		> .container > h3,
-	 		> .container > h4,
-	 		> .container > h5,
-	 		> .container > h6,
-	 		> .container > p,
-	 		> .container > ul,
-	 		> .container > ol, {
+	 		h1, h2, h3, h4, h5, h6 {
 	 			color: $text-primary;
 	 		}
 	 	}
@@ -177,6 +169,12 @@
 		//-----------------------------------------------------------------
 		// CARDS
 		//-----------------------------------------------------------------
+
+		.card {
+			h1, h2, h3, h4, h5, h6 {
+				color: $body-color;
+			}
+		}
 
 		.card-slider {
 			.flickity-button {

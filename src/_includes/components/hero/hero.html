@@ -2,13 +2,13 @@
 <!--
     HERO DEFAULT
 
-    - Updated: 10.04.18
+    - Updated: 16.04.18
     - Complete functionality incl. video, commonly used on homepages
 -->
 {% endcomment %}
 
 {% assign slides = site.data.carousel_slides %}
-{% assign arrow_entice = include.arrow_entice | default: true %}
+{% assign scroll_prompt = include.scroll_prompt | default: true %}
 {% assign youtube_script_included_once = false %}
 {% assign align_caption = include.align_caption | default: 'center' %}
 {% assign hero_options = include.options | default: 'has-height-preset-1' %}
@@ -113,7 +113,7 @@
                     </div>
                 </div>
 
-                {% if arrow_entice %}
+                {% if scroll_prompt %}
                     <!-- DOWNWARDS ARROW -->
                     <a class="lv-hero-arrow-scroll hidden-lg-down"><i class="fa fa-angle-down"></i></a>
                 {% endif %}

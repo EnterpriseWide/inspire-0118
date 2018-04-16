@@ -13,14 +13,21 @@
 // VARIABLES
 //--------------------------------------------------------------------
 
-$highlight-bg: aqua; //darken($gray-light, 5.5%);
+// $gray-dark:                 #27272F ; //#373a3c !default;
+// $gray-darker:               darken($gray-dark, 5%);
+// $gray:                      #555;
+$gray-light:                #EFF1F4 !default;
+
+
+
+$highlight-bg: darken($gray-light, 5.5%);
 $highlight-common-color: #333;
 
 $highlight-base01:   #888;                     // comments / secondary content
 $highlight-body:     $highlight-common-color;  // body text / default code / primary content
 $highlight-orange:   $highlight-common-color;  // constants
 $highlight-red:      $highlight-common-color;  // regex, special keywords
-$highlight-blue:     aqua; //darken($gray-light, 50%); // $highlight-common-color; //darken($highlight-common-color, 30%); //  reserved keywords
+$highlight-blue:     darken($gray-light, 50%); // $highlight-common-color; //darken($highlight-common-color, 30%); //  reserved keywords
 $highlight-cyan:     $highlight-common-color;  // strings, numbers
 $highlight-green:    $highlight-common-color;  // operators, other keywords
 
@@ -53,6 +60,9 @@ $highlight-green:    $highlight-common-color;  // operators, other keywords
     font-family: 'Source Code Pro', serif;
     font-weight: 500; // imported from base
     -webkit-overflow-scrolling: touch;
+
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 //=========================================

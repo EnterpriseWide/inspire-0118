@@ -12,10 +12,12 @@ layout: base
 <main class="main-body">
 	<div class="container">
 	    <div class="row">
-	        <div class="col-lg-8">
-	            {{ content }}
+	        <div class="col-lg-8 col-xl-9">
+	        	<div class="section-main-body card">
+	        		{{ content }}
+	        	</div>
 	        </div>
-	        <div class="col-lg-4 pl-lg-5">
+	        <div class="col-lg-4 col-xl-3 pl-lg-5">
 				<aside class="sidebar">
 					{% contentblock sidebar no-convert %}
 				</aside>
@@ -24,7 +26,4 @@ layout: base
 	</div>
 
 	{% contentblock content_additional no-convert %}
-
-	{% include components/affiliates.html %}
-	{% include components/text/text_button.html %}
 </main>
