@@ -1,5 +1,5 @@
 ---
-layout: child_layout/sitemap
+layout: child_layout/site_map
 title: Site Map
-permalink: /sitemap/
+permalink: /site-map/
 ---

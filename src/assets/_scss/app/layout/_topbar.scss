@@ -167,11 +167,12 @@
 // CONTEXT
 //-----------------------------------------------------------------
 
-.lv-topbar .hide-for-topbar {
+.is-off-canvas-only {
     display: none;
 }
 
-.lv-off-canvas .hide-for-topbar {
+.lv-off-canvas .is-off-canvas-only {
+    display: block;
     border: 0;
 }
 
