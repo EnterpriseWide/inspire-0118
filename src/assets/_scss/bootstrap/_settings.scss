@@ -190,8 +190,8 @@ $grid-breakpoints: (
   xs: 0,
   sm: 375px, // [LOCKED] - near iPhone 6+ (was 576px)
   md: 768px,
-  lg: 1024px,
-  xl: 1200px
+  lg: 992px,
+  xl: 1140px + ($container-gutter * 1.5) * 2
 ) !default;
 
 // @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
@@ -206,7 +206,7 @@ $container-max-widths: (
   sm: 540px, // [LOCKED]
   md: 768px, // 768 ?
   lg: 1024px,
-  xl: 1200px //+ $container-gutter*2
+  xl: 1140px + ($container-gutter * 1.5) * 2
 ) !default;
 
 // @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -298,7 +298,7 @@ $transition-fade:             opacity 500ms ease;//opacity .15s linear !default;
 // $headings-line-height:        1.2 !default;
 // $headings-color:              inherit !default;
 
-$display1-size:               rem-calc(64); //6rem !default;
+$display1-size:               rem-calc(64) !default; //6rem !default;
 // $display2-size:               5.5rem !default;
 // $display3-size:               4.5rem !default;
 // $display4-size:               3.5rem !default;

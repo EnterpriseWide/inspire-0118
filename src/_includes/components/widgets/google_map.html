@@ -1,8 +1,9 @@
+{% assign id = include.id %}
 {% assign address = site.data.settings.offices[0].address %}
 
 <!-- GOOGLE MAP -->
 <section
-    id="{{ include.id }}"
+    id="{{ id }}"
 	class="lv-google-map"
 	onclick="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: auto'"
 	onmouseleave="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: none'">

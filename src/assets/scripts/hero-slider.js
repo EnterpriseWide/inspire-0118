@@ -1,5 +1,5 @@
 /*
-    HERO-SLIDER.JS - Last updated: 09.04.18
+    HERO-SLIDER.JS - Last updated: 17.04.18
 */
 //-----------------------------------------------------------------
 // LAUNCH SLIDER

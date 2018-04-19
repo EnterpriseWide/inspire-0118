@@ -1,7 +1,10 @@
+{% assign id = include.id %}
+{% assign bg_image = include.bg_image %}
+{% assign options = include.options %}
 {% assign settings = site.data.settings %}
 
 <!-- BASIC FORM -->
-<section id="{{ include.id }}" class="section {{ include.theme }}">
+<section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
     <div class="container">
 
         {% comment %}

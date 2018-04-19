@@ -306,7 +306,7 @@ $hamburger-slit-height: 3px;
 	}
 
 	.lv-hamburger-middle {
-		background: rgba(black, 0.6);
+		background: rgba(black, 0.6) !important; // [LOCKED] - override theming
 		position: fixed;
 		top: 0;
 		left: 0;

@@ -1,7 +1,7 @@
 /*
     GLOBAL.CSS
 
-    - updated: 16.04.18
+    - updated: 19.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -26,12 +26,27 @@
 }
 
 //-----------------------------------------------------------------
-// FOR MOBILE
+// MAIN BODY - SIDEBAR LAYOUT
 //-----------------------------------------------------------------
 
-.container .container {
-	@include media-breakpoint-down(sm) {
-	    padding: 0;
+.main-body {
+	@include media-breakpoint-down(md) {
+		> .container {
+		    max-width: none;
+		    padding: 0;
+
+			> .row,
+			> .row > [class*=col] {
+		    	margin: 0;
+		    	padding: 0;
+		    }
+		}
+	}
+
+	.sidebar .container {
+		@include media-breakpoint-up(lg) {
+		    padding: 0;
+		}
 	}
 }
 

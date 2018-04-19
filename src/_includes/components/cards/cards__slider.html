@@ -1,5 +1,8 @@
-{% assign posts = site.data.lorem_ipsum %}
+{% assign id = include.id %}
+{% assign bg_image = include.bg_image %}
 {% assign columns = include.columns | default: 2 %}
+{% assign options = include.options %}
+{% assign posts = site.data.lorem_ipsum %}
 
 {% capture cell_grouping %}
 	{% if columns > 2 %}
@@ -10,7 +13,7 @@
 {% endcapture %}
 
 <!-- CARDS SLIDER -->
-<section id="{{ include.id }}" class="section {{ include.theme }}">
+<section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
 	<div class="container">
 
 		<h2>Cards Slider Component</h2>
@@ -19,8 +22,12 @@
 		<div class="row">
 			<div class="col-md-11 col-lg-10">
 				<div class="wysiwyg mb-3">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua lorem ipsum.</p>
+					<p>The Cards Slider Component will create a carousel of 2 or 3 cards.</p>
+					<h6>Modifiers:</h6>
+					<ul>
+						<li><code>.is-flat</code> - this will strip cards of their depth and shadow</li>
+						<li><code>2 or 3 columns</code> - this is drawn with template code. Pop open the include to see how this is achieved. <b>The default is two</b>.</li>
+					</ul>
 				</div>
 			</div>
 		</div>

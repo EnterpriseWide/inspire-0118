@@ -1,7 +1,7 @@
 /*
     SOCIAL-MEDIA.CSS
 
-    - Last updated: 04.04.18
+    - Last updated: 17.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -34,6 +34,7 @@
 
 		&:hover {
 			transform: scale(0.9);
+			opacity: 1 !important; // [LOCKED]
 		}
 	}
 

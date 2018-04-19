@@ -1,8 +1,8 @@
 ---
-layout: child_layout/text_page
+layout: child_layout/advanced_page
 title: Advanced Page
 permalink: /advanced-page/
 hero: components/hero/hero.html
-hero_options: has-height-preset-4
+hero_options: is-full
 hero_caption_align: left
 ---

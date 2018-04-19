@@ -14,59 +14,134 @@ layout: base__page_sidebar
 	{% endfor %}
 	{% endcomment %}
 
-	{% include components/affiliates.html id="affiliates" bg_image="https://source.unsplash.com/random" %}
+	{% comment %}
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<pre class="prettyprint">
+		<code class="language-html">
+			{%- highlight html -%}
+				{% include components/hero/hero.html id="hero" align_caption="center" %}
+			{%- endhighlight -%}
+		</code>
+	</pre>
+
+	<style>
+		pre, code {
+			tab-size: 4;
+		}
+	</style>
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script> -->
+	{% endcomment %}
+
+	<section class="section">
+		<div class="container">
+			<div class="wysiwyg">
+				<h2>What Are Sections?</h2>
+				<p>A section represents a component's top-most layer. It's essentially the 'wrapper' for any standard component using the <code>&lt;section&gt;</code> element with a class of <code>.section</code>.</p>
+
+				<br>
+
+				<h6>Not every component is a section though</h6>
+				<p>For instance the <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code> are special layout components and use their own tags respectively. The <code>hero</code> components, despite being sections do not have the <code>.section</code> class applied since their inner workings differ to the standard components which are predictable.</p>
+				<p>A <code>.section</code> class creates top and bottom padding as well as a hook for additional class modifiers.</p>
+
+				<br>
+
+				<h6>ALL sections have access to the following class modifiers:</h6>
+				<ul>
+					<li><code>.theme-[x]</code> - any section can have a theme applied</li>
+					<li><code>.has-image-bg</code> - any section can have a background image applied with the asset referenced with inline styles. <b>Eg.</b> <code>style="background-image: url(/path/to/asset/)"</code></li>
+					<li><code>.is-tinted</code> - applies a tint to any background image with a <code>.has-image-bg</code> class</li>
+					<li><code>.is-fixed</code> - applies fixed background behavior to any background image with a <code>.has-image-bg</code> class</li>
+				</ul>
+
+				<br>
+
+				<h6>Text Classes</h6>
+				<p>One can leverage <a target="_blank" href="https://getbootstrap.com/docs/4.0/utilities/text/">Bootstrap Utility classes</a> pretty much anywhere, even outside of sections. The most common will likely be:</p>
+				<ul>
+					<li><code>.text-[left,center,right]</code></li>
+				</ul>
+
+			</div>
+		</div>
+	</section>
+	<hr>
 
 	{% include components/cards/cards.html id="cards" columns=3 %}
+	<div class="container"><script src="http://gist-it.appspot.com/github/liquidvisual/inspire-0118/blob/master/src/_includes/components/cards/cards.html"></script></div><br><hr>
 	{% include components/cards/cards__slider.html id="cards-slider" %}
+	<div class="container"><script src="http://gist-it.appspot.com/github/liquidvisual/inspire-0118/blob/master/src/_includes/components/cards/cards__slider.html"></script></div><br><hr>
 	{% include components/cards/cards__tabs.html id="cards-tabs" %}
+	<div class="container"><script src="http://gist-it.appspot.com/github/liquidvisual/inspire-0118/blob/master/src/_includes/components/cards/cards__tabs.html"></script></div><br><hr>
 
-	{% include components/hero/hero.html id="hero" align_caption="center" %}
-	{% include components/hero/hero_static.html id="hero-static" align_caption=page.hero_caption_align options=page.hero_options %}
+	{% include components/hero/hero.html id="hero" %}
+	<div class="container"><script src="http://gist-it.appspot.com/github/liquidvisual/inspire-0118/blob/master/src/_includes/components/hero/hero.html"></script></div><br><hr>
+	{% include components/hero/hero_static.html id="hero-static" %}
+	<div class="container"><script src="http://gist-it.appspot.com/github/liquidvisual/inspire-0118/blob/master/src/_includes/components/hero_static.html"></script></div><br><hr>
 
 	{% include components/text/text.html id="text" %}
+	<div class="container"><script src="http://gist-it.appspot.com/github/liquidvisual/inspire-0118/blob/master/src/_includes/components/text/text.html"></script></div><br><hr>
 	{% include components/text/text_button.html id="text-button" %}
+	<div class="container"><script src="http://gist-it.appspot.com/github/liquidvisual/inspire-0118/blob/master/src/_includes/components/text/text_button.html"></script></div><br><hr>
 	{% include components/text/text_media.html id="text-media" %}
+	<div class="container"><script src="http://gist-it.appspot.com/github/liquidvisual/inspire-0118/blob/master/src/_includes/components/text/text_media.html"></script></div><br><hr>
+
+	{% include components/affiliates.html id="affiliates" %}
+	<div class="container"><script src="http://gist-it.appspot.com/github/liquidvisual/inspire-0118/blob/master/src/_includes/components/affiliates.html"></script></div><br><hr>
 
 </div>
 
 {% contentfor sidebar %}
 	<section class="section">
-		<h5>Themes</h5>
-		<div class="d-flex flex-wrap mb-4">
-			<a data-colorpicker="theme-base" class="theme-base btn-color-picker btn" title="Base"><i class="fa fa-check"></i></a>
-			<a data-colorpicker="theme-silverfox" class="theme-silverfox btn-color-picker btn" title="Silverfox"><i class="fa fa-check"></i></a>
-			<a data-colorpicker="theme-skyblue" class="theme-skyblue btn-color-picker btn" title="Skyblue"><i class="fa fa-check"></i></a>
-			<a data-colorpicker="theme-posh" class="theme-posh btn-color-picker btn" title="Posh"><i class="fa fa-check"></i></a>
-			<a data-colorpicker="theme-midnight" class="theme-midnight btn-color-picker btn" title="Midnight"><i class="fa fa-check"></i></a>
-		</div>
+		<div class="container">
+			<h5>Themes</h5>
+			<div class="d-flex flex-wrap mb-4">
+				<a data-colorpicker="theme-base" class="theme-base btn-color-picker btn" title="Base"><i class="fa fa-check"></i></a>
+				<a data-colorpicker="theme-silverfox" class="theme-silverfox btn-color-picker btn" title="Silverfox"><i class="fa fa-check"></i></a>
+				<a data-colorpicker="theme-skyblue" class="theme-skyblue btn-color-picker btn" title="Skyblue"><i class="fa fa-check"></i></a>
+				<a data-colorpicker="theme-posh" class="theme-posh btn-color-picker btn" title="Posh"><i class="fa fa-check"></i></a>
+				<a data-colorpicker="theme-midnight" class="theme-midnight btn-color-picker btn" title="Midnight"><i class="fa fa-check"></i></a>
+			</div>
 
-		<ul class="nav d-block">
-			<li><h5>Cards</h5>
-				<ul>
-					<li><a href="#cards">Cards</a></li>
-					<li><a href="#cards-slider">Cards Slider</a></li>
-					<li><a href="#cards-tabs">Cards Tabs</a></li>
-				</ul>
-			<li>
-			<li><h5>Hero</h5>
-				<ul>
-					<li><a href="#hero">Hero</a></li>
-					<li><a href="#hero-static">Hero Static</a></li>
-				</ul>
-			<li>
-			<li><h5>Text</h5>
-				<ul>
-					<li><a href="#text">Text</a></li>
-					<li><a href="#text-button">Text Button</a></li>
-					<li><a href="#text-media">Text Media</a></li>
-				</ul>
-			<li>
-			<li><h5>Other</h5>
-				<ul>
-					<li><a href="#affiliates">Affiliates</a></li>
-				</ul>
-			<li>
-		</ul>
+			<h5>Modifiers</h5>
+			<div class="d-flex flex-wrap mb-4">
+				<a data-colorpicker="modifier-image-bg" class="has-image-bg theme-midnight btn-color-picker btn" style="background-image: url(https://source.unsplash.com/random)" title="Background Image"><i class="fa fa-check"></i></a>
+				<a data-colorpicker="modifier-tinted" class="theme-silverfox btn-color-picker btn" title="Tint"><i class="fa fa-check"></i></a>
+				<a data-colorpicker="modifier-fixed" class="theme-silverfox btn-color-picker btn" title="Fixed"><i class="fa fa-check"></i></a>
+				<a data-colorpicker="modifier-clear" class="theme-base btn-color-picker btn" title="Clear All"><i class="fa fa-ban"></i></a>
+			</div>
+
+			<ul class="nav d-block">
+				<li><h5>Cards</h5>
+					<ul>
+						<li><a href="#cards">Cards</a></li>
+						<li><a href="#cards-slider">Cards Slider</a></li>
+						<li><a href="#cards-tabs">Cards Tabs</a></li>
+					</ul>
+				<li>
+				<li><h5>Hero</h5>
+					<ul>
+						<li><a href="#hero">Hero</a></li>
+						<li><a href="#hero-static">Hero Static</a></li>
+					</ul>
+				<li>
+				<li><h5>Text</h5>
+					<ul>
+						<li><a href="#text">Text</a></li>
+						<li><a href="#text-button">Text Button</a></li>
+						<li><a href="#text-media">Text Media</a></li>
+					</ul>
+				<li>
+				<li><h5>Other</h5>
+					<ul>
+						<li><a href="#affiliates">Affiliates</a></li>
+					</ul>
+				<li>
+			</ul>
+			<br>
+			<br>
+			<br>
+		</div>
 	</section>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -74,10 +149,36 @@ layout: base__page_sidebar
 	<script>
 		$('[data-colorpicker]').each(function(){
 			$(this).click(function(){
-				console.log('hello');
+
 				var $this = $(this);
 				var theme = $this.data('colorpicker');
 
+				if (theme == 'modifier-image-bg') {
+					$('.kitchen-sink > section, .lv-hero-item').css('background-image', 'url(https://source.unsplash.com/random)').addClass('has-image-bg');
+					$this.addClass('active');
+					return;
+				}
+
+				if (theme == 'modifier-clear') {
+					$('.kitchen-sink > section, .lv-hero-item').css('background-image', 'none').removeClass('has-image-bg is-tinted');
+					$('[data-colorpicker*=modifier]').removeClass('active');
+					$this.addClass('active');
+					return;
+				}
+
+				if (theme == 'modifier-tinted') {
+					$('.kitchen-sink > section, .lv-hero-item').addClass('is-tinted');
+					$this.addClass('active');
+					return;
+				}
+
+				if (theme == 'modifier-fixed') {
+					$('.kitchen-sink > section').addClass('is-fixed');
+					$this.addClass('active');
+					return;
+				}
+
+				// colors
 				$('.kitchen-sink > section, .global-header, .global-footer, .lv-hero-wrapper .lv-hero-item, .lv-breadcrumb-wrapper').removeClass(function (index, className) {
 					return (className.match (/\btheme-\S+/g) || []).join(' ');
 				}).addClass(theme);
@@ -93,11 +194,13 @@ layout: base__page_sidebar
 			top: 100px;
 		    position: -webkit-sticky;
 		    position: sticky;
+		    height: 100vh;
+		    overflow-y: auto;
 		}
 
 		.kitchen-sink .section,
 		.kitchen-sink .lv-hero-wrapper {
-			border-bottom: 1px solid #e6e6e6;
+			/*border-bottom: 1px solid #e6e6e6;*/
 		}
 
 		.sidebar .nav ul {
@@ -126,7 +229,9 @@ layout: base__page_sidebar
 			opacity: 1;
 		}
 
-		.sidebar .btn.theme-midnight .fa-check {
+		.sidebar .btn.theme-midnight .fa-check,
+		.sidebar .btn.theme-skyblue .fa-check,
+		.sidebar .btn.theme-posh .fa-check {
 			color: white;
 		}
 

@@ -2,85 +2,50 @@
 <!--
     HERO DEFAULT
 
-    - Updated: 16.04.18
-    - Complete functionality incl. video, commonly used on homepages
+    - Updated: 19.04.18
+    - Complete functionality incl. youtube video, commonly used on homepages
 -->
 {% endcomment %}
 
-{% assign slides = site.data.carousel_slides %}
-{% assign scroll_prompt = include.scroll_prompt | default: true %}
-{% assign youtube_script_included_once = false %}
+{% assign id = include.id %}
 {% assign align_caption = include.align_caption | default: 'center' %}
-{% assign hero_options = include.options | default: 'has-height-preset-1' %}
+{% assign options = include.options | default: 'is-default' %}
+{% assign slides = include.data | default: site.data.hero_slides %}
+{% assign youtube_script_included_once = false %}
 
 <!-- HERO WRAPPER -->
-<section id="{{ include.id }}" class="lv-hero-wrapper" data-hero-slider>
+<section id="{{ id }}" class="lv-hero-wrapper" data-hero-slider>
 
     <!-- HERO -->
-    <div class="lv-hero {{ hero_options }}"
-        data-flickity='
-        {
-            "adaptiveHeight": true,
-            "autoPlay": false,
-            "cellAlign": "left",
-            "contain": true,
-            "draggable": ">1",
-            "dragThreshold": 40,
-            "freeScroll": false,
-            "freeScrollFriction": 0.075,
-            "friction": 0.28,
-            "groupCells": false,
-            "imagesLoaded": true,
-            "pageDots": true,
-            "prevNextButtons": false,
-            "pauseAutoPlayOnHover": false,
-            "selectedAttraction": 0.025,
-            "watchCSS": false,
-            "wrapAround": true
-        }'>
+    <div class="lv-hero {{ options }}"
+
+        {% if slides.size > 1 %}
+            data-flickity='
+            {
+                "adaptiveHeight": true,
+                "autoPlay": false,
+                "cellAlign": "left",
+                "contain": true,
+                "draggable": false,
+                "dragThreshold": 40,
+                "freeScroll": false,
+                "freeScrollFriction": 0.075,
+                "friction": 0.28,
+                "groupCells": false,
+                "imagesLoaded": true,
+                "pageDots": true,
+                "prevNextButtons": false,
+                "pauseAutoPlayOnHover": false,
+                "selectedAttraction": 0.025,
+                "watchCSS": false,
+                "wrapAround": true
+            }'
+        {% endif %}
+        >
 
         <!-- HERO ITEMS -->
         {% for item in slides %}
-            <div class="lv-hero-item {{ include.theme }} {{ item.options }}" style="background-image: url('{{ item.image }}')">
-
-                {% if item.youtube_id %}
-                    <iframe
-                        class="video"
-                        width="100%"
-                        height="390"
-                        frameborder="0"
-                        type="text/html"
-                        src="https://www.youtube.com/embed/{{item.youtube_id}}?playlist={{item.youtube_id}}&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1"
-                        style="pointer-events: false"
-                    ></iframe>
-
-                    {% unless youtube_script_included_once %}
-                        {% assign youtube_script_included_once = true  %}
-
-                        <script>
-                            // YOUTUBE PLAYER INSTANCE - loads async
-                            var tag = document.createElement('script');
-                                tag.src = "https://www.youtube.com/iframe_api";
-                            var firstScriptTag = document.getElementsByTagName('script')[0];
-                                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                            function onYouTubeIframeAPIReady() {
-                                document.querySelectorAll('.video').forEach((item) => {
-                                    new YT.Player(item, {
-                                        events: {
-                                            'onReady': (event) => {
-                                                event.target.playVideo();
-                                                event.target.mute();
-                                            }
-                                        }
-                                    })
-                                })
-                            }
-                        </script>
-                    {% endunless %}
-
-                {% endif %}
-
+            <div class="lv-hero-item {{ item.options }}" style="background-image: url('{{ item.image }}')">
                 <div class="container">
 
                     {% capture row_classes %}
@@ -100,22 +65,23 @@
                                 <!-- HEADER -->
                                 <h1 class="display-1">{{ item.title }}</h1>
 
-                                <!-- BODY -->
-                                <p class="lead mb-4">{{ item.body }}</p>
-
-                                <!-- LINK (OPTIONAL) -->
-                                {% if item.url %}
-                                    <p><a href="{{ item.url }}" class="btn btn-outline-light">Read more</a></p>
-                                {% endif %}
+                                <!-- WYSIWYG -->
+                                <div class="wysiwyg">
+                                    {{ item.body }}
+                                </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {% if scroll_prompt %}
-                    <!-- DOWNWARDS ARROW -->
-                    <a class="lv-hero-arrow-scroll hidden-lg-down"><i class="fa fa-angle-down"></i></a>
+                {% if item.scroll_prompt %}
+                    <!-- SCROLL PROMPT -->
+                    <a class="lv-hero-scroll-prompt hidden-lg-down"><i class="fa fa-angle-down"></i></a>
+                {% endif %}
+
+                {% if item.youtube_id %}
+                    {% include components/hero/hero__youtube_plugin.html %}
                 {% endif %}
 
             </div>
@@ -125,7 +91,7 @@
 
     {% if slides.size > 1 %}
         <!-- SLIDER CONTROLS -->
-        <div class="lv-hero-slider-controls hidden-sm-down">
+        <div class="lv-hero-slider-controls hidden-lg-down">
             <span class="lv-hero-slider-prev-btn"><i class="fa fa-angle-left"></i></span>
             <span class="lv-hero-slider-next-btn"><i class="fa fa-angle-right"></i></span>
         </div>

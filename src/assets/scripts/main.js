@@ -1,5 +1,5 @@
 /*
-    MAIN.JS - Last updated: 11.04.18
+    MAIN.JS - Last updated: 17.04.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -62,7 +62,7 @@ if ($('a[href="#sitemap"]').length) {
 // HEADROOM.js
 //-----------------------------------------------------------------
 
-$(".global-header").headroom({
+$(".global-header, .btn-back-top").headroom({
     // vertical offset in px before element is first unpinned
     offset : 60,
     // scroll tolerance in px before state changes

@@ -2,24 +2,28 @@
 <!--
     BANNER STATIC
 
-    - Updated: 10.04.18
+    - Updated: 19.04.18
     - Static banner, no carousel functionality, commonly used on internal pages
       to display page headers
 -->
 {% endcomment %}
 
+{% assign id = include.id %}
+{% assign options = include.options %}
+{% assign bg_image = include.bg_image %}
+
 <!-- HERO WRAPPER -->
-<section id="{{ include.id }}" class="lv-hero-wrapper">
+<section id="{{ id }}" class="lv-hero-wrapper">
 
     <!-- HERO -->
-    <div class="lv-hero has-height-preset-3">
+    <div class="lv-hero is-static">
 
         <!-- HERO ITEM -->
-        <div class="lv-hero-item align-items-end {{ include.theme }}" style="background-image: url('{{ item.image }}')">
+        <div class="lv-hero-item align-items-end {{ options }}" style="background-image: url('{{ bg_image }}')">
 
             <!-- HERO CAPTION -->
             <div class="container">
-                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+                <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
                     <h1 class="display-1">{{ page.title }}</h1>
                 </div>
             </div>

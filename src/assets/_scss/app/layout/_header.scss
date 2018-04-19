@@ -23,17 +23,11 @@ $header-bottom-lg-height: 50px !default;
 //-----------------------------------------------------------------
 // HEADROOM
 //-----------------------------------------------------------------
-
-.headroom {
-    will-change: transform;
-    transition: transform 200ms linear, background-color 200ms ease;
-}
-
 //****************************************************
 // PINNED - SCROLLING DOWN
 //****************************************************
 
-.headroom--pinned {
+.headroom--pinned.global-header {
     @include media-breakpoint-down(sm) {
         transform: translateY(0%);
     }
@@ -43,7 +37,7 @@ $header-bottom-lg-height: 50px !default;
 // UNPINNED - SCROLLING UP
 //****************************************************
 
-.headroom--unpinned {
+.headroom--unpinned.global-header {
 	@include media-breakpoint-down(sm) {
     	transform: translateY(-100%);
     	transition-delay: 1000ms; // delay for UX
@@ -55,7 +49,7 @@ $header-bottom-lg-height: 50px !default;
 // header is transparent when at top
 //****************************************************
 
-.headroom--top {
+.headroom--top.global-header {
 	background: none; // Need for animation
 }
 
@@ -63,27 +57,25 @@ $header-bottom-lg-height: 50px !default;
 // HEADROOM NOT TOP
 //****************************************************
 
-.headroom--not-top {
-	&.global-header {
-		box-shadow: 0 0 3px 1px rgba(black, 0.2);
+.headroom--not-top.global-header {
+	box-shadow: 0 0 3px 1px rgba(black, 0.2);
 
-		.global-header-top {
-			height: 0;
-			padding: 0;
-			overflow: hidden;
+	.global-header-top {
+		height: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	.global-header-body {
+		background: $primary; // [THEMABLE]
+		transition: all 200ms ease;
+
+		@include media-breakpoint-up(md) {
+		    height: $header-body-md-height;
 		}
 
-		.global-header-body {
-			background: $primary; // [THEMABLE]
-			transition: all 200ms ease;
-
-			@include media-breakpoint-up(md) {
-			    height: $header-body-md-height;
-			}
-
-			.logo img {
-				padding: rem-calc(10 0);
-			}
+		.logo img {
+			padding: rem-calc(10 0);
 		}
 	}
 }
@@ -96,6 +88,8 @@ $header-bottom-lg-height: 50px !default;
 	position: fixed;
 	top: 0;
 	width: 100%;
+	will-change: transform;
+	transition: transform 200ms linear, background-color 200ms ease;
 	z-index: 9999;
 }
 
@@ -205,6 +199,10 @@ $header-bottom-lg-height: 50px !default;
 
 		@include media-breakpoint-down(sm) {
 		    padding: rem-calc(10 0);
+		}
+
+		@include media-breakpoint-down(lg) {
+		    transition: all ease-out 100ms;
 		}
 
 		@include media-breakpoint-up(md) {

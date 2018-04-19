@@ -44,11 +44,11 @@
 	 	.wysiwyg {
 	 		color: $text-primary;
 
-	 		a, button {
+	 		a:not(.btn), button {
 	 			color: $text-secondary;
 	 		}
 
-	 		button, .btn {
+	 		button, .btn-primary {
 				background-color: $text-primary;
 				border: 0; // move this elsewhere
 				color: $primary;

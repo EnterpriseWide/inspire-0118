@@ -2,7 +2,7 @@
 /*
     MAIN.CSS
 
-    - Last updated: 14.04.18
+    - Last updated: 19.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -47,12 +47,19 @@ $font-weight-bold:     600;
 $headings-font-weight: $font-weight-bold;
 // HEADINGS-FONT-WEIGHT END
 
-// DISPLAY_FONT_WEIGHT START
+// DISPLAY-FONT-SIZE START
+$display1-size: rem-calc(64);
+$display2-size: rem-calc(50);
+$display3-size: rem-calc(40);
+$display4-size: rem-calc(30);
+// DISPLAY-FONT-SIZE END
+
+// DISPLAY-FONT-WEIGHT START
 $display1-weight: $font-weight-light;
 $display2-weight: $font-weight-light;
 $display3-weight: $font-weight-light;
 $display4-weight: $font-weight-light;
-// DISPLAY_FONT_WEIGHT START
+// DISPLAY-FONT-WEIGHT START
 
 // FONT-IMPORT START
 @import url('http://fonts.googleapis.com/css?family=#{$font-family-sans-serif}:#{$font-weight-light},#{$font-weight-semibold},#{$font-weight-normal},#{$font-weight-normal}i,#{$font-weight-bold},#{$font-weight-bold}i|');
@@ -68,7 +75,7 @@ $themes: (
   ),
   'skyblue': ( // built in
     'primary': $primary,
-    'secondary': red,
+    'secondary': #00b09f,
     'text-primary': white,
     'text-secondary': #212529
   ),

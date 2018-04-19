@@ -1,17 +1,39 @@
-<!-- TEXT SECTION -->
-<section id="{{ include.id }}" class="section {{ include.theme }}">
+{% assign id = include.id %}
+{% assign bg_image = include.bg_image %}
+{% assign options = include.options %}
+
+<!-- TEXT -->
+<section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
 	<div class="container">
 
-		<h2>Text Section</h2>
+		<h2>Text Component</h2>
 
 		<!-- WYSIWYG -->
 		<div class="wysiwyg">
-			<p>Lorem ipsum <strong>Strong text</strong> <b>bold text</b> dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud <em>Emphasized text</em> <i>Italics</i> exercitation ullamco laboris nisi ut aliquip ex. <a href="#">Link inside paragraph</a><p>
+			<p>The text component is the most basic component, comprised of a <code>&lt;h2&gt;</code> heading and a preceding <code>.wysiwyg</code> content section. Links and Primary Buttons inside <code>.wysiwyg</code> sections can have their appearanced changed through themes - although it's recommended they remain the initial <code>$primary</code> value set by the user.</p>
+			<p>To insert other coloured buttons which are not affected by theme, the user can select <code>.btn.btn-secondary</code>, <code>.btn.btn-success</code> etc which can be set in the Sass.</p>
+
+			<p>
+				<a href="#" class="btn btn-primary">Primary</a>
+				<a href="#" class="btn btn-secondary">Secondary</a>
+				<a href="#" class="btn btn-success">Success</a>
+				<a href="#" class="btn btn-danger">Danger</a>
+				<a href="#" class="btn btn-warning">Warning</a>
+				<a href="#" class="btn btn-info">Info</a>
+				<!-- <a href="#" class="btn btn-light">Light</a> -->
+				<!-- <a href="#" class="btn btn-dark">Dark</a> -->
+			</p>
+
+			<hr>
+
+			<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+			This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+			This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>.
+			Finally, this is a <a href="#">link</a>.</p>
 
 			<a href="#">Link here</a>
 
+			<br>
 			<h3>Header (h3)</h3>
 			<h4>Header (h4)</h4>
 			<h5>Header (h5)</h5>

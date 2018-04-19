@@ -2,7 +2,7 @@
 layout: base
 ---
 
-{% include {{ page.hero | default: 'components/hero/hero_static.html' }} align_caption=page.hero_caption_align options=page.hero_options %}
+{% include {{ page.hero | default: 'components/hero/hero_static.html' }} align_caption=page.hero_caption_align options=page.hero_options data=page.hero_data %}
 
 {% if page.breadcrumbs %}
 	{% include components/navigation/breadcrumbs.html %}
@@ -12,12 +12,12 @@ layout: base
 <main class="main-body">
 	<div class="container">
 	    <div class="row">
-	        <div class="col-lg-8 col-xl-9">
-	        	<div class="section-main-body card">
+	        <div class="col-lg-9 pr-lg-4">
+	        	<div class="section-content card">
 	        		{{ content }}
 	        	</div>
 	        </div>
-	        <div class="col-lg-4 col-xl-3 pl-lg-5">
+	        <div class="col-lg-3 pl-lg-3">
 				<aside class="sidebar">
 					{% contentblock sidebar no-convert %}
 				</aside>
