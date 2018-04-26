@@ -30,8 +30,8 @@ $('a[href*="#"]:not([href="#"], [href="#sitemap"], [data-toggle="tab"])').click(
     var endPos = $(id);
 
     if (endPos.length) {
-        $.scrollTo(endPos.offset().top, 500);
-        return false;
+        $.scrollTo(endPos.offset().top - 50, 500);
+        // return false;
     }
 });
 

@@ -20,8 +20,10 @@
 	 	$text-primary: map-get($colors, 'text-primary');
 	 	$text-secondary: map-get($colors, 'text-secondary');
 
-	 	&.btn {
+	 	&.btn,
+	 	&.btn-theme {
 	 		background-color: $primary;
+	 		color: $text-primary;
 	 	}
 
 	 	//-----------------------------------------------------------------
@@ -172,6 +174,10 @@
 
 		.card {
 			h1, h2, h3, h4, h5, h6 {
+				color: $body-color;
+			}
+
+			.wysiwyg {
 				color: $body-color;
 			}
 		}

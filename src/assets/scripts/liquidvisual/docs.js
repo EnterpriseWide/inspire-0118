@@ -1,0 +1,136 @@
+/*
+    DOCS.JS
+    updated: 26.04.18
+
+    DEPENDENCIES
+        https://unpkg.com/vue/dist/vue.js
+        https://unpkg.com/axios/dist/axios.min.js
+*/
+//-----------------------------------------------------------------
+// DATE LOGGING
+//-----------------------------------------------------------------
+
+const LOGGING_ENABLED = false; // disable on prod
+
+function log(item){
+    if (LOGGING_ENABLED) {
+        console.log(item);
+    }
+}
+
+Vue.config.productionTip = false;
+
+//-----------------------------------------------------------------
+// EVENT BUS
+//-----------------------------------------------------------------
+
+// const bus = new Vue();
+
+//-----------------------------------------------------------------
+// DOCS
+//-----------------------------------------------------------------
+
+Vue.component('docs', {
+	props: {
+		files: String,
+	},
+    data() {
+        return {
+        	filesArray: [],
+        	url: 'https://cdn.rawgit.com/liquidvisual/inspire-0118/master/src/_includes/', //components/cards/cards.html
+            codeEnabled: false,
+            showProperties: false
+        }
+    },
+    created(){
+    	var filesArray = this.files.split(',');
+    	var filesTotal = filesArray.length;
+
+    	for (let item in filesArray) {
+
+    		var fileObj = {
+    			name: filesArray[item],
+    			alias: filesArray[item].split('/').pop(),
+    			path: this.url + filesArray[item],
+    			active: false,
+    			result: 'loading...'
+    		}
+
+    		var lastFile = Number(item) +1 === filesTotal;
+
+    		this.fetchDataAXIOS(fileObj, lastFile);
+    		this.filesArray.push(fileObj);
+    	}
+    },
+    methods: {
+        fetchDataAXIOS(obj) {
+        	axios.get(obj.path)
+        	.then(response => { // ES6
+
+        		obj.result = response.data;
+
+    			// refactor
+    			let prettify = document.createElement('script');
+    			prettify.setAttribute('src',"//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js");
+    			document.head.appendChild(prettify);
+        	});
+        },
+        enableCode() {
+        	this.codeEnabled = !this.codeEnabled;
+        	this.selectFile(0);
+        },
+        deselectFiles() {
+        	for (let item in this.filesArray) {
+        		this.filesArray[item].active = false;
+        	}
+        },
+        selectFile(file) {
+        	// take object or index
+        	var file = Number.isInteger(file) ? this.filesArray[file] : file;
+        	this.deselectFiles();
+        	file.active = true;
+        }
+    }
+});
+
+//-----------------------------------------------------------------
+// VUE INSTANCE (LAST)
+//-----------------------------------------------------------------
+
+new Vue({
+    el: '#docs-app',
+    data(){
+    	return {
+    		themes: [
+    			{ name: 'theme-base', label: 'Base', active: false },
+    			{ name: 'theme-silverfox', label: 'Base', active: false },
+    			{ name: 'theme-skyblue', label: 'Base', active: false },
+    			{ name: 'theme-posh', label: 'Base', active: false },
+    			{ name: 'theme-midnight', label: 'Base', active: false }
+    		],
+    	}
+    },
+    computed: {
+    	currentTheme() {
+    		return this.themes.find(theme => theme.active === true);
+    	}
+    },
+    methods: {
+    	selectTheme(target) {
+    		for (let item in this.themes) {
+    			// if (this.themes[item] !== target) {
+    				this.themes[item].active = false;
+    			// }
+    		}
+    		target.active = true; //!target.active;
+
+    		$('.card-docs-component .section, .global-header, .global-footer, .lv-hero-wrapper .lv-hero-item, .lv-breadcrumb-wrapper').removeClass(function (index, className) {
+    			return (className.match (/\btheme-\S+/g) || []).join(' ');
+    		}).addClass(target.name);
+    	}
+    }
+});
+
+//==================================================
+//
+//==================================================

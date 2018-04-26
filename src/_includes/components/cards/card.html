@@ -34,15 +34,19 @@
 		</a>
 
 		<!-- TEXT -->
-		<p class="card-text mb-4">{{ item.body | truncate: 150 }}</p>
+		<div class="card-text">
+			<div class="wysiwyg mb-4">
+				{{ item.body | truncate: 150 }}
+			</div>
+		</div>
 
 		<!-- CARD FOOTER -->
-		<div class="mt-auto">
+		<div>
 			{% if item.date and item.author %}
 
 				<!-- DATE + AUTHOR -->
 				<small>
-					<date class="text-muted mr-1">{{ item.date }}</date> <a target="_blank" href="{{ item.author.url }}">{{ item.author.name }} <i class="fa fa-external-link"></i></a>
+					<time class="text-muted mr-1" datetime="{{ item.date | date_to_xmlschema }}">{{ item.date }}</time> <a target="_blank" href="{{ item.author.url }}">{{ item.author.name }} <i class="fa fa-external-link"></i></a>
 				</small>
 
 			{% else %}

@@ -1,0 +1,88 @@
+---
+layout: base__page_sidebar
+---
+
+{% assign settings = site.data.settings %}
+
+{% assign categories = site.categories | sort %}
+
+{% assign blog_posts = site.data.lorem_ipsum %}
+
+<!-- SECTION -->
+<section class="section">
+    <div class="container">
+        <h1>{{ page.title }}</h1>
+
+        <p class="text-muted"><i class="fa fa-clock-o"></i> <date>12 AUGUST 2015</date><span class="px-2">|</span><i class="fa fa-user"></i>&nbsp; <a href="#">John Smith</a></p>
+        <br>
+        <p class="image-right"><img width="100%" src="http://placehold.it/350x260" alt="..."></p>
+
+        <!-- WYSIWYG -->
+        <div class="wysiwyg mb-4">
+            {{ content }}
+        </div>
+
+        <hr class="mb-4">
+
+
+
+    </div>
+</section>
+
+{% contentfor sidebar %}
+    <!-- SIDEBAR CONTENT -->
+    <section class="section">
+        <div class="container">
+
+            <!-- RECENT POSTS -->
+            <h3 class="mb-4">Recent Posts</h3>
+            {% for item in blog_posts limit: 3 %}
+                <a href="/blog/blog-item/">
+                    <h4 class="h6 mb-0 text-capitalize">{{ item.title }}</h4>
+                    <small>
+                        <date class="text-uppercase text-muted">{{ item.date }}</date>
+                    </small>
+                </a>
+                <hr>
+            {% endfor %}
+
+            <!-- SUBSCRIBE -->
+            <div class="panel-box-bodyX mb-4">
+                <h3>Subscribe</h3>
+                <p><small>Not the sandwich, goofus! Subscribe my stupid mailing list!</small></p>
+                {% include components/forms/form_subscribe.html %}
+            </div>
+
+            <!-- CATEGORIES -->
+            <a href="/tutorials/categories/"><h3>Categories</h3></a>
+            <ul class="list-unstyled">
+                {% for category in categories %}
+                    <li class="list-unstyled">
+                        <a href="/tutorials/categories/#{{ category | first | slugify }}">{{ category | first }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <!-- <div class="spacer my-3"></div> -->
+
+        </div>
+    </section>
+{% endcontentfor %}
+
+{% contentfor content_additional %}
+
+    <!-- COMMENTS ENABLED -->
+    {% unless page.comments == false %}
+        <section class="section theme-silverfox">
+            <div class="container">
+                <h2 class="mb-4">Comments</h2>
+                <div class="row">
+                    <div class="col-lg-9 pr-lg-4">
+                        {% include components/widgets/disqus_comments.html %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endunless %}
+
+{% endcontentfor %}

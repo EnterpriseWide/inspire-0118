@@ -12,10 +12,7 @@
         {% endif %}
     </title>
 
-    {% comment %}
     <script src="https://unpkg.com/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
-    {% endcomment %}
-
     {% include components/widgets/google_analytics.html %}
 
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
@@ -62,7 +59,11 @@
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/node_modules/bootstrap-validator/dist/validator.js"></script>
+
+    <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+    <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+
     <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
     <script src="/node_modules/headroom.js/dist/headroom.js"></script>
     <script src="/node_modules/headroom.js/dist/jQuery.headroom.js"></script>
@@ -70,6 +71,7 @@
     <script src="/node_modules/magnific-popup/dist/jquery.magnific-popup.js"></script>
     <script src="/assets/scripts/liquidvisual/utilities.js"></script>
     <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
+    <script src="/assets/scripts/liquidvisual/docs.js"></script>
     <script src="/assets/scripts/card-slider.js"></script>
     <script src="/assets/scripts/gallery.js"></script>
     <script src="/assets/scripts/hero-slider.js"></script>
@@ -77,6 +79,8 @@
     <script src="/assets/scripts/search.js"></script>
     <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->
+
+    <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>

@@ -2,7 +2,7 @@
 /*
     MAIN.CSS
 
-    - Last updated: 19.04.18
+    - Last updated: 24.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -133,6 +133,7 @@ $themes: (
 //=========================================
 
 // @import "app/helpers/fonts";
+@import "app/helpers/docs";
 @import "app/helpers/special";
 @import "app/helpers/text-editor";
 @import "app/helpers/themes";

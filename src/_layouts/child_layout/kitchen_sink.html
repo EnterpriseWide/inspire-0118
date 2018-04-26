@@ -32,6 +32,10 @@ layout: base__page_sidebar
 	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script> -->
 	{% endcomment %}
 
+	<div class="lv-alert-bar">
+	    <p>Kitchen Sink will soon be replaced by <a href="/sections/">/sections/</a></p>
+	</div>
+
 	<section class="section">
 		<div class="container">
 			<div class="wysiwyg">
@@ -62,9 +66,65 @@ layout: base__page_sidebar
 					<li><code>.text-[left,center,right]</code></li>
 				</ul>
 
+				<br>
+
+				<h6>Text Classes</h6>
+				<p>One can leverage <a target="_blank" href="https://getbootstrap.com/docs/4.0/utilities/text/">Bootstrap Utility classes</a> pretty much anywhere, even outside of sections. The most common will likely be:</p>
+				<ul>
+					<li><code>.text-[left,center,right]</code></li>
+				</ul>
+
 			</div>
 		</div>
 	</section>
+	<hr>
+
+	<div class="container">
+		<h2>Cards Component</h2>
+
+		<!-- WYSIWYG #1 -->
+		<div class="row">
+			<div class="col-md-11 col-lg-10">
+				<div class="wysiwyg mb-4">
+					<p>The Cards Component is a basic collection of 2 or 3 cards without any advanced behavior. Content should be kept to short paragraphs and not used to create lengthy 'text columns' since the equal heights will make cards appear too narrow.</p>
+					<h6>Default Properties:</h6>
+					<ul>
+						<li><code>.theme-[x]</code> - any section can have a theme applied</li>
+						<li><code>.has-image-bg</code> - any section can have a background image applied with the asset referenced with inline styles. <b>Eg.</b> <code>style="background-image: url(/path/to/asset/)"</code></li>
+						<li><code>.is-tinted</code> - applies a tint to any background image with a <code>.has-image-bg</code> class</li>
+						<li><code>.is-fixed</code> - applies fixed background behavior to any background image with a <code>.has-image-bg</code> class</li>
+					</ul>
+
+					<h6>Properties:</h6>
+					<ul>
+						<li><code>.is-flat</code> - this will strip cards of their depth and shadow.</li>
+						<li><code>2 or 3 columns</code> - this is drawn with template code. Pop open the include to see how this is achieved. <b>The default is Three</b>.</li>
+						<li><code>text-[left, center] - default: text-center</code></li>
+					</ul>
+
+					<h6>Component Properties:</h6>
+					<ul>
+						<li><code>title</code></li>
+						<li><code>date</code></li>
+						<li><code>author</code></li>
+
+						<li><code>link</code>
+							<ul>
+								<li><code>link caption</code></li>
+								<li><code>link target</code></li>
+								<li><code>link url</code></li>
+							</ul>
+					</li>
+
+
+						<li><code>categories</code></li>
+						<li><code>body</code></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<hr>
 
 	{% include components/cards/cards.html id="cards" columns=3 %}

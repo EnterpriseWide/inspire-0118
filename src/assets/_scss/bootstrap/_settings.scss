@@ -348,13 +348,13 @@ $display1-size:               rem-calc(64) !default; //6rem !default;
 // $table-cell-padding:          .75rem !default;
 // $table-cell-padding-sm:       .3rem !default;
 
-// $table-bg:                    transparent !default;
+$table-bg:                    transparent !default;
 // $table-accent-bg:             rgba($black, .05) !default;
 // $table-hover-bg:              rgba($black, .075) !default;
 // $table-active-bg:             $table-hover-bg !default;
 
 // $table-border-width:          $border-width !default;
-// $table-border-color:          $gray-300 !default;
+$table-border-color:          darken(#dfe2e5, 15%); //$gray-300 !default;
 
 // $table-head-bg:               $gray-200 !default;
 // $table-head-color:            $gray-700 !default;
@@ -887,7 +887,7 @@ $card-inner-border-radius:          0; //calc(#{$card-border-radius} - #{$card-b
 // $breadcrumb-padding-x:              1rem !default;
 // $breadcrumb-item-padding:           .5rem !default;
 
-// $breadcrumb-margin-bottom:          1rem !default;
+$breadcrumb-margin-bottom:          0; //1rem !default;
 
 $breadcrumb-bg:                     none; //darken($gray-100, 2%) !default;
 // $breadcrumb-divider-color:          $gray-600 !default;
