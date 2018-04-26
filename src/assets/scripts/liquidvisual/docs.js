@@ -37,7 +37,8 @@ Vue.component('docs', {
     data() {
         return {
         	filesArray: [],
-        	url: 'https://cdn.rawgit.com/liquidvisual/inspire-0118/master/src/_includes/', //components/cards/cards.html
+        	// url: 'https://cdn.rawgit.com/liquidvisual/inspire-0118/master/src/', //components/cards/cards.html
+        	url: 'https://raw.githubusercontent.com/liquidvisual/inspire-0118/master/src/',
             codeEnabled: false,
             showProperties: false
         }
@@ -51,7 +52,7 @@ Vue.component('docs', {
     		var fileObj = {
     			name: filesArray[item],
     			alias: filesArray[item].split('/').pop(),
-    			path: this.url + filesArray[item],
+    			path: this.url + filesArray[item] + '?' + Date.now(), // cache bust
     			active: false,
     			result: 'loading...'
     		}
