@@ -6,10 +6,6 @@
 
 - title: Sections
   url: /sections/
-  include_children_in_nav: true
-  children:
-    - title: Kitchen Sink (old)
-      url: /kitchen-sink/
 
 - title: Pages
   url: /advanced-page/
@@ -51,8 +47,8 @@
     # - title: Profile Page
     #   url: /404/
 
-    - title: Search Results
-      url: /404/
+    # - title: Search Results
+      # url: /404/
 
     # - title: Signup Page
     #   url: /404/
