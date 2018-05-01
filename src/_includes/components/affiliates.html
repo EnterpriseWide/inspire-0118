@@ -6,27 +6,31 @@
 <section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-10">
+			<div class="col-lg-9 text-center">
 
-				<h2>Affiliates Component</h2>
+				<h2>Lorem Ipsum Dolor Sit Amet</h2>
 
 				<!-- WYSIWYG -->
 				<div class="wysiwyg mb-4">
-					<p>This component will take any number of images, typically logos wrapped by columns. It is designed to be center aligned so to support any number without needing additional styles.</p>
-				</div>
-
-				<!-- IMAGES -->
-				<div class="row no-gutters justify-content-center">
-					{% for i in (1..20) %}
-						<div class="col-4 col-md-2 align-items-center text-center">
-							<p class="mb-4">
-								<a href="#"><img width="70%" src="http://placehold.it/300x300" alt="..."></a>
-							</p>
-						</div>
-					{% endfor %}
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
 				</div>
 
 			</div>
+
+			<!-- IMAGES -->
+			<div class="row no-gutters justify-content-center">
+				{% for i in (1..5) %}
+					<div class="col-4 col-md-2 align-items-center text-center">
+						<p class="mb-4">
+							<a href="{{ "#" }}" target="_blank">
+								<img width="70%" src="{{ "http://placehold.it/500x400" }}" alt="{{ "..." }}">
+							</a>
+						</p>
+					</div>
+				{% endfor %}
+			</div>
+
 		</div>
 	</div>
 </section>

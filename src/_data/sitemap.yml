@@ -2,7 +2,7 @@
 #   url: /
 
 - title: Components
-  url: /standard-page/
+  url: /components/
 
 - title: Sections
   url: /sections/
@@ -10,8 +10,6 @@
   children:
     - title: Kitchen Sink (old)
       url: /kitchen-sink/
-    - title: Sections (wip)
-      url: /sections/
 
 - title: Pages
   url: /advanced-page/
@@ -26,11 +24,11 @@
     # - title: About Us
     #   url: /404/
 
-    - title: Blog
-      url: /blog/
+    # - title: Blog
+    #   url: /blog/
 
-    - title: Blog Post
-      url: /blog/blog-item/
+    # - title: Blog Post
+    #   url: /blog/blog-item/
 
     - title: Contact
       url: /contact/

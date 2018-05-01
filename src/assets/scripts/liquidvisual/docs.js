@@ -37,7 +37,6 @@ Vue.component('docs', {
     data() {
         return {
         	filesArray: [],
-        	// url: 'https://cdn.rawgit.com/liquidvisual/inspire-0118/master/src/', //components/cards/cards.html
         	url: 'https://raw.githubusercontent.com/liquidvisual/inspire-0118/master/src/',
             codeEnabled: false,
             showProperties: false
@@ -109,6 +108,11 @@ new Vue({
     			{ name: 'theme-posh', label: 'Base', active: false },
     			{ name: 'theme-midnight', label: 'Base', active: false }
     		],
+            modifiers: [
+                { name: 'is-tinted', label: 'Tint', active: false },
+                { name: 'has-image-bg', label: 'Bg Image', active: false },
+                { name: 'is-fixed', label: 'Fixed Image', active: false }
+            ]
     	}
     },
     computed: {
@@ -119,16 +123,42 @@ new Vue({
     methods: {
     	selectTheme(target) {
     		for (let item in this.themes) {
-    			// if (this.themes[item] !== target) {
+    			if (this.themes[item] !== target) {
     				this.themes[item].active = false;
-    			// }
+    			}
     		}
-    		target.active = true; //!target.active;
+    		target.active = !target.active;
+
+            var classToggle = target.active ? target.name : '';
 
     		$('.card-docs-component .section, .global-header, .global-footer, .lv-hero-wrapper .lv-hero-item, .lv-breadcrumb-wrapper').removeClass(function (index, className) {
     			return (className.match (/\btheme-\S+/g) || []).join(' ');
-    		}).addClass(target.name);
-    	}
+    		}).addClass(classToggle);
+    	},
+
+        selectModifier(target){
+
+            if (target.name == 'is-tinted') {
+                var tintClass = target.active ? '' : target.name;
+                $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(tintClass);
+            }
+
+            if (target.name == 'has-image-bg') {
+                var bgImageClass = target.active ? '' : target.name;
+                $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(bgImageClass);
+
+                if (!target.active) {
+                    $('.card-docs-component .section, .lv-hero-item').css('background-image', 'url(https://source.unsplash.com/random)');
+                } else {
+                    $('.card-docs-component .section, .lv-hero-item').css('background-image', 'none');
+                }
+            }
+
+            if (target.name == 'is-fixed') {
+                var fixedBgClass = target.active ? '' : target.name;
+                $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(fixedBgClass);
+            }
+        }
     }
 });
 

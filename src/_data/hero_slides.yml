@@ -1,5 +1,5 @@
-- title: Hero Component
-  body: '<p class="lead">The .lv-hero supports various heights: .is-default, .is-medium, .is-full, .is-static. The hero include can toggle the Scroll Prompt via the template as well as caption alignment which is per hero (not per hero item). The hero-item supports: image, youtube id, .theme-[x] and .is-tinted</p><p><a href="{{ item.url }}" class="btn btn-outline-light">Read more</a></p>'
+- title: Lorem Ipsum Dolor Sit Amet
+  body: 'Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar.'
   image:
   options: theme-skyblue
   scroll_prompt: true
