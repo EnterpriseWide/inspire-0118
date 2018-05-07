@@ -2,7 +2,6 @@
 layout: base__page_sidebar
 ---
 
-{% assign settings = site.data.settings %}
 {% assign search_results = site.data.lorem_ipsum %}
 
 <!-- SEARCH RESULTS -->
@@ -30,12 +29,17 @@ layout: base__page_sidebar
 
         <!-- SEARCH RESULTS -->
         {% for item in search_results | limit: 5 %}
-            <a href="#">
-                <h3 class="h4">{{ item.title }}</h3>
+
+            <article>
+                <a href="{{ item.url }}">
+                    <h3 class="h4">{{ item.title }}</h3>
+                </a>
+
                 <!-- TRUNCATE: 200 max chars -->
-                <p class="text-dark">{{ item.body | truncate: 200 }} &nbsp;<span class="text-primary">Read more <i class="fa fa-angle-right"></i></span></p>
-            </a>
-            <hr class="my-4 py-1">
+                <p class="text-dark mb-0">{{- item.body | truncate: 200 -}} <a href="{{ item.url }}" class="pl-2">Read more <i class="fa fa-angle-right"></i></a></p>
+            </article>
+
+            <hr class="my-4">
         {% endfor %}
 
         <div class="spacer mb-4"></div>
