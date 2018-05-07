@@ -20,8 +20,8 @@
     # - title: About Us
     #   url: /404/
 
-    # - title: Blog
-    #   url: /blog/
+    - title: Blog
+      url: /blog/
 
     # - title: Blog Post
     #   url: /blog/blog-item/
@@ -47,8 +47,8 @@
     # - title: Profile Page
     #   url: /404/
 
-    # - title: Search Results
-      # url: /404/
+    - title: Search Results
+      url: /search/
 
     # - title: Signup Page
     #   url: /404/

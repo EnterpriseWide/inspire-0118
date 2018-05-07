@@ -31,7 +31,7 @@
 		</div>
 
 		<div class="row">
-			{% for item in posts | limit: columns | offset: 5 %}
+			{% for item in posts | limit: columns | offset: 6 %}
 				<div class="{{ column_classes }} mb-4">
 					{% include components/cards/card.html %}
 				</div>
