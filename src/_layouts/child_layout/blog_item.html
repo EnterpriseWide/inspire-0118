@@ -2,29 +2,33 @@
 layout: base__page_sidebar
 ---
 
-{% assign settings = site.data.settings %}
-
 {% assign categories = site.categories | sort %}
-
 {% assign blog_posts = site.data.lorem_ipsum %}
+{% assign item = blog_posts[0] %}
 
 <!-- SECTION -->
-<section class="section">
+<section class="section pb-0 pb-lg-5">
     <div class="container">
-        <h1>{{ page.title }}</h1>
 
-        <p class="text-muted"><i class="fa fa-clock-o"></i> <date>12 AUGUST 2015</date><span class="px-2">|</span><i class="fa fa-user"></i>&nbsp; <a href="#">John Smith</a></p>
-        <br>
-        <p class="image-right"><img width="100%" src="http://placehold.it/350x260" alt="..."></p>
+        <!-- TITLE -->
+        <h1>{{ item.title }}</h1>
+
+        <!-- DATE / AUTHOR -->
+        <p class="text-muted mb-4">
+            <i class="fa fa-clock-o"></i>
+            <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d %B %Y" }}</time><span class="px-2">|</span>
+            <i class="fa fa-user"></i> &nbsp;<a href="{{ item.author.url }}">{{ item.author.name }}</a>
+        </p>
+
+        <!-- IMAGE -->
+        <p class="image-right mb-4">
+            <img width="100%" src="{{ item.image }}" alt="{{ item.image.title }}">
+        </p>
 
         <!-- WYSIWYG -->
         <div class="wysiwyg mb-4">
-            {{ content }}
+            {{ item.body | markdownify }}
         </div>
-
-        <hr class="mb-4">
-
-
 
     </div>
 </section>
@@ -36,41 +40,26 @@ layout: base__page_sidebar
 
             <!-- RECENT POSTS -->
             <h3 class="mb-4">Recent Posts</h3>
-            {% for item in blog_posts limit: 3 %}
-                <a href="/blog/blog-item/">
-                    <h4 class="h6 mb-0 text-capitalize">{{ item.title }}</h4>
-                    <small>
-                        <date class="text-uppercase text-muted">{{ item.date }}</date>
+            {% for item in blog_posts | limit: 3 %}
+                <a class="d-block mb-3" href="{{ item.url }}">
+                    <h4 class="h6 mb-0">{{ item.title }}</h4>
+                    <small class="text-uppercase text-muted">
+                        <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d %B %Y" }}</time>
                     </small>
                 </a>
-                <hr>
             {% endfor %}
 
+            <div class="spacer mb-4"></div>
+
             <!-- SUBSCRIBE -->
-            <div class="panel-box-bodyX mb-4">
-                <h3>Subscribe</h3>
-                <p><small>Not the sandwich, goofus! Subscribe my stupid mailing list!</small></p>
-                {% include components/forms/form_subscribe.html %}
-            </div>
-
-            <!-- CATEGORIES -->
-            <a href="/tutorials/categories/"><h3>Categories</h3></a>
-            <ul class="list-unstyled">
-                {% for category in categories %}
-                    <li class="list-unstyled">
-                        <a href="/tutorials/categories/#{{ category | first | slugify }}">{{ category | first }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-
-            <!-- <div class="spacer my-3"></div> -->
+            <h3 class="mb-4">Subscribe</h3>
+            {% include components/forms/form_subscribe.html %}
 
         </div>
     </section>
 {% endcontentfor %}
 
 {% contentfor content_additional %}
-
     <!-- COMMENTS ENABLED -->
     {% unless page.comments == false %}
         <section class="section theme-silverfox">
@@ -84,5 +73,4 @@ layout: base__page_sidebar
             </div>
         </section>
     {% endunless %}
-
 {% endcontentfor %}

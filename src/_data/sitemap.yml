@@ -23,8 +23,8 @@
     - title: Blog
       url: /blog/
 
-    # - title: Blog Post
-    #   url: /blog/blog-item/
+    - title: Blog Post
+      url: /blog/blog-item/
 
     - title: Contact
       url: /contact/

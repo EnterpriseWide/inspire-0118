@@ -2,7 +2,7 @@
 <!--
     BREADCRUMBS
 
-    updated: 11.04.18
+    updated: 07.05.18
     liquidvisual.com
 -->
 {% endcomment %}
@@ -20,7 +20,7 @@
                     <a class="breadcrumb-item"
                         href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">
                         <i class="fa fa-arrow-circle-left"></i>&nbsp;
-                        <span class="hidden-sm-down">Back to</span> {{ crumb | replace:'-',' ' }}
+                        <span class="hidden-sm-down">Back to</span> {{ crumb | capitalize | replace:'-',' ' }}
                     </a>
                 {% endunless %}
             {% endfor %}
