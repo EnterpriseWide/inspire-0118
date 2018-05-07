@@ -1,0 +1,51 @@
+---
+layout: base__page_sidebar
+---
+
+{% assign settings = site.data.settings %}
+{% assign search_results = site.data.lorem_ipsum %}
+
+<!-- SEARCH RESULTS -->
+<section class="section">
+    <div class="container">
+
+        <!-- SEARCH FORM -->
+        <div class="row">
+            <div class="col-md-8">
+                <form action="/search/" method="get" novalidate>
+                    <div class="input-group">
+                        <input class="form-control" name="q" type="text" placeholder="Search">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="spacer mt-3 mb-5"></div>
+
+        <!-- NO RESULTS FOUND -->
+        <p class="text-muted" hidden>Sorry, no results were found.</p>
+
+        <!-- SEARCH RESULTS -->
+        {% for item in search_results | limit: 5 %}
+            <a href="#">
+                <h3 class="h4">{{ item.title }}</h3>
+                <!-- TRUNCATE: 200 max chars -->
+                <p class="text-dark">{{ item.body | truncate: 200 }} &nbsp;<span class="text-primary">Read more <i class="fa fa-angle-right"></i></span></p>
+            </a>
+            <hr class="my-4 py-1">
+        {% endfor %}
+
+        <div class="spacer mb-4"></div>
+
+        {% include components/navigation/pagination.html %}
+    </div>
+</section>
+
+{% contentfor sidebar %}
+{% endcontentfor %}
+
+{% contentfor content_additional %}
+{% endcontentfor %}
