@@ -2,13 +2,13 @@
 <!--
     HERO DEFAULT
 
-    - Updated: 19.04.18
+    - Updated: 07.05.18
     - Complete functionality incl. youtube video, commonly used on homepages
 -->
 {% endcomment %}
 
 {% assign id = include.id %}
-{% assign align_caption = include.align_caption | default: 'center' %}
+{% assign justify_caption = include.justify_caption | default: 'center' %}
 {% assign options = include.options | default: 'is-default' %}
 {% assign slides = include.data | default: site.data.hero_slides %}
 {% assign youtube_script_included_once = false %}
@@ -35,7 +35,7 @@
                 "imagesLoaded": true,
                 "pageDots": true,
                 "prevNextButtons": false,
-                "pauseAutoPlayOnHover": false,
+                "pauseAutoPlayOnHover": true,
                 "selectedAttraction": 0.025,
                 "watchCSS": false,
                 "wrapAround": true
@@ -49,7 +49,7 @@
                 <div class="container">
 
                     {% capture row_classes %}
-                        {% if align_caption == "center" %}
+                        {% if justify_caption == "center" %}
                             justify-content-center text-center
                         {% else %}
                             justify-content-left text-left

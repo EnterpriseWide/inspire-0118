@@ -134,6 +134,7 @@ sections:
           - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
           - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
           - { name: "reverse_columns", label: "Section Reverse Columns", widget: "boolean", default: "false" }
+          - { name: "align_columns", label: "Section Align Columns", widget: "select", options: [{label: "top", value: "top"}, {label: "center", value: "center"}, {label: "bottom", value: "bottom"}], default: "center" }
 
           # Component
           - { name: "link", label: "Component Link", widget: "string" }
@@ -158,6 +159,7 @@ sections:
           - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
           - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
           - { name: "reverse_columns", label: "Section Reverse Columns", widget: "boolean", default: "false" }
+          - { name: "align_columns", label: "Section Align Columns", widget: "select", options: [{label: "top", value: "top"}, {label: "center", value: "center"}, {label: "bottom", value: "bottom"}], default: "center" }
 
           # Component
           - { name: "image", label: "Component Image", widget: "image" }

@@ -17,7 +17,7 @@ sections:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }
           - { name: "mode", label: "Section Mode", widget: "select", options: [{label: "Default", value: 'is-default'}, {label: "Medium", value: "is-medium"}, {label: "Full", value: "is-full"}], default: "is-default" }
-          - { name: "align_caption", label: "Section Align", widget: "select", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}], default: "center" }
+          - { name: "justify_caption", label: "Section Justify", widget: "select", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}], default: "center" }
 
           # Component
           - { name: "title", label: "Component Header", widget: "string" }
