@@ -12,8 +12,11 @@
         {% endif %}
     </title>
 
-    <script src="https://unpkg.com/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
     {% include components/widgets/google_analytics.html %}
+
+    <!-- build:js({src,.}) /assets/scripts/vue.js -->
+    <script src="/node_modules/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
+    <!-- endbuild -->
 
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
     <link rel="stylesheet" href="/css/main.css">
