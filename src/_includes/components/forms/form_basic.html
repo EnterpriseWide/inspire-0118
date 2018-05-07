@@ -3,9 +3,6 @@
 {% assign options = include.options %}
 {% assign settings = site.data.settings %}
 
-<!-- GOOGLE CAPTCHA -->
-<script src="https://www.google.com/recaptcha/api.js"></script>
-
 <!-- BASIC FORM -->
 <section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
     <div class="container">
@@ -126,9 +123,6 @@
                 </label>
 
             </fieldset>
-
-            <!-- GOOGLE CAPTCHA -->
-            <div class="g-recaptcha" data-sitekey="## PUBLIC KEY GOES HERE ##"></div>
 
             <!-- * REQUIRED -->
             <p class="float-right">
