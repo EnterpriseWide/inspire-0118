@@ -82,6 +82,8 @@
 
                 {% if item.youtube_id %}
                     {% include components/hero/hero__youtube_plugin.html %}
+                {% elsif item.vimeo_id %}
+                    {% include components/hero/hero__vimeo_plugin.html %}
                 {% endif %}
 
             </div>

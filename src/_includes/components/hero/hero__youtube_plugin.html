@@ -2,7 +2,7 @@
 <!--
     HERO YOUTUBE PLUGIN
 
-    - Updated: 17.04.18
+    - Updated: 11.05.18
     - Notes: This acts as a plugin for the hero component.
              Each slide item can render an iframe but the inline script is only rendered ONCE.
 -->
@@ -15,6 +15,7 @@
 <div class="video-bg">
     <div class="video-fg">
         <iframe
+            data-youtube
             class="video"
             src="{{ src }}"
             frameborder="0"
@@ -35,7 +36,7 @@
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         function onYouTubeIframeAPIReady() {
-            document.querySelectorAll('.lv-hero-item .video').forEach((item) => {
+            document.querySelectorAll('.lv-hero-item iframe[data-youtube]').forEach((item) => {
                 new YT.Player(item, {
                     events: {
                         'onReady': (event) => {

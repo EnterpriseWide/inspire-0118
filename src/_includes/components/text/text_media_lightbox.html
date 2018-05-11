@@ -4,10 +4,6 @@
 {% assign reverse_columns = include.reverse_columns | default: false %}
 {% assign align_columns = include.align_columns | default: 'center' %}
 
-{% assign image = include.image | default: "http://placehold.it/400x300" %}
-{% assign image_desc = include.image_desc | default: "Brief description here, longer text if required." %}
-{% assign link = include.media_link | default: "http://www.youtube.com/watch?v=ScMzIvxBSi4" %}
-
 {% capture column_classes %}
 	{% if reverse_columns %}
 		order-md-last
@@ -26,7 +22,7 @@
 	{% endif %}
 {% endcapture %}
 
-<!-- TEXT MEDIA -->
+<!-- TEXT MEDIA LIGHTBOX -->
 <section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
 	<div class="container">
 		<div class="row {{ row_classes }}">
@@ -47,15 +43,7 @@
 				</div>
 			</div>
 			<div class="col-md-5 pl-lg-5">
-
-				<!-- MEDIA -->
-				<div class="popup-gallery" data-group-title="">
-					<a class="btn-tile" href="{{ link }}" title="{{ image_desc }}">
-						<img width="100%" src="{{ image }}" alt="{{ image_desc }}">
-						<span class="btn-tile-bg" style="background-image: url({{ image }})"></span>
-					</a>
-				</div>
-
+				{% include components/media/media_lightbox.html %}
 			</div>
 		</div>
 	</div>

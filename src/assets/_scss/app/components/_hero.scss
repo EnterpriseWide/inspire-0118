@@ -355,10 +355,10 @@ $hero-height-presets: (
         width: 300%;
     }
     @include media-breakpoint-up(lg) {
-        top: -102%;
+        top: -103%;
         left: 0;
-        width: 104%;
-        height: 304%;
+        width: 106%;
+        height: 306%;
     }
 }
 
@@ -371,6 +371,16 @@ $hero-height-presets: (
     @media (max-aspect-ratio: 16/9) {
         width: 300%;
         left: -100%;
+    }
+}
+
+// MEDIUM PRESET - kind of a hassle
+.lv-hero.is-medium .video-fg {
+    @include media-breakpoint-down(md) {
+        top: -106%;
+        left: 0;
+        width: 103%;
+        height: 303%;
     }
 }
 

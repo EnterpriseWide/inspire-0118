@@ -141,9 +141,10 @@ sections:
           - { name: "link_label", label: "Component Link Label", widget: "string", default: "Click me" }
 
       - title: Text Media
-        url: components/text/text_media.html
+        url: components/text/text_media_lightbox.html
         files:
-          - _includes/components/text/text_media.html
+          - _includes/components/text/text_media_lightbox.html
+          - _includes/components/media/media_lightbox.html
         desc: |-
           This section provides a WYSIWYG field accompanied with an image, video (YouTube or Vimeo) or Google Map. Media will automatically open inside a lightbox when clicked. If no image is specified for video, the template will default to a still from that video.
 
@@ -162,7 +163,7 @@ sections:
           - { name: "align_columns", label: "Section Align Columns", widget: "select", options: [{label: "top", value: "top"}, {label: "center", value: "center"}, {label: "bottom", value: "bottom"}], default: "center" }
 
           # Component
-          - { name: "image", label: "Component Image", widget: "image" }
+          - { name: "media", label: "Component Image", widget: "image" }
           - { name: "image_desc", label: "Component Image Description", widget: "string" }
           - { name: "link", label: "Component Link", widget: "string" }
 
@@ -191,4 +192,13 @@ sections:
           - { name: "image", label: "Component Image", widget: "image" }
           - { name: "image_desc", label: "Component Image Description", widget: "string" }
           - { name: "link", label: "Component Link", widget: "string" }
+
+      - title: Gallery
+        url: components/gallery.html
+        files:
+          - _includes/components/gallery.html
+        desc: |-
+          Pending
+
+        fields:
 ---
