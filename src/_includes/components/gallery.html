@@ -25,10 +25,10 @@
 
 		<!-- MEDIA LIGHTBOX GALLERY -->
 		<div class="popup-gallery" data-group-title="">
-			<div class="row">
+			<div class="row no-gutters">
 				{% for i in (1..8) %}
-					<div class="col-3">
-						<a class="btn-tile mb-4" href="{{ link }}" title="{{ image_desc }}">
+					<div class="col-12 col-md-3">
+						<a class="btn-tile mx-1 mb-2" href="{{ link }}" title="{{ image_desc }}">
 							<img width="100%" src="{{ image }}" alt="{{ image_desc }}">
 							<span class="btn-tile-bg" style="background-image: url({{ image }})"></span>
 						</a>
