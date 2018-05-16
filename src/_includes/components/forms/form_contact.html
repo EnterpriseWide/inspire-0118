@@ -7,14 +7,13 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 
 <!-- CONTACT FORM -->
-<section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
+<section idXX="{{ id }}" id="app" class="section {{ options }}" style="background-image: url({{ bg_image }})">
     <div class="container">
         <div class="row">
             <div class="col-lg-11">
 
-                {% comment %}
                 <!-- IF SUCCESS -->
-                <div class="alert alert-success alert-dismissible fade show" role="alert" hidden>
+                <div v-show="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -22,13 +21,12 @@
                 </div>
 
                 <!-- IF FAILURE -->
-                <div class="alert alert-danger alert-dismissible fade show" role="alert" hidden>
+                <div v-show="errors.any()" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <strong>Oops!</strong><br> Something went wrong. Please try again.
+                    <strong>Oops!</strong><br> There <span v-text="errors.count()=== 1 ? 'is' : 'are' "></span> <span v-text="errors.count()"></span> error. Please try again.
                 </div>
-                {% endcomment %}
 
                 <h2>Get in Touch</h2>
 
@@ -39,83 +37,189 @@
                 </div>
 
                 <!-- FORM CONTACT -->
-                <form id="contact-form" name="Contact Form" action="/contact/" data-toggle="validator" novalidate netlify>
+                <form name="Contact Form" action="/contact/" @submit.prevent="validateBeforeSubmit" novalidate>
                     <fieldset>
 
-                       <!-- NAME* -->
-                       <label class="form-group d-block">
-                           <p class="mb-2">Full Name<small class="asterisk">*</small></p>
-                           <input class="form-control" name="Name" type="text" placeholder="" required>
-                           <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your name is required.</small>
-                       </label>
+                        <!-- NAME* -->
+                        <label class="form-group d-block">
+                            <p class="mb-2">Full Name<small class="asterisk">*</small></p>
+                            <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="name" v-validate="'required|alpha'" required>
+                            <small v-show="errors.has('name')" class="error shake animated"><i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('name')"></span></small>
+                        </label>
 
                         <!-- EMAIL* -->
                         <label class="form-group d-block">
                             <p class="mb-2">Email<small class="asterisk">*</small></p>
-                            <input class="form-control" name="Email" type="email" placeholder="" required>
-                            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A valid email is required.</small>
+                            <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="email" v-validate="'required|email'" type="email" required>
+                            <small v-show="errors.has('email') && fields.email.touched" class="error shake animated"><i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('email')"></span></small>
                         </label>
 
                         <!-- PHONE -->
-                        <label class="form-group d-block">
+                        <!-- <label class="form-group d-block">
                             <p class="mb-2">Phone</p>
-                            <input class="form-control" name="Phone" type="phone" placeholder="">
-                            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A valid phone number is required.</small>
-                        </label>
+                            <input class="form-control" name="phone" type="tel" v-model="phone" v-validate="'required|numeric'">
+                            <small v-show="errors.has('phone')" class="error shake animated"><i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('phone')"></span></small>
+                        </label> -->
 
                     </fieldset>
                     <fieldset>
 
                         <!-- MESSAGE -->
-                        <label class="form-group d-block">
+                        <!-- <label class="form-group d-block">
                             <p>Your Message<small class="asterisk">*</small></p>
-                            <textarea class="form-control" name="Message" rows="6" placeholder="" required></textarea>
-                            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Please leave a message.</small>
-                        </label>
+                            <textarea class="form-control" name="message" rows="6" v-model="message" placeholder="" v-validate="'required|max:2000'" required></textarea>
+                            <small v-show="errors.has('message')" class="error shake animated"><i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('message')"></span></small>
+                        </label> -->
 
                     </fieldset>
                     <fieldset>
 
                         <!-- REFERRAL -->
-                        <label class="form-group d-block">
+                        <!-- <label class="form-group d-block">
                             <p>How did you hear about us?</p>
-                            <select class="custom-select" name="Referral">
-                                <option disabled selected>Choose one</option>
+                            <select class="custom-select" name="Referral" v-model="referral">
+                                <option disabled selected value="">Choose one</option>
                                 <option value="Google">Google</option>
                                 <option value="Twitter">Twitter</option>
                                 <option value="Facebook">Facebook</option>
                                 <option value="Friend">Word of mouth</option>
                                 <option value="Other">Other</option>
                             </select>
-                        </label>
+                        </label> -->
 
                     </fieldset>
                     <fieldset>
 
                         <!-- SIGN UP TO OUR NEWSLETTER -->
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="custom-control custom-checkbox">
-                                <input class="custom-control-input" type="checkbox" name="Newsletter" value="true">
+                                <input class="custom-control-input" type="checkbox" name="Newsletter" value="true" v-model="newsletter">
                                 <p class="custom-control-label">Sign me up to the newsletter</p>
                             </label>
-                        </div>
+                        </div> -->
 
                     </fieldset>
 
                     <!-- * REQUIRED -->
-                    <p class="float-md-right">
+                    <!-- <p class="float-md-right">
                         <small class="asterisk">*</small>
                         <small class="text-muted" style="position: relative; top: -5px;">required</small>
-                    </p>
+                    </p> -->
 
                     <!-- GOOGLE RECAPTCHA -->
-                    <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div>
+                    <!-- <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div> -->
+
+                    <p>data: <span v-text="responseData"></span></p>
 
                     <!-- SUBMIT -->
-                    <button type="submit" class="btn btn-primary">Send Message <i class="fa fa-angle-right"></i></button>
+                    <!-- <button type="submit" disabled="processing" class="btn btn-primary">Send Message <i class="fa fa-angle-right"></i></button> -->
+
+                    <button :disabled="errors.any() || !isComplete || processing" type="submit" class="btn btn-primary">Send Message <i class="fa fa-angle-right"></i></button>
+                    <!-- <button @click="reset" type="button" class="btn btn-primary">Reset</button> -->
+                    <!-- <button @click="simulateFailure" type="button" class="btn btn-primary">Simulate Failure</button> -->
 
                 </form>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    //-----------------------------------------------------------------
+    //
+    //-----------------------------------------------------------------
+
+    Vue.use(VeeValidate, {
+        events: 'input' //'change' // 'blur'
+    });
+
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                responseData: null,
+                processing: false,
+                success: false,
+                failures: 0,
+
+                name: '',
+                email: '',
+                phone: '',
+                referral: '',
+                message: '',
+                newsletter: false,
+            }
+        },
+
+        //==================================================
+        //
+        //==================================================
+
+        computed: {
+            isComplete() {
+                return this.name && this.email;
+            }
+        },
+
+        //-----------------------------------------------------------------
+        //
+        //-----------------------------------------------------------------
+
+        methods: {
+            validateBeforeSubmit() {
+                this.processing = true;
+
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+
+                        this.processing = false;
+                        this.postData();
+                        return;
+                    }
+                    alert('Correct them errors!');
+                    // this.errors.add('email', 'Email already exists!');
+                    this.failures++;
+                });
+            },
+
+            //==================================================
+            // POST DATA
+            //==================================================
+
+            postData() {
+                this.responseData = 'posted..';
+
+                axios({
+                    method: 'POST',
+                    url: 'http://liquidvisual.net/form.php',
+                    // headers: { 'Accept': '*/*' },
+                    // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    // headers: { 'Content-Type': 'application/json' },
+                    // headers: { 'Content-Type': 'multipart/form-data' },
+
+                    data: 'email='+this.email
+                })
+                .then(response => {
+                    this.responseData = response.data; // for full
+                    console.log(response);
+                    this.success = true;
+                    this.reset(true);
+                })
+                .catch(error => {
+                    this.responseData = error.response.data;
+                });
+            },
+
+            //==================================================
+            // RESET
+            //==================================================
+
+            reset(success) {
+                // https://github.com/baianat/vee-validate/issues/209
+                Object.assign(this.$data, this.$options.data.call(this));
+                this.success = success === true; // t/f
+                this.$validator.reset();
+            },
+        }
+    })
+</script>

@@ -16,7 +16,10 @@
 
     <!-- build:js({src,.}) /assets/scripts/vue.js -->
     <script src="/node_modules/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
+    <script src="/node_modules/vee-validate/dist/vee-validate.js"></script>
     <!-- endbuild -->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
     <link rel="stylesheet" href="/css/main.css">
@@ -62,11 +65,6 @@
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
-    <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script>
-    <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
-    <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
-
     <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
     <script src="/node_modules/headroom.js/dist/headroom.js"></script>
     <script src="/node_modules/headroom.js/dist/jQuery.headroom.js"></script>
@@ -84,6 +82,9 @@
     <!-- endbuild -->
 
     <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
+    <!-- <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script> -->
+    <!-- <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script> -->
+    <!-- <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script> -->
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>
