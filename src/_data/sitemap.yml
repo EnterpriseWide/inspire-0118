@@ -38,6 +38,9 @@
     # - title: Ecommerce Page
     #   url: /404/
 
+    - title: Paypal
+      url: /paypal/
+
     # - title: Product Page
     #   url: /404/
 

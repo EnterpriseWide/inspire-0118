@@ -3,23 +3,27 @@
 <div id="app" v-cloak>
 
     <!-- IF SUCCESS -->
-    <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
+    <!-- <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         <strong>Success!</strong><br> Thanks for that. We'll get back to you soon.
-    </div>
+    </div> -->
 
     <!-- IF FAILURE -->
-    <div v-if="failures" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
+    <!-- <div v-if="failures" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         <strong>Oops!</strong><br> <span v-html="errorText"></span>
+    </div> -->
+
+    <div class="mb-4 alert alert-danger" role="alert">
+        Incomplete, still in progress...
     </div>
 
     <!-- FORM CONTACT -->
-    <form name="Contact Form" @submit.prevent="validateBeforeSubmit" novalidate>
+    <form name="Paypal Form" @submit.prevent="validateBeforeSubmit" novalidate>
         <fieldset>
 
             <!-- NAME* -->
@@ -45,6 +49,55 @@
 
         </fieldset>
         <fieldset>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <!-- REFERRAL -->
+                    <label class="form-group d-block">
+                        <p>Product<small class="asterisk">*</small></p>
+                        <select class="custom-select" name="Referral" v-model="referral">
+                            <option disabled selected value="">Choose one</option>
+                            <option value="Google">Google</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Friend">Word of mouth</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </label>
+
+                </div>
+                <div class="col-md-6">
+
+                    <!-- QUANTITY -->
+                    <label class="form-group d-block">
+                        <p>Quantity<small class="asterisk">*</small></p>
+                        <select class="custom-select" name="Referral" disabled>
+                            <option disabled selected value="">Choose one</option>
+                            <option value="Google">Google</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Friend">Word of mouth</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </label>
+
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+
+            <!-- TERMS & CONDITIONS -->
+            <div class="form-group">
+                <label class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" name="Newsletter" value="true" v-model="newsletter">
+                    <p class="custom-control-label">Terms &amp; Conditions<small class="asterisk">*</small></p>
+                </label>
+            </div>
+
+        </fieldset>
+
+        {% comment %}
+        <fieldset>
 
             <!-- MESSAGE -->
             <label class="form-group d-block">
@@ -54,33 +107,7 @@
             </label>
 
         </fieldset>
-        <fieldset>
-
-            <!-- REFERRAL -->
-            <label class="form-group d-block">
-                <p>How did you hear about us?</p>
-                <select class="custom-select" name="Referral" v-model="referral">
-                    <option disabled selected value="">Choose one</option>
-                    <option value="Google">Google</option>
-                    <option value="Twitter">Twitter</option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Friend">Word of mouth</option>
-                    <option value="Other">Other</option>
-                </select>
-            </label>
-
-        </fieldset>
-        <fieldset>
-
-            <!-- SIGN UP TO OUR NEWSLETTER -->
-            <div class="form-group">
-                <label class="custom-control custom-checkbox">
-                    <input class="custom-control-input" type="checkbox" name="Newsletter" value="true" v-model="newsletter">
-                    <p class="custom-control-label">Sign me up to the newsletter</p>
-                </label>
-            </div>
-
-        </fieldset>
+        {% endcomment %}
 
         <!-- * REQUIRED -->
         <p class="float-md-right">
@@ -89,7 +116,7 @@
         </p>
 
         <!-- GOOGLE RECAPTCHA -->
-        <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div>
+        <!-- <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div> -->
 
         <!-- SUBMIT -->
         <button :disabled="(errors.any() && !failures) || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
