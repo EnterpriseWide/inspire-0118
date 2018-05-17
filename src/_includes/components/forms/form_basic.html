@@ -1,3 +1,4 @@
+{% comment %}
 {% assign id = include.id %}
 {% assign bg_image = include.bg_image %}
 {% assign options = include.options %}
@@ -7,7 +8,6 @@
 <section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
     <div class="container">
 
-        {% comment %}
         <!-- IF SUCCESS -->
         <div class="alert alert-success alert-dismissible fade show" role="alert" hidden>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -23,7 +23,6 @@
             </button>
             <strong>Oops!</strong><br> Something went wrong. Please try again.
         </div>
-        {% endcomment %}
 
         <h2>Make A Booking</h2>
 
@@ -136,3 +135,4 @@
         </form>
     </div>
 </section>
+{% endcomment %}

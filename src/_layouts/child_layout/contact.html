@@ -4,7 +4,8 @@ layout: base__page_sidebar
 
 {% assign settings = site.data.settings %}
 
-{% include components/forms/form_contact.html %}
+{% capture component %}{% include components/forms/form_contact.html %}{% endcapture %}
+{% include sections/section.html content_block=component id="contact-form" %}
 
 {% contentfor sidebar %}
 
@@ -34,5 +35,5 @@ layout: base__page_sidebar
 {% endcontentfor %}
 
 {% contentfor content_additional %}
-    {% include components/widgets/google_map.html id="google-map" %}
+    <!-- { % include components/widgets/google_map.html id="google-map" %} -->
 {% endcontentfor %}

@@ -4,9 +4,6 @@
 - title: Components
   url: /components/
 
-- title: Sections
-  url: /sections/
-
 - title: Pages
   url: /advanced-page/
   include_children_in_nav: true

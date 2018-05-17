@@ -124,7 +124,7 @@ b, strong {
         font-family: 'FontAwesome';
         font-size: rem-calc(50);
         line-height: 1;
-        color: rgba(white, 0.5);
+        color: white; //rgba(white, 0.5);
         z-index: 1;
 
         transition: transform 300ms ease;

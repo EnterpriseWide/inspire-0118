@@ -30,6 +30,10 @@ layout: base
             url('/assets/fonts/BLOKKNeue-Regular.tff') format('truetype'),
             url('/assets/fonts/BLOKKNeue-Regular.svg') format('svg');
     }
+
+    .container {
+    	max-width: 1800px;
+    }
 </style>
 
 <!-- BODY -->
@@ -56,6 +60,7 @@ layout: base
 			        						</div>
 			        					</div>
 
+			        					{% comment %}
 										<!-- SHOW PROPERTIES -->
 			        					<button class=" p-0 btn btn-link" @click="showProperties = !showProperties">
 			        						<b>
@@ -100,6 +105,7 @@ layout: base
 												</tbody>
 											</table>
 										</div>
+										{% endcomment %}
 
 									</section>
 
@@ -131,7 +137,12 @@ layout: base
 
 											<!-- CARD DOCS COMPONENT -->
 											<div class="card-docs-component">
-												{% include {{ item.url }} %}
+												{% if item.section %}
+													{% capture component %}{% include {{ item.url }} %}{% endcapture %}
+													{% include {{ item.section }} content_block=component %}
+												{% else %}
+													{% include {{ item.url }} %}
+												{% endif %}
 											</div>
 
 						        		</div>

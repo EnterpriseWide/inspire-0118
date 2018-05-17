@@ -1,7 +1,4 @@
-{% assign id = include.id %}
-{% assign bg_image = include.bg_image %}
 {% assign columns = include.columns | default: 3 %}
-{% assign options = include.options %}
 {% assign posts = site.data.lorem_ipsum %}
 
 {% capture column_classes %}
@@ -12,56 +9,26 @@
 	{% endif %}
 {% endcapture %}
 
-<!-- CARDS TABS -->
-<section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
-	<div class="container">
+<!-- TABS -->
+<nav class="btn-tabs nav mb-4" role="tablist">
+	{% for i in (1..3) %}
+		<a href="#tab-group-{{i}}" class="btn-tab {% if forloop.first %} active {% endif %}" data-toggle="tab" role="tab">Tab Group {{i}}</a>
+	{% endfor %}
+</nav>
 
-		<h2>Lorem Ipsum Dolor Sit Amet</h2>
+<!-- TAB CONTENT -->
+<div class="tab-content mb-4">
+	{% for i in (1..3) %}
+		<div id="tab-group-{{i}}" class="tab-pane fade {% if forloop.first %} active show {% endif %}" role="tabpanel">
+			<div class="row">
 
-		<!-- WYSIWYG #1 -->
-		<div class="row">
-			<div class="col-md-11 col-lg-10">
-				<div class="wysiwyg mb-3">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in.</p>
-				</div>
-			</div>
-		</div>
-
-		<!-- TABS -->
-		<nav class="btn-tabs nav mb-4" role="tablist">
-			{% for i in (1..3) %}
-				<a href="#tab-group-{{i}}" class="btn-tab {% if forloop.first %} active {% endif %}" data-toggle="tab" role="tab">Tab Group {{i}}</a>
-			{% endfor %}
-		</nav>
-
-		<!-- TAB CONTENT -->
-		<div class="tab-content">
-			{% for i in (1..3) %}
-				<div id="tab-group-{{i}}" class="tab-pane fade {% if forloop.first %} active show {% endif %}" role="tabpanel">
-					<div class="row">
-
-						{% for item in posts | limit: columns | offset: 6 %}
-							<div class="{{ column_classes }} mb-4">
-								{% include components/cards/card.html %}
-							</div>
-						{% endfor %}
-
+				{% for item in posts | limit: columns | offset: 6 %}
+					<div class="{{ column_classes }} mb-4">
+						{% include components/cards/card.html %}
 					</div>
-				</div>
-			{% endfor %}
-		</div>
+				{% endfor %}
 
-		<!-- WYSIWYG #2 -->
-		<div class="row">
-			<div class="col-md-8">
-				<div class="wysiwyg mb-4">
-					<small><sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
-				</div>
 			</div>
 		</div>
-
-	</div>
-</section>
+	{% endfor %}
+</div>

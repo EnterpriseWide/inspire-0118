@@ -1,7 +1,4 @@
-{% assign id = include.id %}
-{% assign bg_image = include.bg_image %}
 {% assign columns = include.columns | default: 2 %}
-{% assign options = include.options %}
 {% assign posts = site.data.lorem_ipsum %}
 
 {% capture cell_grouping %}
@@ -12,62 +9,32 @@
 	{% endif %}
 {% endcapture %}
 
-<!-- CARDS SLIDER -->
-<section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
-	<div class="container">
-
-		<h2>Lorem Ipsum Dolor Sit Amet</h2>
-
-		<!-- WYSIWYG #1 -->
-		<div class="row">
-			<div class="col-md-11 col-lg-10">
-				<div class="wysiwyg mb-3">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in.</p>
-				</div>
-			</div>
+<!-- CARD SLIDER -->
+<div class="card-slider mb-4"
+	data-card-slider
+	data-flickity='
+    {
+        "adaptiveHeight": false,
+        "autoPlay": false,
+        "cellAlign": "left",
+        "contain": true,
+        "draggable": ">1",
+        "dragThreshold": 40,
+        "freeScroll": true,
+        "freeScrollFriction": 0.075,
+        "friction": 0.28,
+        "groupCells": true,
+        "imagesLoaded": true,
+        "pageDots": false,
+        "prevNextButtons": true,
+        "pauseAutoPlayOnHover": false,
+        "selectedAttraction": 0.025,
+        "watchCSS": false,
+        "wrapAround": false
+    }'>
+	{% for item in posts | limit: 4 %}
+		<div class="card-cell {{ cell_grouping }}">
+			{% include components/cards/card.html %}
 		</div>
-
-		<!-- CARD SLIDER -->
-		<div class="card-slider"
-			data-card-slider
-			data-flickity='
-		    {
-		        "adaptiveHeight": false,
-		        "autoPlay": false,
-		        "cellAlign": "left",
-		        "contain": true,
-		        "draggable": ">1",
-		        "dragThreshold": 40,
-		        "freeScroll": true,
-		        "freeScrollFriction": 0.075,
-		        "friction": 0.28,
-		        "groupCells": true,
-		        "imagesLoaded": true,
-		        "pageDots": false,
-		        "prevNextButtons": true,
-		        "pauseAutoPlayOnHover": false,
-		        "selectedAttraction": 0.025,
-		        "watchCSS": false,
-		        "wrapAround": false
-		    }'>
-			{% for item in posts | limit: 4 %}
-				<div class="card-cell {{ cell_grouping }}">
-					{% include components/cards/card.html %}
-				</div>
-			{% endfor %}
-		</div>
-
-		<!-- WYSIWYG #2 -->
-		<div class="row">
-			<div class="col-md-8">
-				<div class="wysiwyg mb-4">
-					<small><sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
-				</div>
-			</div>
-		</div>
-
-	</div>
-</section>
+	{% endfor %}
+</div>
