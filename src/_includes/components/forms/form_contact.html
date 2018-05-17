@@ -3,30 +3,11 @@
 {% assign options = include.options %}
 {% assign settings = site.data.settings %}
 
-<!-- GOOGLE RECAPTCHA -->
-<script src="https://www.google.com/recaptcha/api.js"></script>
-
 <!-- CONTACT FORM -->
-<section idXX="{{ id }}" id="app" class="section {{ options }}" style="background-image: url({{ bg_image }})">
+<section id="app" class="section {{ options }}" style="background-image: url({{ bg_image }})">
     <div class="container">
         <div class="row">
             <div class="col-lg-11">
-
-                <!-- IF SUCCESS -->
-                <div v-show="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <strong>Success!</strong><br> Thanks for that. You've been added to the mailing list.
-                </div>
-
-                <!-- IF FAILURE -->
-                <div v-show="errors.any()" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <strong>Oops!</strong><br> There <span v-text="errors.count()=== 1 ? 'is' : 'are' "></span> <span v-text="errors.count()"></span> error. Please try again.
-                </div>
 
                 <h2>Get in Touch</h2>
 
@@ -36,46 +17,62 @@
                     tempor incididunt ut labore et.</p>
                 </div>
 
+                <!-- IF SUCCESS -->
+                <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Success!</strong><br> Thanks for that. We'll get back to you soon.
+                </div>
+
+                <!-- IF FAILURE -->
+                <div v-if="failures" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Oops!</strong><br> <span v-html="errorText"></span>
+                </div>
+
                 <!-- FORM CONTACT -->
-                <form name="Contact Form" action="/contact/" @submit.prevent="validateBeforeSubmit" novalidate>
+                <form name="Contact Form" action="http://liquidvisual.net/form.php" @submit.prevent="validateBeforeSubmit" novalidate>
                     <fieldset>
 
                         <!-- NAME* -->
                         <label class="form-group d-block">
                             <p class="mb-2">Full Name<small class="asterisk">*</small></p>
                             <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="name" v-validate="'required|alpha'" required>
-                            <small v-show="errors.has('name')" class="error shake animated"><i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('name')"></span></small>
+                            <small v-show="errors.has('name')" class="error shake animated"><i class="fa fa-warning"></i>&nbsp;<span v-text="errors.first('name')"></span></small>
                         </label>
 
                         <!-- EMAIL* -->
                         <label class="form-group d-block">
                             <p class="mb-2">Email<small class="asterisk">*</small></p>
                             <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="email" v-validate="'required|email'" type="email" required>
-                            <small v-show="errors.has('email') && fields.email.touched" class="error shake animated"><i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('email')"></span></small>
+                            <small v-show="errors.has('email') && fields.email.touched" class="error shake animated"><i class="fa fa-warning"></i>&nbsp;<span v-text="errors.first('email')"></span></small>
                         </label>
 
                         <!-- PHONE -->
-                        <!-- <label class="form-group d-block">
+                        <label class="form-group d-block">
                             <p class="mb-2">Phone</p>
-                            <input class="form-control" name="phone" type="tel" v-model="phone" v-validate="'required|numeric'">
+                            <input class="form-control" :class="{'is-invalid': errors.has('phone') }" name="phone" type="tel" v-model="phone" v-validate="'numeric'">
                             <small v-show="errors.has('phone')" class="error shake animated"><i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('phone')"></span></small>
-                        </label> -->
+                        </label>
 
                     </fieldset>
                     <fieldset>
 
                         <!-- MESSAGE -->
-                        <!-- <label class="form-group d-block">
+                        <label class="form-group d-block">
                             <p>Your Message<small class="asterisk">*</small></p>
-                            <textarea class="form-control" name="message" rows="6" v-model="message" placeholder="" v-validate="'required|max:2000'" required></textarea>
+                            <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="6" v-model="message" placeholder="" v-validate="'required|max:2000'" required></textarea>
                             <small v-show="errors.has('message')" class="error shake animated"><i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('message')"></span></small>
-                        </label> -->
+                        </label>
 
                     </fieldset>
                     <fieldset>
 
                         <!-- REFERRAL -->
-                        <!-- <label class="form-group d-block">
+                        <label class="form-group d-block">
                             <p>How did you hear about us?</p>
                             <select class="custom-select" name="Referral" v-model="referral">
                                 <option disabled selected value="">Choose one</option>
@@ -85,40 +82,40 @@
                                 <option value="Friend">Word of mouth</option>
                                 <option value="Other">Other</option>
                             </select>
-                        </label> -->
+                        </label>
 
                     </fieldset>
                     <fieldset>
 
                         <!-- SIGN UP TO OUR NEWSLETTER -->
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label class="custom-control custom-checkbox">
                                 <input class="custom-control-input" type="checkbox" name="Newsletter" value="true" v-model="newsletter">
                                 <p class="custom-control-label">Sign me up to the newsletter</p>
                             </label>
-                        </div> -->
+                        </div>
 
                     </fieldset>
 
                     <!-- * REQUIRED -->
-                    <!-- <p class="float-md-right">
+                    <p class="float-md-right">
                         <small class="asterisk">*</small>
                         <small class="text-muted" style="position: relative; top: -5px;">required</small>
-                    </p> -->
+                    </p>
 
                     <!-- GOOGLE RECAPTCHA -->
                     <!-- <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div> -->
 
-                    <p>data: <span v-text="responseData"></span></p>
-
                     <!-- SUBMIT -->
-                    <!-- <button type="submit" disabled="processing" class="btn btn-primary">Send Message <i class="fa fa-angle-right"></i></button> -->
-
-                    <button :disabled="errors.any() || !isComplete || processing" type="submit" class="btn btn-primary">Send Message <i class="fa fa-angle-right"></i></button>
+                    <button :disabled="(errors.any() && !failures) || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
+                        <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                        <span v-show="processing" class="text">Sending Message</span>
+                        <span v-show="!processing" class="text">Send Message</span>
+                    </button>
                     <!-- <button @click="reset" type="button" class="btn btn-primary">Reset</button> -->
-                    <!-- <button @click="simulateFailure" type="button" class="btn btn-primary">Simulate Failure</button> -->
 
                 </form>
+
             </div>
         </div>
     </div>
@@ -137,7 +134,7 @@
         el: '#app',
         data() {
             return {
-                responseData: null,
+                errorText: '',
                 processing: false,
                 success: false,
                 failures: 0,
@@ -151,34 +148,39 @@
             }
         },
 
-        //==================================================
-        //
-        //==================================================
+        //-----------------------------------------------------------------
+        // COMPUTED
+        //-----------------------------------------------------------------
 
         computed: {
-            isComplete() {
-                return this.name && this.email;
+            isComplete() { // * required fields
+                return this.name && this.email && this.message;
+            },
+            dataString() {
+                return 'name=' + this.name + '&' +
+                       'email=' + this.email + '&' +
+                       'phone=' + this.phone + '&' +
+                       'message=' + this.message + '&' +
+                       'referral=' + this.referral + '&' +
+                       'newsletter=' + this.newsletter; // ADD EXTRA HERE
             }
         },
 
         //-----------------------------------------------------------------
-        //
+        // METHODS
         //-----------------------------------------------------------------
 
         methods: {
             validateBeforeSubmit() {
                 this.processing = true;
-
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-
-                        this.processing = false;
                         this.postData();
-                        return;
+                    } else {
+                        this.failures++; // used for returning with server errors
+                        this.success = false;
+                        this.processing = false;
                     }
-                    alert('Correct them errors!');
-                    // this.errors.add('email', 'Email already exists!');
-                    this.failures++;
                 });
             },
 
@@ -187,31 +189,58 @@
             //==================================================
 
             postData() {
-                this.responseData = 'posted..';
-
                 axios({
                     method: 'POST',
                     url: 'http://liquidvisual.net/form.php',
-                    // headers: { 'Accept': '*/*' },
-                    // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    // headers: { 'Content-Type': 'application/json' },
-                    // headers: { 'Content-Type': 'multipart/form-data' },
-
-                    data: 'email='+this.email
+                    data: this.dataString
                 })
                 .then(response => {
-                    this.responseData = response.data; // for full
-                    console.log(response);
-                    this.success = true;
-                    this.reset(true);
+                    this.validateResponse(response.data);
+                    this.processing = false;
                 })
                 .catch(error => {
-                    this.responseData = error.response.data;
+                    this.processing = false;
+                    this.failures++;
+                    window.scrollTo(0,0);
+                    this.errorText = 'There was an error with the server. Please try again later.';
                 });
             },
 
             //==================================================
-            // RESET
+            // VALIDATE RESPONSE
+            //==================================================
+
+            validateResponse(data) {
+                if (data.success === true) {
+                    this.success = true;
+                    this.reset(true);
+                    window.scrollTo(0,0);
+                }
+                else {
+                    this.failures++;
+                    this.success = false;
+                    window.scrollTo(0,0);
+
+                    for (var error in data.errors) {
+
+                        var field = error.split('.')[1];
+                        var messages = data.errors[error]; // array
+
+                        if (field) { // cannot be undefined
+                            this.errorText = 'Please check the following errors: <br>';
+
+                            for (var i = 0; i < messages.length; i++) {
+                                // this.errors.add(field, messages[i]);
+                                // console.log('field: '+messages[i]);
+                                this.errorText += messages[i] + '<br>';
+                            }
+                        }
+                    }
+                }
+            },
+
+            //==================================================
+            // RESET (for success or clear)
             //==================================================
 
             reset(success) {
