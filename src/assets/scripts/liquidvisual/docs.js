@@ -70,9 +70,9 @@ Vue.component('docs', {
         		obj.result = response.data;
 
     			// refactor
-    			let prettify = document.createElement('script');
-    			prettify.setAttribute('src',"//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js");
-    			document.head.appendChild(prettify);
+    			// let prettify = document.createElement('script');
+    			// prettify.setAttribute('src',"//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js");
+    			// document.head.appendChild(prettify);
         	});
         },
         enableCode() {

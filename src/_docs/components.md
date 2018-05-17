@@ -169,25 +169,6 @@ sections:
 
   - title: Text
     children:
-      - title: Text
-        url: components/text/text.html
-        section: sections/section.html
-        files:
-          - _includes/components/text/text.html
-        desc: |-
-          The Text Section is the simplest way to add WYSIWYG content to the site.
-        fields:
-          # Section
-          - { name: "id", label: "Section Id", widget: "string" }
-          - { name: "header", label: "Section Header", widget: "string" }
-          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
-
-          # Section Modifiers
-          - { name: "theme", label: "Section Theme", widget: "select" }
-          - { name: "bg_image", label: "Section Background Image", widget: "image" }
-          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
-          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
-
       - title: Text Button
         url: components/text/text_button.html
         section: sections/section_split.html
@@ -286,6 +267,9 @@ sections:
           - _includes/components/forms/form_contact.html
         desc: |-
           A Vue powered, AJAX driven Contact Form with Vee-Validate. Make sure the wrapping id matches the 'el' property in the script below it.
+          <div class="mb-4 alert alert-warning" role="alert">
+            <b>Warning:</b> Vue can't work inside of this documentation. See <a href="/contact/">Contact</a> for working example.
+          </div>
 
         fields:
           # Section
