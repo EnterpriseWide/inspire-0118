@@ -12,18 +12,20 @@
 // http://1000hz.github.io/bootstrap-validator/#validator-events
 //-----------------------------------------------------------------
 
+form,
 form[data-toggle="validator"] {
 	.error {
-		display: none;
-		padding: rem-calc(5 10 4 10);
-		background: $red;
+		display: block;
+		// padding: rem-calc(5 10 4 10);
+		padding: rem-calc(10 10 10 0);
+		// background: $red;
 		font-weight: $font-weight-semibold;
-		color: white;
+		color: $red;
 	}
 
 	.has-error > .error {
-		display: block;
-		margin-bottom: $form-group-margin-bottom;
+		// display: block;
+		// margin-bottom: $form-group-margin-bottom;
 	}
 
 	// .has-error > .form-control {
