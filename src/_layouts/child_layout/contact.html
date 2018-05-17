@@ -4,7 +4,8 @@ layout: base__page_sidebar
 
 {% assign settings = site.data.settings %}
 
-{% include components/forms/form_contact.html %}
+{% capture component %}{% include components/forms/form_contact.html %}{% endcapture %}
+{% include sections/section.html content_block=component id="contact-form" %}
 
 {% contentfor sidebar %}
 

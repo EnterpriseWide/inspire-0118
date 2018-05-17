@@ -4,66 +4,299 @@ title: Components
 permalink: /components/
 breadcrumbs: false
 sections:
-  - title: Hero
+  - title: Sections
     children:
-      - title: Hero
-        url: components/hero/hero.html
+      - title: Default
+        url: sections/section.html
+        section: null
         files:
-          - _includes/components/hero/hero.html
-          - _includes/components/hero/hero__youtube_plugin.html
+          - _includes/sections/section.html
         desc: |-
-          The Hero is the most prominent section of the website above the fold. Each page requires a hero at the top, whether fully featured (carousels, video etc) or short and static.
+          Section Default
         fields:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }
-          - { name: "mode", label: "Section Mode", widget: "select", options: [{label: "Default", value: 'is-default'}, {label: "Medium", value: "is-medium"}, {label: "Full", value: "is-full"}], default: "is-default" }
-          - { name: "justify_caption", label: "Section Justify", widget: "select", options: [{label: "Left", value: "left"}, {label: "Center", value: "center"}], default: "center" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+          - { name: "footer", label: "Section Footer", widget: "markdown" }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "columns", label: "Section Columns", widget: "select", options: [{label: "Two", value: "2"}, {label: "Three", value: "3"}], default: "3" }
+          - { name: "flat", label: "Section Flat Appearance", widget: "boolean", default: "false" }
+
+      - title: Center
+        url: sections/section_center.html
+        section: null
+        files:
+          - _includes/sections/section_center.html
+        desc: |-
+          Section Centered
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+          - { name: "footer", label: "Section Footer", widget: "markdown" }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "columns", label: "Section Columns", widget: "select", options: [{label: "Two", value: "2"}, {label: "Three", value: "3"}], default: "3" }
+          - { name: "flat", label: "Section Flat Appearance", widget: "boolean", default: "false" }
+
+      - title: Split
+        url: sections/section_split.html
+        section: null
+        files:
+          - _includes/sections/section_split.html
+        desc: |-
+          Section Split
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+          - { name: "footer", label: "Section Footer", widget: "markdown" }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "columns", label: "Section Columns", widget: "select", options: [{label: "Two", value: "2"}, {label: "Three", value: "3"}], default: "3" }
+          - { name: "flat", label: "Section Flat Appearance", widget: "boolean", default: "false" }
+
+  - title: Cards
+    children:
+      - title: Cards
+        url: components/cards/cards.html
+        section: sections/section.html
+        files:
+          - _includes/components/cards/cards.html
+          - _includes/components/cards/card.html
+        desc: |-
+          The Cards Section is a basic collection of 2-3 card components without any advanced behavior. Content should be kept to short paragraphs rather than length text columns since tall cards will appear too narrow.
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+          - { name: "footer", label: "Section Footer", widget: "markdown" }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "columns", label: "Section Columns", widget: "select", options: [{label: "Two", value: "2"}, {label: "Three", value: "3"}], default: "3" }
+          - { name: "flat", label: "Section Flat Appearance", widget: "boolean", default: "false" }
 
           # Component
           - { name: "title", label: "Component Header", widget: "string" }
-          - { name: "display_class", label: "Component Header Size", widget: "select", options: [{label: "Display 1", value: "display-1"}, {label: "Display 2", value: "display-2"}, {label: "Display 3", value: "display-3"}, {label: "Display 4", value: "display-4"}, {label: "Display 5", value: "display-5"}], default: "display-1" }
           - { name: "body", label: "Component Body", widget: "markdown" }
-
           - { name: "image", label: "Component Image", widget: "image" }
-          - { name: "scroll_prompt", label: "Component Scroll Prompt", widget: "boolean", default: true }
-          - { name: "youtube_id", label: "Component YouTube Id", widget: "string" }
-          - { name: "vimeo_id", label: "Component Vimeo Id", widget: "string" }
+          - { name: "link", label: "Component Link", widget: "string" }
+          - { name: "link_label", label: "Component Link Label", widget: "string" }
 
-          # Component Modifiers
-          - { name: "theme", label: "Component Theme", widget: "select" }
-          - { name: "bg_image", label: "Component Background Image", widget: "image" }
-          - { name: "fix_bg_image", label: "Component Background Image Fixed", widget: "boolean", default: "false" }
-          - { name: "tint_bg", label: "Component Background Tinted", widget: "boolean", default: "false" }
-
-      - title: Hero Static
-        url: components/hero/hero_static.html
+      - title: Cards Slider
+        url: components/cards/cards__slider.html
+        section: sections/section.html
         files:
-          - _includes/components/hero/hero_static.html
+          - _includes/components/cards/cards__slider.html
+          - _includes/components/cards/card.html
         desc: |-
-          The Hero is the most prominent section of the website above the fold. Each page requires a hero at the top, whether fully featured (carousels, video etc) or short and static.
+          The Cards Slider Section will create a carousel of 2-3 cards.
         fields:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }
-          - { name: "mode", label: "Section Mode", widget: "select", options: [{label: "Static", value: 'is-static'}], default: "is-static" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+          - { name: "footer", label: "Section Footer", widget: "markdown", default: "" }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "columns", label: "Section Columns", widget: "select", options: [{label: "Two", value: "2"}, {label: "Three", value: "3"}], default: "2" }
+          - { name: "flat", label: "Section Flat Appearance", widget: "boolean", default: "false" }
 
           # Component
-          - { name: "title", label: "Component Header", widget: "hidden", default: "page.title" }
+          - { name: "title", label: "Component Header", widget: "string" }
+          - { name: "body", label: "Component Body", widget: "markdown" }
+          - { name: "image", label: "Component Image", widget: "image" }
+          - { name: "link", label: "Component Link", widget: "string" }
+          - { name: "link_label", label: "Component Link Label", widget: "string" }
+          - { name: "categories", label: "Component Categories", widget: "relation" }
+          - { name: "date", label: "Component Date", widget: "datetime" }
+          - { name: "author", label: "Component Author", widget: "relation" }
 
-          # Component Modifiers
-          - { name: "theme", label: "Component Theme", widget: "select" }
-          - { name: "bg_image", label: "Component Background Image", widget: "image" }
-          - { name: "fix_bg_image", label: "Component Background Image Fixed", widget: "boolean", default: "false" }
-          - { name: "tint_bg", label: "Component Background Tinted", widget: "boolean", default: "false" }
+      - title: Cards Tabs
+        url: components/cards/cards__tabs.html
+        section: sections/section.html
+        files:
+          - _includes/components/cards/cards__tabs.html
+          - _includes/components/cards/card.html
+        desc: |-
+          The Cards Tabs Component will create tabbable cards in groups of 2-3.
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+          - { name: "footer", label: "Section Footer", widget: "markdown" }
 
-      - title: Media Lightbox
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "columns", label: "Section Columns", widget: "select", options: [{label: "Two", value: "2"}, {label: "Three", value: "3"}], default: "3" }
+          - { name: "flat", label: "Section Flat Appearance", widget: "boolean", default: "false" }
+
+          # Component
+          - { name: "title", label: "Component Header", widget: "string" }
+          - { name: "body", label: "Component Body", widget: "markdown" }
+          - { name: "image", label: "Component Image", widget: "image" }
+          - { name: "link", label: "Component Link", widget: "string" }
+          - { name: "link_label", label: "Component Link Label", widget: "string" }
+
+  - title: Text
+    children:
+      - title: Text
+        url: components/text/text.html
+        section: sections/section.html
+        files:
+          - _includes/components/text/text.html
+        desc: |-
+          The Text Section is the simplest way to add WYSIWYG content to the site.
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+
+      - title: Text Button
+        url: components/text/text_button.html
+        section: sections/section_split.html
+        files:
+          - _includes/components/text/text_button.html
+        desc: |-
+          This section contains a single WYSIWYG field and a button. It's best suited for a simple call to action.
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "reverse_columns", label: "Section Reverse Columns", widget: "boolean", default: "false" }
+          - { name: "align_columns", label: "Section Align Columns", widget: "select", options: [{label: "top", value: "top"}, {label: "center", value: "center"}, {label: "bottom", value: "bottom"}], default: "center" }
+
+          # Component
+          - { name: "link", label: "Component Link", widget: "string" }
+          - { name: "link_label", label: "Component Link Label", widget: "string", default: "Click me" }
+
+      - title: Text Media
         url: components/media/media_lightbox.html
+        section: sections/section_split.html
         files:
           - _includes/components/media/media_lightbox.html
         desc: |-
-          This component is a clickable thumbnail that opens a lightbox to display the media from the 'Component Link' at a larger size. This media can be an image, link to a Google Map iframe or a video from YouTube or Vimeo. If no thumbnail is supplied it will be generated by those services.
+          This section provides a WYSIWYG field accompanied with an image, video (YouTube or Vimeo) or Google Map. Media will automatically open inside a lightbox when clicked. If no image is specified for video, the template will default to a still from that video.
+
         fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "reverse_columns", label: "Section Reverse Columns", widget: "boolean", default: "false" }
+          - { name: "align_columns", label: "Section Align Columns", widget: "select", options: [{label: "top", value: "top"}, {label: "center", value: "center"}, {label: "bottom", value: "bottom"}], default: "center" }
+
           # Component
           - { name: "media", label: "Component Image", widget: "image" }
           - { name: "image_desc", label: "Component Image Description", widget: "string" }
           - { name: "link", label: "Component Link", widget: "string", default: "Component Image Path" }
+
+  - title: Other
+    children:
+      - title: Affiliates
+        url: components/affiliates.html
+        section: sections/section_center.html
+        files:
+          - _includes/components/affiliates.html
+        desc: |-
+          This section is best suited for displaying a single row of small affiliate images - most commonly logos or sponsors. The section will accept any number of images and start stacking once they run out of room.
+
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+
+          # Component
+          - { name: "image", label: "Component Image", widget: "image" }
+          - { name: "image_desc", label: "Component Image Description", widget: "string" }
+          - { name: "link", label: "Component Link", widget: "string" }
+
+      - title: Gallery
+        url: components/gallery.html
+        section: sections/section.html
+        files:
+          - _includes/components/gallery.html
+        desc: |-
+          Pending
+
+        fields:
+
+  - title: Forms
+    children:
+      - title: Contact
+        url: components/forms/form_contact.html
+        section: sections/section.html
+        files:
+          - _includes/components/forms/form_contact.html
+        desc: |-
+          A Vue powered, AJAX driven Contact Form with Vee-Validate. Make sure the wrapping id matches the 'el' property in the script below it.
+
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+
 ---

@@ -25,6 +25,9 @@
 	{% endif %}
 {% endcapture %}
 
+{% comment %}
+
+
 <!-- TEXT BUTTON -->
 <section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
 	<div class="container">
@@ -46,13 +49,17 @@
 				</div>
 			</div>
 			<div class="col-md-4 pl-lg-5">
+{% endcomment %}
+
+
 
 				<!-- WYSIWYG (NON-USER WYSIWYG) -->
 				<div class="wysiwyg">
 					<p><a class="btn btn-block btn-primary" href="{{ link }}">{{ link_label }}</a></p>
 				</div>
-
+{% comment %}
 			</div>
 		</div>
 	</div>
 </section>
+{% endcomment %}
