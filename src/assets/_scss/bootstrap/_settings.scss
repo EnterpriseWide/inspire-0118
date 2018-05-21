@@ -680,13 +680,13 @@ $dropdown-box-shadow:               0 1px 3px rgba(0,0,0,0.2); //0 .5rem 1rem rg
 // $pagination-color:                  $link-color !default;
 // $pagination-bg:                     $white !default;
 // $pagination-border-width:           $border-width !default;
-// $pagination-border-color:           $gray-300 !default;
+$pagination-border-color:           #dee2e6; //$gray-300 !default;
 
 // $pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
 
 // $pagination-hover-color:            $link-hover-color !default;
-// $pagination-hover-bg:               $gray-200 !default;
-// $pagination-hover-border-color:     $gray-300 !default;
+$pagination-hover-bg:               none; //$gray-200 !default;
+$pagination-hover-border-color:     #dee2e6; //$gray-300 !default;
 
 // $pagination-active-color:           $component-active-color !default;
 // $pagination-active-bg:              $component-active-bg !default;

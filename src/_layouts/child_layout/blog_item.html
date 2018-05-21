@@ -26,10 +26,11 @@ layout: base__page_sidebar
         </p>
 
         <!-- WYSIWYG -->
-        <div class="wysiwyg mb-4">
+        <div class="wysiwyg mb-5">
             {{ item.body | markdownify }}
         </div>
 
+        {% include components/navigation/pagination.html %}
     </div>
 </section>
 
