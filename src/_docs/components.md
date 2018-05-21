@@ -283,4 +283,19 @@ sections:
           - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
           - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
 
+      - title: Subscribe
+        url: components/forms/form_subscribe.html
+        section: null
+        files:
+          - _includes/components/forms/form_subscribe.html
+        desc: |-
+          A Vue powered, AJAX driven Subscribe Form with Vee-Validate. Make sure the wrapping id matches the 'el' property in the script below it.
+          <div class="mb-4 alert alert-warning" role="alert">
+            <b>Warning:</b> Vue can't work inside of this documentation. See <a href="/contact/">Contact</a> for working example.
+          </div>
+
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+
 ---

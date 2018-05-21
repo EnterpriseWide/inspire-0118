@@ -12,7 +12,7 @@
     </div>
 
     <!-- IF FAILURE -->
-    <div v-if="failures" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
+    <div v-if="failures && !success" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -20,7 +20,7 @@
     </div>
 
     <!-- FORM CONTACT -->
-    <form name="Contact Form" @submit.prevent="validateBeforeSubmit" novalidate>
+    <form class="contact-form" name="Contact Form" @submit.prevent="validateBeforeSubmit" novalidate>
         <fieldset>
 
             <!-- NAME* -->
@@ -102,6 +102,13 @@
 
     </form>
 </div>
+
+<style>
+    .contact-form .btn[disabled="disabled"] {
+        /*opacity: 1;*/
+        cursor: not-allowed;
+    }
+</style>
 
 <script>
     //-----------------------------------------------------------------
