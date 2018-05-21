@@ -39,6 +39,20 @@ layout: base__page_sidebar
     <section class="section">
         <div class="container">
 
+            <!-- CATEGORIES -->
+            <h3 class="mb-4">Categories</h3>
+            <ul class="list-unstyled">
+                <li><a href="#">Technology</a>
+                    <ul>
+                        <li><a href="#">Item One</a></li>
+                        <li><a href="#">Item Two</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">SEO</a></li>
+            </ul>
+
+            <div class="spacer mb-4"></div>
+
             <!-- RECENT POSTS -->
             <h3 class="mb-4">Recent Posts</h3>
             {% for item in blog_posts | limit: 3 %}
@@ -49,6 +63,15 @@ layout: base__page_sidebar
                     </small>
                 </a>
             {% endfor %}
+
+            <div class="spacer mb-4"></div>
+
+            <!-- ALL POSTS -->
+            <h3 class="mb-4">All Posts</h3>
+            <ul class="list-unstyled">
+                <li><a href="#">2018</a></li>
+                <li><a href="#">2017</a></li>
+            </ul>
 
             <div class="spacer mb-4"></div>
 
