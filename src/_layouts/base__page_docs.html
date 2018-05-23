@@ -141,7 +141,9 @@ layout: base
 													{% capture component %}{% include {{ item.url }} %}{% endcapture %}
 													{% include {{ item.section }} content_block=component %}
 												{% else %}
-													{% include {{ item.url }} %}
+													<div class="m-4">
+														{% include {{ item.url }} %}
+													</div>
 												{% endif %}
 											</div>
 

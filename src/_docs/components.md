@@ -268,7 +268,7 @@ sections:
         desc: |-
           A Vue powered, AJAX driven Contact Form with Vee-Validate. Make sure the wrapping id matches the 'el' property in the script below it.
           <div class="mb-4 alert alert-warning" role="alert">
-            <b>Warning:</b> Vue can't work inside of this documentation. See <a href="/contact/">Contact</a> for working example.
+            <b>Warning:</b> Vue can't work inside of this documentation. See Footer for working example.
           </div>
 
         fields:
