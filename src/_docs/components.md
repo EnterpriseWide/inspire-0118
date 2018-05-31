@@ -297,6 +297,7 @@ sections:
         section: sections/section.html
         files:
           - _includes/components/media/gallery.html
+          - _data/gallery.yml
         desc: |-
           This component contains a collection of images that open a lightbox. The lightbox is capable of displaying YouTube, Vimeo, Google Maps and standard images. Remove the <code>data-lightbox-group</code> attribute to fall back to normal link behavior.
 
@@ -313,6 +314,7 @@ sections:
         section: sections/section_split.html
         files:
           - _includes/components/media/media_lightbox.html
+          - _data/gallery_single.yml
         desc: |-
           This component contains a <b>single</b> image that opens a lightbox. The lightbox is capable of displaying YouTube, Vimeo, Google Maps and standard images. Remove the <code>data-lightbox-group</code> attribute to fall back to normal link behavior.
 
