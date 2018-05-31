@@ -12,7 +12,7 @@ sections:
         files:
           - _includes/sections/section.html
         desc: |-
-          Section Default
+          This section is left aligned and can be passed a component or used just for text content.
         fields:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }
@@ -34,7 +34,29 @@ sections:
         files:
           - _includes/sections/section_center.html
         desc: |-
-          Section Centered
+          This section is center aligned and can be passed a component or used just for text content.
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+          - { name: "footer", label: "Section Footer", widget: "markdown" }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "columns", label: "Section Columns", widget: "select", options: [{label: "Two", value: "2"}, {label: "Three", value: "3"}], default: "3" }
+          - { name: "flat", label: "Section Flat Appearance", widget: "boolean", default: "false" }
+
+      - title: Full
+        url: sections/section_full.html
+        section: null
+        files:
+          - _includes/sections/section_full.html
+        desc: |-
+          This section is similar to the default, but components aren't constrained by a container. This will let any component extend to the full width of the viewport.
         fields:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }
@@ -56,7 +78,29 @@ sections:
         files:
           - _includes/sections/section_split.html
         desc: |-
-          Section Split
+          This section is split into two columns with the content appearing first. A component is required, appearing second.
+        fields:
+          # Section
+          - { name: "id", label: "Section Id", widget: "string" }
+          - { name: "header", label: "Section Header", widget: "string" }
+          - { name: "body", label: "Section Body", widget: "markdown", buttons: ["bold", "italic", "h2", "h3", "h4", "h5", "h6"] }
+          - { name: "footer", label: "Section Footer", widget: "markdown" }
+
+          # Section Modifiers
+          - { name: "theme", label: "Section Theme", widget: "select" }
+          - { name: "bg_image", label: "Section Background Image", widget: "image" }
+          - { name: "fix_bg_image", label: "Section Background Image Fixed", widget: "boolean", default: "false" }
+          - { name: "tint_bg", label: "Section Background Tinted", widget: "boolean", default: "false" }
+          - { name: "columns", label: "Section Columns", widget: "select", options: [{label: "Two", value: "2"}, {label: "Three", value: "3"}], default: "3" }
+          - { name: "flat", label: "Section Flat Appearance", widget: "boolean", default: "false" }
+
+      - title: Split Reversed
+        url: sections/section_split_reversed.html
+        section: null
+        files:
+          - _includes/sections/section_split.html
+        desc: |-
+          This section is split into two columns with the content appearing last. A component is required, appearing first.
         fields:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }
@@ -221,7 +265,7 @@ sections:
           - { name: "image_desc", label: "Component Image Description", widget: "string" }
           - { name: "link", label: "Component Link", widget: "string", default: "Component Image Path" }
 
-  - title: Other
+  - title: Media
     children:
       - title: Affiliates
         url: components/affiliates.html
@@ -249,12 +293,30 @@ sections:
           - { name: "link", label: "Component Link", widget: "string" }
 
       - title: Gallery
-        url: components/gallery.html
+        url: components/media/gallery.html
         section: sections/section.html
         files:
-          - _includes/components/gallery.html
+          - _includes/components/media/gallery.html
         desc: |-
-          Pending
+          This component contains a collection of images that open a lightbox. The lightbox is capable of displaying YouTube, Vimeo, Google Maps and standard images. Remove the <code>data-lightbox-group</code> attribute to fall back to normal link behavior.
+
+          Grid spacing can be further controlled with <code>.is-condensed</code> and <code>.is-gapless</code>. If no caption data is passed to the gallery item, no text will be displayed on hover.
+
+          By default the component displays four images across. To control this number, alter the class <code>.block-grid-md-4</code> on the list element to display a number from 1-12.
+
+          <b>Eg.</b> <code>block-grid-md-3</code>.
+
+        fields:
+
+      - title: Media Lightbox
+        url: components/media/media_lightbox.html
+        section: sections/section_split.html
+        files:
+          - _includes/components/media/media_lightbox.html
+        desc: |-
+          This component contains a <b>single</b> image that opens a lightbox. The lightbox is capable of displaying YouTube, Vimeo, Google Maps and standard images. Remove the <code>data-lightbox-group</code> attribute to fall back to normal link behavior.
+
+          If no caption data is passed to the gallery item, no text will be displayed on hover.
 
         fields:
 

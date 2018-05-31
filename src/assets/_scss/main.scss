@@ -2,7 +2,7 @@
 /*
     MAIN.CSS
 
-    - Last updated: 24.04.18
+    - Last updated: 30.05.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -33,7 +33,7 @@ $link-color: $primary;
 // LINK-COLOR END
 
 // FONT-FAMILY START
-$font-family-sans-serif: Poppins; // Eg. Open+Sans
+$font-family-sans-serif: "Poppins";
 // FONT-FAMILY END
 
 //# FONT-FAMILY PLACEHOLDER #//
@@ -64,40 +64,40 @@ $display4-weight: $font-weight-light;
 // DISPLAY-FONT-WEIGHT START
 
 // FONT-IMPORT START
-@import url('http://fonts.googleapis.com/css?family=#{$font-family-sans-serif}:#{$font-weight-light},#{$font-weight-semibold},#{$font-weight-normal},#{$font-weight-normal}i,#{$font-weight-bold},#{$font-weight-bold}i|');
+@import url("http://fonts.googleapis.com/css?family=#{$font-family-sans-serif}:#{$font-weight-light},#{$font-weight-semibold},#{$font-weight-normal},#{$font-weight-normal}i,#{$font-weight-bold},#{$font-weight-bold}i|");
 // FONT-IMPORT END
 
 // THEMES START
 $themes: (
-  'base': ( // built in
-    'primary': white,
-    'secondary': #f7f7f9,
-    'text-primary': #212529,
-    'text-secondary': $primary
+  "base": ( // built in
+    "primary": white,
+    "secondary": #f7f7f9,
+    "text-primary": #212529,
+    "text-secondary": $primary
   ),
-  'skyblue': ( // built in
-    'primary': $primary,
-    'secondary': #00b09f,
-    'text-primary': white,
-    'text-secondary': #212529
+  "skyblue": ( // built in
+    "primary": $primary,
+    "secondary": #00b09f,
+    "text-primary": white,
+    "text-secondary": #212529
   ),
-  'posh': ( // built in
-    'primary': #a05cc0,
-    'secondary': a05cc0,
-    'text-primary': white,
-    'text-secondary': #212529
+  "posh": ( // built in
+    "primary": #a05cc0,
+    "secondary": a05cc0,
+    "text-primary": white,
+    "text-secondary": #212529
   ),
-  'silverfox': ( // built in
-    'primary': #eceeef,
-    'secondary': #e9ecef,
-    'text-primary': #212529,
-    'text-secondary': $primary
+  "silverfox": ( // built in
+    "primary": #eceeef,
+    "secondary": #e9ecef,
+    "text-primary": #212529,
+    "text-secondary": $primary
   ),
-  'midnight': ( // built in
-    'primary': #222,
-    'secondary': white,
-    'text-primary': white,
-    'text-secondary': $primary
+  "midnight": ( // built in
+    "primary": #222,
+    "secondary": white,
+    "text-primary": white,
+    "text-secondary": $primary
   )
   //# THEMES PLACEHOLDER #//
 );

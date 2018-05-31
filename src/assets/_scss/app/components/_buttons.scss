@@ -116,19 +116,24 @@ b, strong {
 
     &[href*="youtube"] .btn-tile-bg:after, // play symbol on video links
     &[href*="vimeo"] .btn-tile-bg:after,
-    &[href*="maps"] .btn-tile-bg:after {
-        content: "\f144";
+    &[href*="maps.google.com"] .btn-tile-bg:after {
+        content: "\f04b";
         position: absolute;
-        top: calc(50% - 25px); // approx
-        left: calc(50% - 25px);
+        top: calc(50% - 20px); // approx
+        left: 0;
+        width: 100%;
         font-family: 'FontAwesome';
-        font-size: rem-calc(50);
+        font-size: rem-calc(40);
         line-height: 1;
+        text-align: center;
         color: white; //rgba(white, 0.5);
-        z-index: 1;
-
         transition: transform 300ms ease;
         will-change: transform;
+        z-index: 1;
+    }
+
+    &[href*="maps.google.com"] .btn-tile-bg:after {
+        content: "\f041";
     }
 
     &[href*="youtube"] .btn-tile-bg:before, // play symbol on video links
@@ -158,6 +163,7 @@ b, strong {
 
     .btn-tile-overlay {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
@@ -168,11 +174,9 @@ b, strong {
         height: 100%;
         padding: rem-calc(30);
         background: rgba(black, 0.5);
+        color: white;
+        opacity: 0;
         transition: opacity 300ms ease, background-color 300ms ease;
-
-        .btn-tile-header {
-            color: white;
-        }
     }
 
     //=========================================
@@ -187,6 +191,10 @@ b, strong {
 
             .btn-tile-bg:after {
                 transform: scale(1.08);
+            }
+
+            .btn-tile-overlay {
+                opacity: 1;
             }
         }
     }

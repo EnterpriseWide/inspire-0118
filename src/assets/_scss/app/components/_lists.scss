@@ -30,11 +30,19 @@
 // BLOCK GRID CONDENSED
 //-----------------------------------------------------------------
 
-.block-grid-condensed {
-    margin: rem-calc(-10);
+[class*="block-grid-"].is-condensed {
+    margin: rem-calc(-5);
 
     li {
-        padding: rem-calc(10);
+        padding: rem-calc(5);
+    }
+}
+
+[class*="block-grid-"].is-gapless {
+    margin: 0;
+
+    li {
+        padding: 0;
     }
 }
 

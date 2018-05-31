@@ -1,5 +1,5 @@
 /*
-    LIGHTBOX.JS - Last updated: 11.04.18
+    LIGHTBOX.JS - Last updated: 30.05.18
 */
 //-----------------------------------------------------------------
 // LAUNCH SLIDER
@@ -9,9 +9,9 @@
 //-----------------------------------------------------------------
 
 function launchGallery() {
-    $('.popup-gallery').each(function() {
+    $('[data-lightbox-group]').each(function() {
         var $this = $(this);
-        var groupTitle = $this.attr('data-group-title');
+        var groupTitle = $this.attr('data-lightbox-group');
 
         $this.magnificPopup({
             delegate: 'a',

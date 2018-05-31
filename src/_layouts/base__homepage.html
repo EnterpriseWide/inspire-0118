@@ -9,8 +9,31 @@ layout: base
 	<h3 class="text-center my-5">Everything has moved to <a href="/sections/">Sections</a></h3>
 
 	<!-- GALLERY -->
-	{% capture item %}{% include components/gallery.html %}{% endcapture %}
+	{% capture item %}{% include components/media/gallery.html data=site.data.gallery %}{% endcapture %}
 	{% include sections/section.html content_block=item %}
+
+	<!-- GALLERY CONDENSED -->
+	{% capture item %}{% include components/media/gallery.html options="is-condensed" data=site.data.gallery %}{% endcapture %}
+	{% include sections/section.html content_block=item %}
+
+	<!-- GALLERY -->
+	{% capture item %}{% include components/media/gallery.html data=site.data.gallery %}{% endcapture %}
+	{% include sections/section_full.html content_block=item %}
+
+	<!-- GALLERY GAPLESS -->
+	{% capture item %}{% include components/media/gallery.html options="is-gapless" data=site.data.gallery %}{% endcapture %}
+	{% include sections/section_full.html content_block=item %}
+
+	<!-- MEDIA LIGHTBOX -->
+	{% capture item %}{% include components/media/media_lightbox.html data=site.data.gallery_single %}{% endcapture %}
+	{% include sections/section_split.html content_block=item %}
+
+	<!-- MEDIA LIGHTBOX -->
+	{% capture item %}{% include components/media/media_lightbox.html data=site.data.gallery_single %}{% endcapture %}
+	{% include sections/section_split_reversed.html content_block=item %}
+
+	{% comment %}
+
 
 	<!-- CARDS -->
 	{% capture item %}{% include components/cards/cards.html %}{% endcapture %}
@@ -28,7 +51,7 @@ layout: base
 	{% capture item %}{% include components/affiliates.html %}{% endcapture %}
 	{% include sections/section_center.html content_block=item %}
 
-	<!-- MEDIA LIGHTBOX -->
-	{% capture item %}{% include components/media/media_lightbox.html %}{% endcapture %}
-	{% include sections/section_split.html content_block=item %}
+	{% endcomment %}
+
+
 </main>
