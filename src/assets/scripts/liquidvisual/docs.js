@@ -120,6 +120,11 @@ new Vue({
     		return this.themes.find(theme => theme.active === true);
     	}
     },
+    created() {
+        let prettify = document.createElement('script');
+        prettify.setAttribute('src',"//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js");
+        document.head.appendChild(prettify);
+    },
     methods: {
     	selectTheme(target) {
     		for (let item in this.themes) {

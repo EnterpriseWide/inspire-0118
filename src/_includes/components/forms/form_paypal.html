@@ -185,7 +185,7 @@
 
 <script>
     //-----------------------------------------------------------------
-    //
+    // VUE INSTANCE
     //-----------------------------------------------------------------
 
     Vue.use(VeeValidate, {
@@ -204,7 +204,7 @@
 
                 paypal: {
                     sandbox: 'AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL',
-                    production: ''
+                    production: '' // INSERT URL HERE
                 },
 
                 paypalStyle: {
@@ -245,7 +245,7 @@
                     fullName: '',
                     email: '',
                     phone: '',
-                    product: '', // woo
+                    product: '',
                     price: '',
                     quantity: '',
                     description: null,
@@ -282,7 +282,7 @@
                 }
             },
 
-            dataString() { // to be send via Axios
+            dataString() { // to be sent via Axios
                 var dataString = '';
                     dataString += 'firstName='+ this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
 
@@ -337,23 +337,20 @@
             //==================================================
 
             paymentAuthorized(event) {
-                console.log(event);
+                // console.log(event);
                 this.processingPaypal = true; // prevent interaction until axios returns
                 this.processing = true; // trigger spinner on other button
-                // store Paypal for computed dataString
-                this.form.paypal.paymentAuthorized = event;
+                this.form.paypal.paymentAuthorized = event; // store Paypal for computed dataString
             },
 
             paymentCompleted(event) {
-                console.log(event);
-
-                // store Paypal for computed dataString
-                this.form.paypal.paymentCompleted = event;
+                // console.log(event);
+                this.form.paypal.paymentCompleted = event; // store Paypal for computed dataString
                 this.postData();
             },
 
             paymentCancelled(event) {
-                console.log(event);
+                // console.log(event);
                 this.throwError(event);
             },
 
@@ -388,7 +385,7 @@
             postData() {
                 axios({
                     method: 'POST',
-                    url: '{{ endpoint }}',
+                    url: '{{ endpoint }}', // <-- Jekyll variable
                     data: this.dataString
                 })
                 .then(response => {
