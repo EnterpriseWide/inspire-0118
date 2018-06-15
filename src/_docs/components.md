@@ -322,6 +322,16 @@ sections:
 
         fields:
 
+      - title: Audio Player
+        url: components/media/audio_player.html
+        section:
+        files:
+          - _includes/components/media/audio_player.html
+        desc: |-
+          This component utilizes the [Plyr library](https://github.com/sampotts/plyr) for the display and control of mp3 audio. It aso uses the ```primary``` colour.
+
+        fields:
+
   - title: Forms
     children:
       - title: Contact

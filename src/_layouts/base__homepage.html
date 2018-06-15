@@ -8,6 +8,10 @@ layout: base
 <main class="main-body">
 	<h3 class="text-center my-5">Everything has moved to <a href="/sections/">Sections</a></h3>
 
+	<!-- AUDIO -->
+	{% capture item %}{% include components/media/audio_player.html %}{% endcapture %}
+	{% include sections/section_split.html content_block=item %}
+
 	<!-- GALLERY -->
 	{% capture item %}{% include components/media/gallery.html data=site.data.gallery %}{% endcapture %}
 	{% include sections/section.html content_block=item %}

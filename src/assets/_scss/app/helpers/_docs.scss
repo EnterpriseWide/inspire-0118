@@ -98,9 +98,9 @@ $docs-header-bg: #f2f3f6;
 #docs-app .sidebar {
 
 	@include media-breakpoint-up(lg) {
-		position: -webkit-sticky;
-	    position: sticky;
-	    top: rem-calc(70);
+		// position: -webkit-sticky;
+	    // position: sticky;
+	    // top: rem-calc(70);
 	    // bottom: 0;
 	    height: calc(100vh - 70px);
 	    // overflow-y: auto;

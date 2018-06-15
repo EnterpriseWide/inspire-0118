@@ -1,5 +1,5 @@
 /*
-    MAIN.JS - Last updated: 17.04.18
+    MAIN.JS - Last updated: 15.06.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -11,6 +11,18 @@
 $(window).on('load', function() {
     $('html').addClass('has-loaded');
 });
+
+//-----------------------------------------------------------------
+// AUDIO PLAYER
+// https://codepen.io/pen
+//-----------------------------------------------------------------
+
+// Change "{}" to your options:
+// https://github.com/sampotts/plyr/#options
+const player = new Plyr('audio', {});
+
+// Expose player so it can be used from the console
+window.player = player;
 
 //-----------------------------------------------------------------
 // ONLOAD - TOOLTIP
