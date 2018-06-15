@@ -60,7 +60,7 @@
                         <p>Product<small class="asterisk">*</small></p>
                         <select class="custom-select" name="product" v-validate="'required'" v-model="form.product" @change="changeProduct">
                             <option disabled selected value="">Choose one</option>
-                            <option v-for="(item, key) in products" :key="key" :value="key" v-text="item.name"></option>
+                            <option v-for="(item, key) in products" :key="item.id" :value="item.id" v-text="item.name"></option>
                         </select>
                     </label>
 
@@ -215,30 +215,46 @@
                     tagline: false
                 },
 
-                products: {
-                    '3860': {
-                        name: 'Gorge Discovery Flight',
-                        active: false,
-                        prices: [
-                            { id: '3864', name: '1 - $395', price: '395', description: 'Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348' },
-                            { id: '3865', name: '2 - $700', price: '700', description: 'Please contact Fleet Adventures for discounts on more than one adventure. 02 67722348' },
-                            { id: '3866', name: '3 - $750', price: '750', description: 'Description text 3' },
-                            { id: '3867', name: '4 - $1,000', price: '1000', description: 'Description text 4' },
-                            { id: '3868', name: '5 - $1,250', price: '1250', description: 'Description text 5' },
-                            { id: '3869', name: '6 - $1,500', price: '1500', description: 'Description text 6' },
-                            { id: '3870', name: '7 - $1,750', price: '1750', description: 'Description text 7' },
-                            { id: '3871', name: '8 - $2,000', price: '2000', description: 'Description text 8' },
-                            { id: '3872', name: '9 - $2,250', price: '2250', description: 'Description text 9' }
+                products: [
+                    {
+                        "id": "1234",
+                        "name": "Gorge Estate",
+                        "prices": [
+                            {
+                                "id": "3865",
+                                "name": "2 - $700",
+                                "price": 700,
+                                "quantity": 2,
+                                "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
+                            },
                         ]
-                    },
-                    '4411': {
-                        name: 'Great Escarpment Tour',
-                        active: false,
-                        prices: [
-                            { id: '6666', name: '2 - $850', price: '850', description: 'Description text 10' }
-                        ]
-                    },
-                },
+                    }
+                ],
+
+                // products: {
+                //     '3860': {
+                //         name: 'Gorge Discovery Flight',
+                //         active: false,
+                //         prices: [
+                //             { id: '3864', name: '1 - $395', price: '395', description: 'Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348' },
+                //             { id: '3865', name: '2 - $700', price: '700', description: 'Please contact Fleet Adventures for discounts on more than one adventure. 02 67722348' },
+                //             { id: '3866', name: '3 - $750', price: '750', description: 'Description text 3' },
+                //             { id: '3867', name: '4 - $1,000', price: '1000', description: 'Description text 4' },
+                //             { id: '3868', name: '5 - $1,250', price: '1250', description: 'Description text 5' },
+                //             { id: '3869', name: '6 - $1,500', price: '1500', description: 'Description text 6' },
+                //             { id: '3870', name: '7 - $1,750', price: '1750', description: 'Description text 7' },
+                //             { id: '3871', name: '8 - $2,000', price: '2000', description: 'Description text 8' },
+                //             { id: '3872', name: '9 - $2,250', price: '2250', description: 'Description text 9' }
+                //         ]
+                //     },
+                //     '4411': {
+                //         name: 'Great Escarpment Tour',
+                //         active: false,
+                //         prices: [
+                //             { id: '6666', name: '2 - $850', price: '850', description: 'Description text 10' }
+                //         ]
+                //     },
+                // },
 
                 form: {
                     firstName: null, // computed on success
@@ -265,36 +281,41 @@
 
         computed: {
             isComplete() { // * required fields - loop through vee-validate objects
-                var emptyRequiredFields = 0;
-                for (var item in this.fields) {
-                    if (this.fields[item].required) {
-                        if (this.form[item] == '' || !this.form.termsAndConditions) emptyRequiredFields++; //|| !this.form.termsAndConditions
-                    }
-                }
-                return !emptyRequiredFields;
+                // var emptyRequiredFields = 0;
+                // for (var item in this.fields) {
+                //     if (this.fields[item].required) {
+                //         if (this.form[item] == '' || !this.form.termsAndConditions) emptyRequiredFields++; //|| !this.form.termsAndConditions
+                //     }
+                // }
+                // return !emptyRequiredFields;
             },
 
             pricesArray(){
-                if (this.form.product) {
-                    return this.products[this.form.product].prices;
+                var product = this.form.product; // is id
+
+                if (product) {
+                    // return this.products[this.form.product].prices;
+                    // console.log(this.getProductById(product));
+                    var prod = this.getProductById(product);
+                    return prod.prices;
                 } else {
                     return '';
                 }
             },
 
             dataString() { // to be sent via Axios
-                var dataString = '';
-                    dataString += 'firstName='+ this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
+                // var dataString = '';
+                //     dataString += 'firstName='+ this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
 
-                for (var item in this.form) {
-                    if (item != 'firstName' && item != 'description' && item != 'paypal') { // firstName is special case
-                        dataString += item + '=' + this.form[item] + '&';
-                    }
-                }
+                // for (var item in this.form) {
+                //     if (item != 'firstName' && item != 'description' && item != 'paypal') { // firstName is special case
+                //         dataString += item + '=' + this.form[item] + '&';
+                //     }
+                // }
 
-                // Finally - add paypal stuff to the end
-                dataString += 'paypal='+ JSON.stringify(this.form.paypal);
-                return dataString;
+                // // Finally - add paypal stuff to the end
+                // dataString += 'paypal='+ JSON.stringify(this.form.paypal);
+                // return dataString;
             }
         },
 
@@ -303,12 +324,12 @@
         //-----------------------------------------------------------------
 
         created(){
-            var hashBang_arr = window.location.hash.split('/'); // EG. domain.com/#/3801 <-- product id
+            // var hashBang_arr = window.location.hash.split('/'); // EG. domain.com/#/3801 <-- product id
 
-            if (hashBang_arr.length > 1) {
-                var productId = hashBang_arr[1];
-                this.form.product = productId;
-            }
+            // if (hashBang_arr.length > 1) {
+            //     var productId = hashBang_arr[1];
+            //     this.form.product = productId;
+            // }
         },
 
         //-----------------------------------------------------------------
@@ -330,6 +351,19 @@
                         // flash failures here?
                     }
                 });
+            },
+
+            //==================================================
+            // GET PRODUCT BY ID
+            //==================================================
+
+            getProductById(id) {
+                this.products.find((item) => {
+                    if (item.id == id)
+
+                        // console.log(item)
+                        return item;
+                })
             },
 
             //==================================================
