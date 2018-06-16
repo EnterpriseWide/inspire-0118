@@ -1,10 +1,65 @@
-{% assign id = 'paypal-form' %}
-{% assign endpoint = 'http://liquidvisual.net/form.php' %}
+<!--
+    FORM_PAYPAL.HTML
+    updated: 16.06.18
 
-<script src="https://unpkg.com/vue-paypal-checkout/dist/vue-paypal-checkout.min.js"></script>
+    DEPENDENCIES
+        https://unpkg.com/vue/dist/vue.js
+        https://unpkg.com/axios/dist/axios.min.js
+        https://unpkg.com/vue-paypal-checkout/dist/vue-paypal-checkout.min.js
+        https://unpkg.com/vee-validate@2.1.0-beta.1/dist/vee-validate.js
+-->
 
-<div id="vue-app" v-cloak>
-    <vue-paypal-form inline-template>
+{% assign id = include.id | default: 'paypal-form' %}
+
+<script>
+    var products = [
+        {
+            "id": "1234",
+            "name": "Gorge Estate",
+            "prices": [
+                {
+                    "id": "3865",
+                    "name": "2 - $700",
+                    "price": 700,
+                    "quantity": 2,
+                    "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
+                },
+            ]
+        },
+        {
+            "id": "5678",
+            "name": "Something",
+            "prices": [
+                {
+                    "id": "3865",
+                    "name": "2 - $1000,00",
+                    "price": 700,
+                    "quantity": 2,
+                    "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
+                },
+                {
+                    "id": "386523",
+                    "name": "20 - $2000,00",
+                    "price": 700,
+                    "quantity": 2,
+                    "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
+                },
+            ]
+        }
+    ];
+</script>
+
+<!-- VUE INSTANCE -->
+<div id="{{ id }}" v-cloak>
+
+    <!-- VUE PAYMENT FORM COMPONENT -->
+    <vue-paypal-form
+        env="sandbox"
+        endpoint="http://liquidvisual.net/form.php"
+        paypal-production-path="YOUR_PATH_HERE"
+        paypal-sandbox-path="AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL"
+        inline-template>
+
         <div>
 
             <!-- IF SUCCESS -->
@@ -33,10 +88,10 @@
                 <strong>Oops!</strong><br> <span v-html="errorText"></span>
             </div>
 
-            <!-- FORM CONTACT -->
+            <!-- FORM -->
             <form
                 class="contact-form"
-                name="Contact Form"
+                name="Paypal Form"
                 novalidate
                 @submit.prevent="validateBeforeSubmit">
 
@@ -254,7 +309,7 @@
                     <small class="text-muted" style="position: relative; top: -5px;">required to send</small>
                 </p>
 
-                <!-- SUBMIT - old: (errors.any() && !failures) v-if="errors.any() || !isComplete" -->
+                <!-- SUBMIT -->
                 <button
                     :disabled="errors.any() || !isComplete || processing"
                     type="submit"
@@ -283,11 +338,11 @@
                     <!-- PAYPAL CHECKOUT BUTTON -->
                     <paypal-checkout
                         currency="AUD"
-                        env="sandbox"
                         locale="en_AU"
                         :amount="String(form.quantity ? form.quantity.price : '')"
                         :button-style="paypal.buttonStyle"
                         :client="paypal"
+                        :env="env"
                         @payment-authorized="paymentAuthorized"
                         @payment-completed="paymentCompleted"
                         @payment-cancelled="paymentCancelled">
@@ -297,65 +352,45 @@
             </form>
         </div>
     </vue-paypal-form>
-</div> <!-- #vue-app -->
-
-<style>
-    [v-cloak] {
-        visibility: hidden;
-    }
-
-    .contact-form .btn[disabled="disabled"] {
-        /*opacity: 1;*/
-        cursor: not-allowed;
-    }
-
-    .or-text {
-        position: relative;
-        top: -12px;
-    }
-
-    .disabled-mask {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        opacity: 0.6;
-        cursor: not-allowed;
-        pointer-event: none;
-        z-index: 200;
-    }
-</style>
+</div>
 
 <script>
     //-----------------------------------------------------------------
-    // VEE VALIDATE
-    //-----------------------------------------------------------------
-
-    Vue.use(VeeValidate, {
-        events: 'input' // 'change' or 'blur'
-    });
-
-    //-----------------------------------------------------------------
-    // PAYPAL FORM COMPONENT
+    // VUE PAYPAL FORM COMPONENT
     //-----------------------------------------------------------------
 
     Vue.component('vue-paypal-form', {
         props: {
-
+            endpoint: {
+                type: String,
+                required: true
+            },
+            env: {
+                type: String,
+                required: false,
+                default: 'sandbox'
+            },
+            paypalProductionPath: {
+                type: String,
+                required: false
+            },
+            paypalSandboxPath: {
+                type: String,
+                required: false
+            },
         },
         data() {
             return {
                 errorText: '',
                 failures: 0,
                 processing: false,
+                products: products,
                 success: false,
 
                 paypal: {
                     processing: false, // triggers after Paypal and Axios begins
-                    production: '', // INSERT URL HERE
-                    sandbox: 'AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL',
+                    production: this.paypalProductionPath, // set on the component
+                    sandbox: this.paypalSandboxPath,
                     buttonStyle: {
                         color: 'gold', // gold | blue | silver | black,
                         label: 'checkout',
@@ -364,42 +399,6 @@
                         tagline: false
                     },
                 },
-
-                products: [
-                    {
-                        "id": "1234",
-                        "name": "Gorge Estate",
-                        "prices": [
-                            {
-                                "id": "3865",
-                                "name": "2 - $700",
-                                "price": 700,
-                                "quantity": 2,
-                                "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
-                            },
-                        ]
-                    },
-                    {
-                        "id": "5678",
-                        "name": "Something",
-                        "prices": [
-                            {
-                                "id": "3865",
-                                "name": "2 - $1000,00",
-                                "price": 700,
-                                "quantity": 2,
-                                "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
-                            },
-                            {
-                                "id": "386523",
-                                "name": "20 - $2000,00",
-                                "price": 700,
-                                "quantity": 2,
-                                "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
-                            },
-                        ]
-                    }
-                ],
 
                 form: {
                     email: '',
@@ -414,42 +413,6 @@
                     message: '',
                     termsAndConditionsAccepted: false,
                 },
-
-                // products: [
-                //     {
-                //         "id": "1234",
-                //         "name": "Gorge Estate",
-                //         "prices": [
-                //             {
-                //                 "id": "3865",
-                //                 "name": "2 - $700",
-                //                 "price": 700,
-                //                 "quantity": 2,
-                //                 "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
-                //             },
-                //         ]
-                //     },
-                //     {
-                //         "id": "5678",
-                //         "name": "Something",
-                //         "prices": [
-                //             {
-                //                 "id": "3865",
-                //                 "name": "2 - $1000,00",
-                //                 "price": 700,
-                //                 "quantity": 2,
-                //                 "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
-                //             },
-                //             {
-                //                 "id": "386523",
-                //                 "name": "20 - $2000,00",
-                //                 "price": 700,
-                //                 "quantity": 2,
-                //                 "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
-                //             },
-                //         ]
-                //     }
-                // ]
             }
         },
 
@@ -529,7 +492,7 @@
             postData() {
                 axios({
                     method: 'POST',
-                    url: '{{ endpoint }}', // <-- Jekyll variable
+                    url: this.endpoint,
                     data: this.getDataString()
                 })
                 .then(response => {
@@ -645,7 +608,7 @@
             //==================================================
 
             reset(success) {
-                // https://github.com/baianat/vee-validate/issues/209
+                // github.com/baianat/vee-validate/issues/209
                 // Object.assign(this.$data, this.$options.data.call(this));
 
                 var firstNameTemp = this.form.fullName.split(' ')[0]; // store before wipe
@@ -662,11 +625,19 @@
     });
 
     //-----------------------------------------------------------------
+    // VEE VALIDATE
+    //-----------------------------------------------------------------
+
+    Vue.use(VeeValidate, {
+        events: 'input' // 'change' or 'blur'
+    });
+
+    //-----------------------------------------------------------------
     // VUE INSTANCE
     //-----------------------------------------------------------------
 
     new Vue({
-        el: '#vue-app',
+        el: '#{{id}}', // <--- Template variable, set by Jekyll (template)
     });
 
 </script>
