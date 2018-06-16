@@ -14,9 +14,13 @@
 
     {% include components/widgets/google_analytics.html %}
 
+    <!-- CDN POLYFILL -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
+
     <!-- build:js({src,.}) /assets/scripts/vue.js -->
     <script src="/node_modules/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
     <script src="/node_modules/vee-validate/dist/vee-validate.js"></script>
+    <script src="/node_modules/vue-paypal-checkout/dist/vue-paypal-checkout.min.js"></script>
     <script src="/node_modules/axios/dist/axios.js"></script>
     <!-- endbuild -->
 
@@ -59,8 +63,6 @@
     <![endif]-->
 
     <!-- **** JAVASCRIPT **** -->
-
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <!-- build:js({src,.}) /assets/scripts/minified.js -->
