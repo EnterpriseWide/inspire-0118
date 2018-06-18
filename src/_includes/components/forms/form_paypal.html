@@ -439,12 +439,14 @@
         //-----------------------------------------------------------------
 
         created(){
-            // var hashBang_arr = window.location.hash.split('/'); // EG. domain.com/#/3801 <-- product id
+            var urlParams = new URLSearchParams(window.location.search).get('sku');
 
-            // if (hashBang_arr.length > 1) {
-            //     var productId = hashBang_arr[1];
-            //     this.form.product = productId;
-            // }
+            if (urlParams) {
+                var product = this.getProductFromId(urlParams);
+                if (product) {
+                    this.form.product = product;
+                }
+            }
         },
 
         //-----------------------------------------------------------------
@@ -453,17 +455,32 @@
 
         methods: {
 
+            //==================================================
+            // SET PRODUCT (ON CHANGE)
+            //==================================================
+
             setProduct(product){
                 this.form.quantity = ''; // reset
-                // window.location.hash = '#/'+this.form.product.id; // map hash
+
+                // Update query string
+                // stackoverflow.com/questions/10970078/modifying-a-query-string-without-reloading-the-page
+                if (history.pushState) {
+                    var newurl = window.location.origin + window.location.pathname + '?sku=' + product.id;
+                    window.history.pushState({ path:newurl}, '', newurl);
+                }
             },
 
-            // getProductFromId(id) {
-            //     this.products.find((item) => {
-            //         if (item.id == id)
-            //             return item;
-            //     })
-            // },
+            //==================================================
+            // GET PRODUCT FROM ID
+            //==================================================
+
+            getProductFromId(id) {
+                for (var i=0; i < this.products.length; i++) {
+                    if (this.products[i].id == id) {
+                        return this.products[i];
+                    }
+                }
+            },
 
             //==================================================
             // VALIDATE BEFORE SUBMIT
