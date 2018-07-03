@@ -211,6 +211,19 @@ sections:
           - { name: "link", label: "Component Link", widget: "string" }
           - { name: "link_label", label: "Component Link Label", widget: "string" }
 
+  - title: Content
+    children:
+      - title: Accordion
+        url: components/content/accordion.html
+        section: sections/section.html
+        files:
+          - _includes/components/content/accordion.html
+          - _data/accordion.yml
+        desc: |-
+          This component builds upon the [Collapse](https://getbootstrap.com/docs/4.1/components/collapse/) component from Bootstrap to organise content.
+
+        fields: #
+
   - title: Text
     children:
       - title: Text Button
