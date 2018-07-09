@@ -2,7 +2,9 @@
 {% assign posts = site.data.lorem_ipsum %}
 
 {% capture cell_grouping %}
-	{% if columns > 2 %}
+    {% if columns == 4 %}
+        group-by-four
+	{% elsif columns == 3 %}
 		group-by-three
 	{% else %}
 		group-by-two
@@ -32,7 +34,7 @@
         "watchCSS": false,
         "wrapAround": false
     }'>
-	{% for item in posts | limit: 4 %}
+	{% for item in posts | limit: 8 %}
 		<div class="card-cell {{ cell_grouping }}">
 			{% include components/cards/card.html %}
 		</div>

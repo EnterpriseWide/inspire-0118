@@ -1,5 +1,13 @@
 {% assign is_flat = include.flat | default: false %}
 
+{% capture header_class %}
+	{% if columns == 4 %}
+		h5
+	{% else %}
+		h4
+	{% endif %}
+{% endcapture %}
+
 {% capture card_options %}
 	{% if is_flat %}
 		is-flat
@@ -30,7 +38,7 @@
 
 		<!-- TITLE -->
 		<a class="text-dark" href="{{ item.url }}">
-			<h3 class="card-title">{{ item.title }}</h3>
+			<h3 class="card-title {{ header_class }}">{{ item.title }}</h3>
 		</a>
 
 		<!-- TEXT -->

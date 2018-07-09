@@ -51,7 +51,8 @@
 //-----------------------------------------------------------------
 
 .card-slider .group-by-two,
-.card-slider .group-by-three {
+.card-slider .group-by-three,
+.card-slider .group-by-four {
     width: 90%; // [LOCKED] - slightly more card for small mobiles
 
     @include media-breakpoint-up(sm) {
@@ -66,6 +67,12 @@
 .card-slider .group-by-three {
     @include media-breakpoint-up(xl) {
         width: 33.33333333%;
+    }
+}
+
+.card-slider .group-by-four {
+    @include media-breakpoint-up(xl) {
+        width: 25%;
     }
 }
 
