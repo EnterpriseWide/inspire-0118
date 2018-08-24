@@ -1,5 +1,5 @@
 /*
-    HERO-SLIDER.JS - Last updated: 17.04.18
+    HERO-SLIDER.JS - Last updated: 24.08.18
 */
 //-----------------------------------------------------------------
 // LAUNCH SLIDER
@@ -23,14 +23,15 @@ function launchSlider() {
 
             //==================================================
             // ARROWS
+            // https://github.com/metafizzy/flickity-docs/issues/5#issuecomment-78370765
             //==================================================
 
             $prevArrow.on('click', function() {
-                $slider.flickity('previous');
+                $slider.flickity('previous').flickity('stopPlayer');
             });
 
             $nextArrow.on('click', function() {
-                $slider.flickity('next');
+                $slider.flickity('next').flickity('stopPlayer');
             });
 
             //==================================================
