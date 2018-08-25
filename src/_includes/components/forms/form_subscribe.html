@@ -1,26 +1,42 @@
 {% assign id = 'subscribe-form' %}
-{% assign endpoint = 'http://liquidvisual.net/form.php' %}
+{% assign endpoint = 'http://liquidvisual.net/hotlinking/inspire/form.php' %}
 
 <!-- FORM SUBSCRIBE -->
 <div id="{{ id }}" v-cloak>
 
     <!-- IF SUCCESS -->
-    <div v-if="success" class="mb-2 alert alert-success alert-dismissible fade show" role="alert">
+    <div
+        v-if="success"
+        class="mb-2 alert alert-success alert-dismissible fade show"
+        role="alert">
+
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
+
         <strong>Thanks for subscribing!</strong>
     </div>
 
     <!-- IF FAILURE -->
-    <div v-if="failures && !success" class="mb-2 alert alert-danger alert-dismissible fade show" role="alert">
+    <div
+        v-if="failures && !success"
+        class="mb-2 alert alert-danger alert-dismissible fade show"
+        role="alert">
+
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
+
         <strong>Oops! Please try again.</strong></span>
     </div>
 
-    <form v-show="!success" name="Subscribe Form" class="subscribe-form" @submit.prevent="validateBeforeSubmit" novalidate>
+    <form
+        v-show="!success"
+        name="Subscribe Form"
+        class="subscribe-form"
+        novalidate
+        @submit.prevent="validateBeforeSubmit">
+
         <div class="form-group d-block has-icon mb-3">
             <i class="fa fa-envelope"></i>
 
@@ -85,10 +101,7 @@
                     // firstName: null, // computed on success
                     // fullName: '',
                     email: '',
-                    // phone: '',
-                    // referral: '',
-                    // message: '',
-                    newsletter: false
+                    newsletter: true
                 }
             }
         },
