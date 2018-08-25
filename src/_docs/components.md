@@ -125,7 +125,7 @@ sections:
           - _includes/components/cards/cards.html
           - _includes/components/cards/card.html
         desc: |-
-          The Cards Section is a basic collection of 2-3 card components without any advanced behavior. Content should be kept to short paragraphs rather than length text columns since tall cards will appear too narrow.
+          The Cards Section is a basic collection of 2-4 card components without any advanced behavior. Content should be kept to short paragraphs rather than length text columns since tall cards will appear too narrow.
         fields:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }
@@ -155,7 +155,7 @@ sections:
           - _includes/components/cards/cards__slider.html
           - _includes/components/cards/card.html
         desc: |-
-          The Cards Slider Section will create a carousel of 2-3 cards.
+          The Cards Slider Section will create a carousel of 2-4 cards.
         fields:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }
@@ -188,7 +188,7 @@ sections:
           - _includes/components/cards/cards__tabs.html
           - _includes/components/cards/card.html
         desc: |-
-          The Cards Tabs Component will create tabbable cards in groups of 2-3.
+          The Cards Tabs Component will create tabbable cards in groups of 2-4.
         fields:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }

@@ -12,14 +12,14 @@
   options: theme-posh is-tinted
   scroll_prompt: false
   youtube_id:
-  vimeo_id: 264406454
+  # vimeo_id: 264406454
 
 - title: Hero With YouTube Embedded Background
   body: '<p class="lead">Although you can embed video across multiple slides, we recommended you only use one for performance reasons.</p>'
   image: /assets/img/content/hero/hero-3.png
   options: is-tinted
   scroll_prompt: false
-  youtube_id: ScMzIvxBSi4
+  # youtube_id: ScMzIvxBSi4
   vimeo_id:
 
 - title: Hero With YouTube Embedded Background
@@ -27,5 +27,5 @@
   image: /assets/img/content/hero/hero-3.png
   options: is-tinted
   scroll_prompt: false
-  youtube_id: 3xUfCUFPL-8
+  # youtube_id: 3xUfCUFPL-8
   vimeo_id:
