@@ -97,76 +97,81 @@ Vue.component('docs', {
 // VUE INSTANCE (LAST)
 //-----------------------------------------------------------------
 
-new Vue({
-    el: '#docs-app',
-    data(){
-    	return {
-    		themes: [
-    			{ name: 'theme-base', label: 'Base', active: false },
-    			{ name: 'theme-silverfox', label: 'Base', active: false },
-    			{ name: 'theme-skyblue', label: 'Base', active: false },
-    			{ name: 'theme-posh', label: 'Base', active: false },
-    			{ name: 'theme-midnight', label: 'Base', active: false }
-    		],
-            modifiers: [
-                { name: 'is-tinted', label: 'Tint', active: false },
-                { name: 'has-image-bg', label: 'Bg Image', active: false },
-                { name: 'is-fixed', label: 'Fixed Image', active: false }
-            ]
-    	}
-    },
-    computed: {
-    	currentTheme() {
-    		return this.themes.find(theme => theme.active === true);
-    	}
-    },
-    created() {
-        let prettify = document.createElement('script');
-        prettify.setAttribute('src',"//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js");
-        document.head.appendChild(prettify);
-    },
-    methods: {
-    	selectTheme(target) {
-    		for (let item in this.themes) {
-    			if (this.themes[item] !== target) {
-    				this.themes[item].active = false;
-    			}
-    		}
-    		target.active = !target.active;
+var docsExist = document.getElementById('docs-app');
 
-            var classToggle = target.active ? target.name : '';
+if (docsExist) {
 
-    		$('.card-docs-component .section, .global-header, .global-footer, .lv-hero-wrapper .lv-hero-item, .lv-breadcrumb-wrapper').removeClass(function (index, className) {
-    			return (className.match (/\btheme-\S+/g) || []).join(' ');
-    		}).addClass(classToggle);
-    	},
+    new Vue({
+        el: '#docs-app',
+        data(){
+        	return {
+        		themes: [
+        			{ name: 'theme-base', label: 'Base', active: false },
+        			{ name: 'theme-silverfox', label: 'Base', active: false },
+        			{ name: 'theme-skyblue', label: 'Base', active: false },
+        			{ name: 'theme-posh', label: 'Base', active: false },
+        			{ name: 'theme-midnight', label: 'Base', active: false }
+        		],
+                modifiers: [
+                    { name: 'is-tinted', label: 'Tint', active: false },
+                    { name: 'has-image-bg', label: 'Bg Image', active: false },
+                    { name: 'is-fixed', label: 'Fixed Image', active: false }
+                ]
+        	}
+        },
+        computed: {
+        	currentTheme() {
+        		return this.themes.find(theme => theme.active === true);
+        	}
+        },
+        created() {
+            let prettify = document.createElement('script');
+            prettify.setAttribute('src',"//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js");
+            document.head.appendChild(prettify);
+        },
+        methods: {
+        	selectTheme(target) {
+        		for (let item in this.themes) {
+        			if (this.themes[item] !== target) {
+        				this.themes[item].active = false;
+        			}
+        		}
+        		target.active = !target.active;
 
-        selectModifier(target){
+                var classToggle = target.active ? target.name : '';
 
-            if (target.name == 'is-tinted') {
-                var tintClass = target.active ? '' : target.name;
-                $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(tintClass);
-            }
+        		$('.card-docs-component .section, .global-header, .global-footer, .lv-hero-wrapper .lv-hero-item, .lv-breadcrumb-wrapper').removeClass(function (index, className) {
+        			return (className.match (/\btheme-\S+/g) || []).join(' ');
+        		}).addClass(classToggle);
+        	},
 
-            if (target.name == 'has-image-bg') {
-                var bgImageClass = target.active ? '' : target.name;
-                $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(bgImageClass);
+            selectModifier(target){
 
-                if (!target.active) {
-                    $('.card-docs-component .section, .lv-hero-item').css('background-image', 'url(https://source.unsplash.com/random)');
-                } else {
-                    $('.card-docs-component .section, .lv-hero-item').css('background-image', 'none');
+                if (target.name == 'is-tinted') {
+                    var tintClass = target.active ? '' : target.name;
+                    $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(tintClass);
+                }
+
+                if (target.name == 'has-image-bg') {
+                    var bgImageClass = target.active ? '' : target.name;
+                    $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(bgImageClass);
+
+                    if (!target.active) {
+                        $('.card-docs-component .section, .lv-hero-item').css('background-image', 'url(https://source.unsplash.com/random)');
+                    } else {
+                        $('.card-docs-component .section, .lv-hero-item').css('background-image', 'none');
+                    }
+                }
+
+                if (target.name == 'is-fixed') {
+                    var fixedBgClass = target.active ? '' : target.name;
+                    $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(fixedBgClass);
                 }
             }
-
-            if (target.name == 'is-fixed') {
-                var fixedBgClass = target.active ? '' : target.name;
-                $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(fixedBgClass);
-            }
         }
-    }
-});
+    });
 
+}
 //==================================================
 //
 //==================================================
