@@ -1,7 +1,7 @@
 /*
     THEMES.CSS
 
-    - updated: 11.04.18
+    - updated: 06.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -48,10 +48,12 @@
 
 	 		a:not(.btn), button {
 	 			color: $text-secondary;
+	 			// color: color-yiq($primary);
 	 		}
 
 	 		button, .btn-primary {
 				background-color: $text-primary;
+				// background-color: color-yiq($primary);
 				border: 0; // move this elsewhere
 				color: $primary;
 	 		}
@@ -67,6 +69,10 @@
 				.global-header-body {
 					background: $primary;
 				}
+
+				.global-navigation .top-parent-anchor{
+					color: $text-primary;
+				}
 			}
 		}
 
@@ -77,7 +83,7 @@
 
 		// top bar is tinted dark
 		&.global-header .global-header-top a {
-			color: $text-primary;
+			// color: $text-primary;
 		}
 
 		&.global-header {
@@ -93,29 +99,29 @@
 		//-----------------------------------------------------------------
 
 		// everything is white
-		.lv-topbar .top-parent-anchor {
-			color: $text-primary;
-		}
+		// .lv-topbar .top-parent-anchor {
+		// 	color: $text-primary;
+		// }
 
-		// active text underline is white
-		.lv-topbar .active .top-parent-anchor .text {
-		    border-color: $text-primary;
-		}
+		// // active text underline is white
+		// .lv-topbar .active .top-parent-anchor .text {
+		//     border-color: $text-primary;
+		// }
 
-		// anchor hover is darker
-		.lv-topbar .top-parent-anchor:hover {
-		    background: rgba(black, 0.1);
-		}
+		// // anchor hover is darker
+		// .lv-topbar .top-parent-anchor:hover {
+		//     background: rgba(black, 0.1);
+		// }
 
 		//-----------------------------------------------------------------
 		// HERO
 		//-----------------------------------------------------------------
 
 		&.lv-hero-item {
-			background-color: $primary;
+			// background-color: $primary;
 
 			.lv-hero-item-caption {
-			    color: $text-primary;
+			    // color: $text-primary;
 			}
 		}
 

@@ -2,7 +2,7 @@
 /*
     MAIN.CSS
 
-    - Last updated: 15.06.18
+    - Last updated: 06.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -70,10 +70,10 @@ $display4-weight: $font-weight-light;
 // THEMES START
 $themes: (
   "base": ( // built in
-    "primary": white,
-    "secondary": #f7f7f9,
-    "text-primary": #212529,
-    "text-secondary": $primary
+    "primary": white,           // colour of BG
+    "secondary": #f7f7f9,       // additional colour - must contrast primary
+    "text-primary": #222,       // must contrast primary - body text
+    "text-secondary": $primary  // must contrast primary - link text
   ),
   "skyblue": ( // built in
     "primary": $primary,
