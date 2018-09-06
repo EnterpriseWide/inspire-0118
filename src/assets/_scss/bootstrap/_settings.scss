@@ -217,7 +217,7 @@ $container-max-widths: (
 // JS will use for dev tools
 //--------------------------------------------------------------------
 
-body {
+html[development] body {
   content: "#{map-get($grid-breakpoints, xs)}|#{map-get($grid-breakpoints, sm)}|#{map-get($grid-breakpoints, md)}|#{map-get($grid-breakpoints, lg)}|#{map-get($grid-breakpoints, xl)}";
 }
 

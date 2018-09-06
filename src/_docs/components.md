@@ -281,10 +281,10 @@ sections:
   - title: Media
     children:
       - title: Affiliates
-        url: components/affiliates.html
+        url: components/media/affiliates.html
         section: sections/section_center.html
         files:
-          - _includes/components/affiliates.html
+          - _includes/components/media/affiliates.html
         desc: |-
           This section is best suited for displaying a single row of small affiliate images - most commonly logos or sponsors. The section will accept any number of images and start stacking once they run out of room.
 
@@ -304,6 +304,15 @@ sections:
           - { name: "image", label: "Component Image", widget: "image" }
           - { name: "image_desc", label: "Component Image Description", widget: "string" }
           - { name: "link", label: "Component Link", widget: "string" }
+      - title: Audio Player
+        url: components/media/audio_player.html
+        section:
+        files:
+          - _includes/components/media/audio_player.html
+        desc: |-
+          This component utilizes the [Plyr library](https://github.com/sampotts/plyr) for the display and control of mp3 audio. It aso uses the ```primary``` colour.
+
+        fields:
 
       - title: Gallery
         url: components/media/gallery.html
@@ -322,6 +331,17 @@ sections:
 
         fields:
 
+      - title: Media Article
+        url: components/media/media_article.html
+        section: sections/section.html
+        files:
+          - _includes/components/media/media_article.html
+          - _data/media_articles.yml
+        desc: |-
+          This component aims to replace Bootstrap's [Media Object](https://getbootstrap.com/docs/4.1/layout/media-object/). It lists a collection of articles or a single article with an accompanying static image. Column direction can be reversed. It's best used in a confined space, eg. the [standard page](http://10.0.1.3:9000/standard-page/) layout. It can also be placed inside of any section.
+
+        fields: #
+
       - title: Media Lightbox
         url: components/media/media_lightbox.html
         section: sections/section_split.html
@@ -332,16 +352,6 @@ sections:
           This component contains a <b>single</b> image that opens a lightbox. The lightbox is capable of displaying YouTube, Vimeo, Google Maps and standard images. Remove the <code>data-lightbox-group</code> attribute to fall back to normal link behavior.
 
           If no caption data is passed to the gallery item, no text will be displayed on hover.
-
-        fields:
-
-      - title: Audio Player
-        url: components/media/audio_player.html
-        section:
-        files:
-          - _includes/components/media/audio_player.html
-        desc: |-
-          This component utilizes the [Plyr library](https://github.com/sampotts/plyr) for the display and control of mp3 audio. It aso uses the ```primary``` colour.
 
         fields:
 

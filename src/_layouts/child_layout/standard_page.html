@@ -4,6 +4,10 @@ layout: base__page_sidebar
 
 <!-- <h3 class="text-center my-5">Everything has moved to <a href="/sections/">Sections</a></h3> -->
 
+<!-- MEDIA ARTICLE -->
+{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
+{% include sections/section.html content_block=item %}
+
 <!-- GALLERY -->
 {% capture item %}{% include components/media/gallery.html %}{% endcapture %}
 {% include sections/section.html content_block=item %}
@@ -21,7 +25,7 @@ layout: base__page_sidebar
 {% include sections/section_center.html content_block=item %}
 
 <!-- AFFILIATES -->
-{% capture item %}{% include components/affiliates.html %}{% endcapture %}
+{% capture item %}{% include components/media/affiliates.html %}{% endcapture %}
 {% include sections/section_center.html content_block=item %}
 
 <!-- MEDIA LIGHTBOX -->

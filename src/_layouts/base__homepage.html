@@ -6,7 +6,11 @@ layout: base
 
 <!-- BODY -->
 <main class="main-body">
-	<h3 class="text-center my-5">Everything has moved to <a href="/sections/">Sections</a></h3>
+	<h3 class="text-center my-5">For more see <a href="/components/">Docs</a></h3>
+
+	<!-- MEDIA ARTICLE -->
+	{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
+	{% include sections/section.html content_block=item %}
 
 	<!-- CARDS -->
 	{% capture item %}{% include components/cards/cards.html columns=4 %}{% endcapture %}
@@ -23,8 +27,6 @@ layout: base
 	<!-- ACCORDION -->
 	{% capture item %}{% include components/content/accordion.html uid="faq" data=site.data.faq %}{% endcapture %}
 	{% include sections/section.html content_block=item %}
-
-	{% comment %}
 
 	<!-- AUDIO -->
 	{% capture item %}{% include components/media/audio_player.html %}{% endcapture %}
@@ -67,10 +69,10 @@ layout: base
 	{% include sections/section_center.html content_block=item %}
 
 	<!-- AFFILIATES -->
-	{% capture item %}{% include components/affiliates.html %}{% endcapture %}
+	{% capture item %}{% include components/media/affiliates.html %}{% endcapture %}
 	{% include sections/section_center.html content_block=item %}
 
+	{% comment %}
 	{% endcomment %}
-
 
 </main>

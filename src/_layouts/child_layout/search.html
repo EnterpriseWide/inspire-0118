@@ -28,7 +28,7 @@ layout: base__page_sidebar
         <p class="text-muted" hidden>Sorry, no results were found.</p>
 
         <!-- SEARCH RESULTS -->
-        {% for item in search_results | limit: 5 %}
+        {% for item in search_results limit: 5 %}
 
             <article>
                 <a href="{{ item.url }}">
