@@ -10,6 +10,9 @@
 
 {% assign id = include.id | default: 'contact-form' %}
 
+<script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
+
 <!-- VUE INSTANCE -->
 <div id="{{ id }}" v-cloak>
 
@@ -50,8 +53,7 @@
             <form
                 class="contact-form"
                 name="Contact Form"
-                novalidate
-                @submit.prevent="validateBeforeSubmit">
+                novalidate>
 
                 <fieldset>
 
@@ -192,22 +194,27 @@
                     <small class="text-muted" style="position: relative; top: -5px;">required to send</small>
                 </p>
 
-                {% comment %}
-                    <!-- GOOGLE RECAPTCHA -->
-                    <!-- https://itnext.io/how-to-use-google-recaptcha-with-vuejs-7756244400da -->
-                    <!-- <div class="g-recaptcha mb-4" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div> -->
-                {% endcomment %}
+                <!-- INVISIBLE RECAPTCHA -->
+                <vue-recaptcha
+                    class="mb-4"
+                    ref="recaptcha"
+                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                    @verify="reCaptchaResponse = $event"
+                    @expired="reCaptchaResponse = 'expired'">
 
-                <!-- SUBMIT -->
-                <button
-                    :disabled="errors.any() || processing"
-                    type="submit"
-                    class="btn btn-primary mb-4">
+                    <!-- SUBMIT -->
+                    <button
+                        :disabled="errors.any() || processing"
+                        type="submit"
+                        class="btn btn-primary mb-4"
+                        @click.prevent="validateBeforeSubmit">
 
-                    <div v-show="processing" class="spinner-border text-primary">Loading...</div>
-                    <span v-show="processing" class="text">Sending Message</span>
-                    <span v-show="!processing" class="text">Send Message</span>
-                </button>
+                        <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                        <span v-show="processing" class="text">Sending Message</span>
+                        <span v-show="!processing" class="text">Send Message</span>
+                    </button>
+
+                </vue-recaptcha>
 
                 {% comment %}
                     <!-- <button @click="reset" type="button" class="btn btn-primary">Reset</button> -->
@@ -230,6 +237,9 @@
     //-----------------------------------------------------------------
 
     Vue.component('vue-contact-form', {
+        components: {
+            VueRecaptcha
+        },
         props: {
             endpoint: {
                 type: String,
@@ -240,6 +250,7 @@
             return {
                 errorText: '',
                 failures: 0,
+                reCaptchaResponse: null,
                 processing: false,
                 success: false,
 
@@ -287,12 +298,39 @@
 
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-                        this.postData();
+                        this.verifyBeforeSubmit();
                     } else {
                         this.success = false;
                         this.processing = false;
                     }
                 });
+            },
+
+            //==================================================
+            // VERIFY BEFORE SUBMIT
+            // begin timeout-loop check to proceed only when verification succeeds
+            //==================================================
+
+            verifyBeforeSubmit() {
+                (function verify(self) {
+                    if (!self.reCaptchaResponse) {
+                        setTimeout(() => {
+                            verify(self);
+                        }, 100)
+                    } else {
+                        // success - analyse response
+                        // if expired, reset and try again
+                        if (self.reCaptchaResponse == 'expired') {
+                            self.reCaptchaResponse = null;
+                            self.$refs.recaptcha.reset();
+                            self.$refs.recaptcha.execute();
+                            verify(self); // reset timeout
+                        } else {
+                            // All checks cleared, post data to server
+                            self.postData();
+                        }
+                    }
+                })(this);
             },
 
             //==================================================
@@ -331,6 +369,9 @@
                         dataString += item + '=' + this.form[item] + '&';
                     }
                 }
+
+                dataString += 'grecaptcharesponse=' + this.reCaptchaResponse;
+
                 return dataString;
             },
 
@@ -420,7 +461,11 @@
                     this.form[item] = ''; // clear all
                 }
 
-                if (success) this.form.firstName = firstNameTemp.charAt(0).toUpperCase() + firstNameTemp.slice(1); // capitalize
+                if (success) {
+                    this.form.firstName = firstNameTemp.charAt(0).toUpperCase() + firstNameTemp.slice(1); // capitalize
+                    // grecaptcha.reset(); ?
+                }
+
                 this.success = success === true; // t/f
                 this.$validator.reset();
             }
