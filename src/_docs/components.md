@@ -338,7 +338,7 @@ sections:
           - _includes/components/media/media_article.html
           - _data/media_articles.yml
         desc: |-
-          This component aims to replace Bootstrap's [Media Object](https://getbootstrap.com/docs/4.1/layout/media-object/). It lists a collection of articles or a single article with an accompanying static image. Column direction can be reversed. It's best used in a confined space, eg. the [standard page](http://10.0.1.3:9000/standard-page/) layout. It can also be placed inside of any section.
+          This component aims to replace Bootstrap's [Media Object](https://getbootstrap.com/docs/4.1/layout/media-object/). It lists a collection of articles or a single article with an accompanying static image. Column direction can be reversed. It's best used in a confined space, eg. the [standard page](/standard-page/) layout. It can also be placed inside of any section.
 
         fields: #
 

@@ -8,7 +8,7 @@ layout: base
 	{% include components/navigation/breadcrumbs.html %}
 {% endif %}
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 
 <style>
     html, body {
@@ -171,7 +171,7 @@ layout: base
 										v-for="item in themes"
 										:class="item.name"
 										class="btn-theme"
-										title="item.label"
+										:title="item.label"
 										@click="selectTheme(item)">
 											<i v-show="item.active" class="fa fa-check"></i>
 									</button>
