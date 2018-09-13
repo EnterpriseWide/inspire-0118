@@ -29,8 +29,8 @@
     # - title: Landing Page
     #   url: /404/
 
-    # - title: Login Page
-    #   url: /404/
+    - title: Login Page
+      url: /login/
 
     # - title: Pricing Page
     #   url: /404/
