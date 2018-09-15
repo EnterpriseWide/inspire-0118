@@ -1,5 +1,5 @@
 /*
-    MAIN.JS - Last updated: 15.06.18
+    MAIN.JS - Last updated: 15.08.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -30,6 +30,7 @@ window.player = player;
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
+    $.Scrollax();
 })
 
 //-----------------------------------------------------------------

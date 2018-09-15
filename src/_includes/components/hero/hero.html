@@ -2,7 +2,7 @@
 <!--
     HERO DEFAULT
 
-    - Updated: 07.05.18
+    - Updated: 15.09.18
     - Complete functionality incl. youtube video, commonly used on homepages
 -->
 {% endcomment %}
@@ -85,6 +85,13 @@
                 {% elsif item.vimeo_id %}
                     {% include components/hero/hero__vimeo_plugin.html %}
                 {% endif %}
+
+                <!-- PARALLAX (OPTIONAL) -->
+                {% unless item.youtube_id or item.vimeo_id  %}
+                    {% if item.image %}
+                        {% include components/hero/hero__parallax_plugin.html image=item.image %}
+                    {% endif %}
+                {% endunless  %}
 
             </div>
         {% endfor %}

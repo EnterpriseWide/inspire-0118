@@ -3,6 +3,7 @@ layout: base__homepage
 title: Home
 permalink: /
 regenerate: true
+hero_options: is-default is-parallax
 ---
 
 # H1. This Is a Header One

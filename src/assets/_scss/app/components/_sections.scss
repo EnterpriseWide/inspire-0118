@@ -1,7 +1,7 @@
 /*
     SECTIONS.CSS
 
-    - updated: 19.04.18
+    - updated: 15.09.18
     - liquidvisual.com
 
     GLOSSARY:
@@ -10,6 +10,7 @@
             &.has-image-bg
                 &.is-fixed
                 &.is-tinted
+                &.is-parallax
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -83,7 +84,17 @@
             width: 100%;
             height: 100%;
             background-color: rgba(black, 0.6); //rgba(#222, 0.6);
-            // z-index: 1;
+            z-index: 1; // [LOCKED] - for tint over parallax
+        }
+    }
+
+    //=========================================
+    // IS PARALLAX
+    //=========================================
+
+    &.is-parallax {
+        > .container {
+            position: relative; // allow parallax to slink behind
         }
     }
 }

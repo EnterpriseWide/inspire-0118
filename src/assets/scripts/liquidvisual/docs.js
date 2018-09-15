@@ -115,7 +115,8 @@ if (docsExist) {
                 modifiers: [
                     { name: 'is-tinted', label: 'Tint', active: false },
                     { name: 'has-image-bg', label: 'Bg Image', active: false },
-                    { name: 'is-fixed', label: 'Fixed Image', active: false }
+                    { name: 'is-fixed', label: 'Fixed Image', active: false },
+                    { name: 'is-parallax', label: 'Parallax', active: false }
                 ]
         	}
         },
@@ -154,18 +155,23 @@ if (docsExist) {
 
                 if (target.name == 'has-image-bg') {
                     var bgImageClass = target.active ? '' : target.name;
-                    $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(bgImageClass);
+                    $('.card-docs-component .section, .parallax-layer, .lv-hero-item').removeClass(target.name).addClass(bgImageClass);
 
                     if (!target.active) {
-                        $('.card-docs-component .section, .lv-hero-item').css('background-image', 'url(https://source.unsplash.com/random)');
+                        $('.card-docs-component .section, .parallax-layer, .lv-hero-item').css('background-image', 'url(https://source.unsplash.com/random)');
                     } else {
-                        $('.card-docs-component .section, .lv-hero-item').css('background-image', 'none');
+                        $('.card-docs-component .section, .parallax-layer, .lv-hero-item').css('background-image', 'none');
                     }
                 }
 
                 if (target.name == 'is-fixed') {
                     var fixedBgClass = target.active ? '' : target.name;
                     $('.card-docs-component .section, .lv-hero-item').removeClass(target.name).addClass(fixedBgClass);
+                }
+
+                if (target.name == 'is-parallax') {
+                    var parallaxClass = target.active ? '' : target.name;
+                    $('.card-docs-component .section, .lv-hero-item, .lv-hero-wrapper').removeClass(target.name).addClass(parallaxClass);
                 }
             }
         }
