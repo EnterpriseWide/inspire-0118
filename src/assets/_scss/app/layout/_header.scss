@@ -1,7 +1,7 @@
 /*
     HEADER.CSS
 
-    - Last updated: 11.04.18
+    - Last updated: 17.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -42,15 +42,6 @@ $header-bottom-lg-height: 50px !default;
     	transform: translateY(-100%);
     	transition-delay: 1000ms; // delay for UX
 	}
-}
-
-//****************************************************
-// HEADROOM TOP
-// header is transparent when at top
-//****************************************************
-
-.headroom--top.global-header {
-	background: none; // Need for animation
 }
 
 //****************************************************
@@ -193,16 +184,13 @@ $header-bottom-lg-height: 50px !default;
 //-----------------------------------------------------------------
 
 .global-header .logo {
+	margin-right: auto;
 
 	img {
 		max-height: rem-calc(54);
 
 		@include media-breakpoint-down(sm) {
 		    padding: rem-calc(10 0);
-		}
-
-		@include media-breakpoint-down(lg) {
-		    transition: all ease-out 100ms;
 		}
 
 		@include media-breakpoint-up(md) {
@@ -212,11 +200,27 @@ $header-bottom-lg-height: 50px !default;
 }
 
 //-----------------------------------------------------------------
-// HAMBURGER
+// MOBILE ICONS
 //-----------------------------------------------------------------
 
-.global-header-hamburger {
-	margin: auto 0 auto auto;
+.mobile-icon {
+	display: flex;
+	align-items: center;
+	margin-left: rem-calc(20);
+	cursor: pointer;
+	color: white;
+
+	.text {
+		margin: rem-calc(0 8);
+	}
+
+	i {
+		font-size: rem-calc(26);
+	}
+
+	&:hover {
+		color: white;
+	}
 }
 
 //=========================================

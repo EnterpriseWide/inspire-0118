@@ -1,4 +1,5 @@
 {% assign settings = site.data.settings %}
+{% assign phone = settings.offices[0].phone %}
 {% assign logo = page.logo | default: "/assets/img/content/inspire-logo--light.svg" %}
 
 <!-- HEADER TOP -->
@@ -59,15 +60,18 @@
             <img src="{{ logo }}" alt="{{ settings.company }}" itemprop="logo">
         </a>
 
-        <!-- HAMBURGER -->
-        <div class="global-header-hamburger hidden-lg-up">
-            <div class="lv-hamburger" data-menu-toggle>
-                <span class="lv-hamburger-top"></span>
-                <span class="lv-hamburger-middle"></span>
-                <span class="lv-hamburger-bottom"></span>
-                <span class="lv-hamburger-hit"></span>
-            </div>
-        </div>
+        <!-- PHONE (OPTIONAL) -->
+        {% if phone %}
+            <a href="tel:{{ phone }}" class="mobile-icon hidden-lg-up">
+                <i class="fa fa-phone"></i>
+                <span class="text">{{ phone }}</span>
+            </a>
+        {% endif %}
+
+        <!-- MENU -->
+        <a href="" class="mobile-icon mobile-icon-menu hidden-lg-up" data-menu-toggle>
+            <i class="fa fa-bars"></i>
+        </a>
 
         <!-- NAVIGATION -->
         <nav class="global-navigation hidden-md-down">

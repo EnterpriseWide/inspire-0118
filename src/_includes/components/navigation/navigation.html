@@ -24,16 +24,6 @@
 {% assign sitemap = site.data.sitemap %}
 
 <ul>
-
-    <!-- PHONE NUMBER (OPTIONAL) -->
-    {% if phone %}
-        <li class="is-off-canvas-only pt-2">
-            <p class="text-center">
-                <a class="h4 font-weight-normal" href="tel:{{ phone }}"><i class="fa fa-phone"></i> {{ phone }}</a>
-            </p>
-        </li>
-    {% endif %}
-
     {% for item in sitemap %}
 
         {% capture parent_classes %}

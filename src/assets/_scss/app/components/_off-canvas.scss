@@ -256,62 +256,23 @@ $hamburger-slit-height: 3px;
 }
 
 //-----------------------------------------------------------------
-// HAMBURGER TRIGGER
+// HAS MENU OPEN - STATE
 //-----------------------------------------------------------------
 
-.lv-hamburger {
-	position: relative;
-	width: $hamburger-width;
-	height: $hamburger-height;
-	cursor: pointer;
-	// background: aqua;
-
-	.lv-hamburger-top,
-	.lv-hamburger-middle,
-	.lv-hamburger-bottom {
-		position: absolute;
-		width: 100%;
-		height: $hamburger-slit-height;
-		background: white;
-	}
-
-	.lv-hamburger-middle {
-		top: calc(50% - #{$hamburger-slit-height}/2);
-	}
-
-	.lv-hamburger-bottom {
-		bottom: 0;
-	}
-}
-
-//=========================================
-// HAS MENU OPEN - STATE
-//=========================================
-
 .has-open-menu {
-	.lv-hamburger-top,
-	.lv-hamburger-middle,
-	.lv-hamburger-bottom {
-		transition: transform ease 300ms 300ms;
-	}
-
-	.lv-hamburger-top {
-		transform: rotate(45deg);
-		top: calc(50% - #{$hamburger-slit-height/2});
-	}
-
-	.lv-hamburger-bottom {
-		transform: rotate(-45deg);
-		top: calc(50% - #{$hamburger-slit-height/2});
-	}
-
-	.lv-hamburger-middle {
-		background: rgba(black, 0.6) !important; // [LOCKED] - override theming
+	.mobile-icon-menu {
 		position: fixed;
 		top: 0;
-		left: 0;
+		left: -20px;
 		width: 100%;
-		height: 200vh; // savior
+		height: 130vh; // savior
+		background: black;
+		opacity: 0.6;
 		z-index: 1;
+		transition: none;
+
+		i {
+			display: none;
+		}
 	}
 }

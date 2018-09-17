@@ -1,5 +1,5 @@
 /*
-    OFF-CANVAS.JS - Last updated: 16.04.18, 13.12.16
+    OFF-CANVAS.JS - Last updated: 17.09.18, 16.04.18, 13.12.16
 
     - Notes: Latest Nov version fixes major problem with 3rd lvls
     * off-canvas closes when clicking hash tag anchor
@@ -27,6 +27,8 @@
     //-----------------------------------------------------------------
 
     $('[data-menu-toggle]').click(function(event){
+
+        event.preventDefault();
 
         //==================================================
         // OPEN MENU
