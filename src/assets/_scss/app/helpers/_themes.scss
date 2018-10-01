@@ -70,6 +70,7 @@
 					background: $primary;
 				}
 
+				.mobile-icon,
 				.global-navigation .top-parent-anchor{
 					color: $text-primary;
 				}
@@ -86,13 +87,14 @@
 			// color: $text-primary;
 		}
 
-		&.global-header {
-			.lv-hamburger-top,
-			.lv-hamburger-middle,
-			.lv-hamburger-bottom {
-				background: $text-primary;
-			}
-		}
+		// DEPRECATED FOR NOW
+		// &.global-header {
+		// 	.lv-hamburger-top,
+		// 	.lv-hamburger-middle,
+		// 	.lv-hamburger-bottom {
+		// 		background: $text-primary;
+		// 	}
+		// }
 
 		//-----------------------------------------------------------------
 		// TOPBAR
