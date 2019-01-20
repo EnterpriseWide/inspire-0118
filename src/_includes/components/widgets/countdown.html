@@ -1,0 +1,115 @@
+<!--
+    COUNTDOWN.HTML
+    updated: 20.01.19
+
+    DEPENDENCIES
+        https://unpkg.com/vue/dist/vue.js
+
+    NOTES: - https://codepen.io/liquidvisual/pen/ZKKQeN
+           - https://github.com/mckamey/countdownjs
+           - https://codepen.io/liquidvisual/pen/NeQYmv?editors=1010
+-->
+
+{% assign id = include.id | default: 'countdown' %}
+{% assign date_time = include.date_time | default: 'January 01, 2000 00:00:00' %}
+
+<!-- VUE INSTANCE -->
+<div id="{{ id }}" v-cloak>
+
+    <!-- VUE COUNTDOWN COMPONENT -->
+	<vue-countdown date-time="{{ date_time }}"></vue-countdown>
+</div>
+
+<script>
+	//-----------------------------------------------------------------
+	// VUE COUNTDOWN COMPONENT
+	//-----------------------------------------------------------------
+
+	Vue.component('vue-countdown', {
+	    template: `
+	        <div class="lv-countdown">
+	            <div v-if="years > 0">
+	                <div class="digit" v-text="years"></div>
+	                <span class="text">Years</span>
+	            </div>
+	            <div v-if="months > 0">
+	                <div class="digit" v-text="months"></div>
+	                <span class="text">Months</span>
+	            </div>
+	            <div>
+	                <div class="digit" v-text="days"></div>
+	                <span class="text">Days</span>
+	            </div>
+	            <div>
+	                <div class="digit" v-text="hours"></div>
+	                <span class="text">Hours</span>
+	            </div>
+	            <div>
+	                <div class="digit" v-text="minutes"></div>
+	                <span class="text">Minutes</span>
+	            </div>
+	            <div>
+	                <div class="digit" v-text="seconds"></div>
+	                <span class="text">Seconds</span>
+	            </div>
+	        </div>
+	    `,
+	    props: {
+	        DateTime: {
+	            type: String,
+	            required: true
+	        }
+	    },
+	    data() {
+	        return {
+	            countdownTimer: null,
+	            countdown: null,
+	            endDateTime: new Date(this.DateTime),
+	            years: null,
+	            months: null,
+	            days: null,
+	            hours: null,
+	            minutes: null,
+	            seconds: null,
+	        }
+	    },
+	    created() {
+	        this.countdownTimer = setInterval((event) => {
+	            const counter = this.countdown = countdown(this.endDateTime, null, countdown.DEFAULTS);
+
+	            // IF PAST
+	            // if (counter.value < 0) {
+
+	                this.years   = ('0' + counter.years).slice(-2);
+	                this.months  = ('0' + counter.months).slice(-2);
+	                this.days    = ('0' + counter.days).slice(-2);
+	                this.hours   = ('0' + counter.hours).slice(-2);
+	                this.minutes = ('0' + counter.minutes).slice(-2);
+	                this.seconds = ('0' + counter.seconds).slice(-2);
+
+	            // IF FUTURE
+	            // } else {
+	                // this.destroy();
+	            // }
+
+	        }, 1000);
+	    },
+	    beforeDestroy() {
+	        this.destroy();
+	    },
+	    methods: {
+	        destroy() {
+	            clearInterval(this.countdownTimer);
+	            this.countdownTimer = null;
+	        }
+	    }
+	});
+
+	//-----------------------------------------
+	// VUE
+	//-----------------------------------------
+
+	new Vue({
+	   el: '#{{id}}', // <--- Template variable, set by Jekyll (template)
+	})
+</script>
