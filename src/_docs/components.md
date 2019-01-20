@@ -395,4 +395,16 @@ sections:
           # Section
           - { name: "id", label: "Section Id", widget: "string" }
 
+  - title: Widgets
+    children:
+      - title: Countdown
+        url: components/widgets/countdown.html
+        section:
+        files:
+          - _includes/components/widgets/countdown.html
+        desc: |-
+          This component displays a countdown in YY:MM:DD:HH:MM:SS. <br>
+          It requires the input date as a string, in the format of: ```'March 17, 2020 06:30:00'```
+
+        fields: #
 ---
